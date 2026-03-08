@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure Homepage &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+
+        /* ── Part dividers ── */
+        .part-header {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+        .part-header .part-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .part-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .part-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+        .hl-bold { font-weight: 700; color: var(--primary); }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        ul ul { margin-top: 10px; margin-left: 14px; }
+        ul ul li::before {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            top: 11px;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Asset row ── */
+        .asset-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .asset {
+            background: rgba(44,85,48,0.04);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 12px;
+            padding: 22px;
+        }
+        .asset .label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .asset .value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.08rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .asset .note {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+        .box-red {
+            background: rgba(180,68,68,0.07);
+            border: 1px solid rgba(180,68,68,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-red p { margin: 0; font-weight: 600; color: var(--red); font-size: 1.02rem; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green { background: var(--primary); color: white; }
+        .tag-gold  { background: var(--accent); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── Do / Don't ── */
+        .do-dont {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            margin: 20px 0; border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .do-col, .dont-col { padding: 24px; }
+        .do-col { background: rgba(44,85,48,0.06); border-right: 1px solid var(--border); }
+        .dont-col { background: rgba(180,68,68,0.04); }
+        .do-col h4 { color: var(--primary); margin-top: 0; }
+        .dont-col h4 { color: var(--red); margin-top: 0; }
+        .dont-col li::before { background: var(--red); }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* ── System table ── */
+        .sys-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            border-radius: 12px; overflow: hidden;
+        }
+        .sys-table th {
+            background: var(--primary); color: white;
+            padding: 12px 18px; text-align: left;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sys-table td {
+            padding: 12px 18px; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .sys-table tr:nth-child(even) td { background: rgba(44,85,48,0.03); }
+        .sys-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        /* ── Nav cards ── */
+        .nav-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px; margin: 25px 0;
+        }
+        .nav-card {
+            background: var(--card-bg); border-radius: 12px; padding: 22px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none; color: var(--text);
+        }
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        .nav-card h4 { color: var(--primary); margin: 0 0 6px; font-size: 1rem; }
+        .nav-card p { color: var(--text-light); font-size: 0.88rem; margin: 0; }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ══════════════════════════════════════════════
+           HOMEPAGE MOCKUP SPECIFIC STYLES
+           ══════════════════════════════════════════════ */
+
+        /* ── Mockup frame ── */
+        .mockup-frame {
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            margin: 20px 0;
+            background: var(--bg);
+        }
+        .mockup-browser-bar {
+            background: #f0f0ee;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .mockup-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #ccc;
+        }
+        .mockup-dot.red { background: #ff5f57; }
+        .mockup-dot.yellow { background: #ffbd2e; }
+        .mockup-dot.green { background: #28c840; }
+        .mockup-url {
+            flex: 1;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 4px 14px;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-left: 10px;
+        }
+        .mockup-body {
+            padding: 0;
+        }
+
+        /* ── Hero mockup ── */
+        .hero-mockup {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .hero-mockup .institutional {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        .hero-mockup h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.2rem;
+            color: white;
+            margin: 0 0 12px 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .hero-mockup .hero-subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.9;
+            max-width: 550px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+        .hero-mockup .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ── CTA buttons ── */
+        .cta-primary {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            border: 1.5px solid rgba(255,255,255,0.6);
+            transition: background 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+        .cta-green {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-green:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        .cta-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            padding: 9px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            text-decoration: none;
+            border: 1.5px solid var(--primary);
+            transition: background 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+        .cta-outline:hover {
+            background: rgba(44,85,48,0.06);
+            transform: translateY(-1px);
+        }
+
+        /* ── Section mockup blocks ── */
+        .mockup-section {
+            padding: 45px 40px;
+            text-align: center;
+        }
+        .mockup-section.alt-bg {
+            background: rgba(44,85,48,0.03);
+        }
+        .mockup-section h4.section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+        .mockup-section h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+        }
+        .mockup-section > p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 25px;
+            font-size: 0.95rem;
+        }
+
+        /* ── Three column cards ── */
+        .three-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .mini-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px 20px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .mini-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+        .mini-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+        .mini-card h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.02rem;
+            margin: 0 0 8px 0;
+        }
+        .mini-card p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ── Four column cards ── */
+        .four-col {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin: 25px 0;
+        }
+        .equi-card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px 20px;
+            border-top: 4px solid var(--primary);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        .equi-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-top-color: var(--accent);
+        }
+        .equi-card .icon {
+            font-size: 2rem;
+            margin-bottom: 14px;
+        }
+        .equi-card h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+        }
+        .equi-card p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+
+        /* ── Product cards ── */
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .product-card {
+            background: white;
+            border-radius: 14px;
+            padding: 30px 24px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .product-card .product-img {
+            width: 80px; height: 80px;
+            background: rgba(44,85,48,0.08);
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem;
+        }
+        .product-card h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin: 0 0 4px 0;
+        }
+        .product-card .function-tag {
+            font-size: 0.78rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .product-card p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+            margin: 0 0 16px 0;
+            line-height: 1.5;
+        }
+
+        /* ── Blog cards ── */
+        .blog-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .blog-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+        .blog-card .blog-img {
+            height: 100px;
+            background: linear-gradient(135deg, rgba(44,85,48,0.15), rgba(212,165,116,0.15));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+        }
+        .blog-card .blog-content {
+            padding: 18px;
+        }
+        .blog-card .blog-tag {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .blog-card h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 0.95rem;
+            margin: 0 0 6px 0;
+            line-height: 1.4;
+        }
+        .blog-card p {
+            color: var(--text-light);
+            font-size: 0.82rem;
+            margin: 0;
+        }
+
+        /* ── Proof bar ── */
+        .proof-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .proof-item {
+            text-align: center;
+            padding: 20px 14px;
+        }
+        .proof-item .proof-number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .proof-item .proof-label {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ── Emotion section ── */
+        .emotion-mockup {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .emotion-mockup p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* ── Section number badge ── */
+        .section-num {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* ── Goal box ── */
+        .goal-box {
+            background: rgba(212,165,116,0.08);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 20px;
+            margin: 18px 0;
+        }
+        .goal-box p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #8b5a2b;
+        }
+        .goal-box strong {
+            font-weight: 700;
+        }
+
+        /* ── Separator in mockup ── */
+        .mockup-sep {
+            height: 1px;
+            background: var(--border);
+            margin: 0;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section { padding: 25px; }
+            .cards { grid-template-columns: 1fr; }
+            .asset-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .do-col { border-right: none; border-bottom: 1px solid var(--border); }
+            .three-col { grid-template-columns: 1fr; }
+            .four-col { grid-template-columns: 1fr 1fr; }
+            .product-cards { grid-template-columns: 1fr; }
+            .blog-cards { grid-template-columns: 1fr; }
+            .proof-bar { grid-template-columns: 1fr 1fr; }
+            .hero-mockup { padding: 40px 20px; }
+            .hero-mockup h3 { font-size: 1.6rem; }
+            .mockup-section { padding: 30px 20px; }
+        }
+        @media print {
+            body { background: white; }
+            header { background: var(--primary); }
+            section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .part-header { break-before: page; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Structure Homepage</h1>
+    <p class="slogan">L'Art de l'&Eacute;quilibre</p>
+    <p class="subtitle">Calebasse &mdash; Architecture de la page d'accueil align&eacute;e marque + conversion</p>
+    <span class="doc-type">Document strat&eacute;gique interne</span>
+</header>
+
+<div class="container">
+
+
+<a href="Brand-Strategie-v4.html" class="back-link">&larr; Retour &agrave; la Plateforme</a>
+
+
+<!-- ═══════════════════════════════════════════════════
+     INTRODUCTION
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Architecture</span>
+    <h2>Structure Homepage Optimale</h2>
+    <p>Brand aligned + Conversion oriented &mdash; 8 sections structur&eacute;es selon une logique psychologique pr&eacute;cise</p>
+</div>
+
+<section>
+    <h2>Logique psychologique de la Homepage</h2>
+
+    <div class="flow" style="font-size:1rem; margin:25px 0;">
+        <span class="step"><strong>Positionner</strong></span>
+        <span class="arrow">&rarr;</span>
+        <span class="step"><strong>Reframer</strong></span>
+        <span class="arrow">&rarr;</span>
+        <span class="step"><strong>Expliquer</strong></span>
+        <span class="arrow">&rarr;</span>
+        <span class="step"><strong>Orienter</strong></span>
+        <span class="arrow">&rarr;</span>
+        <span class="step"><strong>Montrer</strong></span>
+        <span class="arrow">&rarr;</span>
+        <span class="step"><strong>&Eacute;duquer</strong></span>
+        <span class="arrow">&rarr;</span>
+        <span class="step"><strong>Rassurer</strong></span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">Inspirer</span>
+    </div>
+
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>La Homepage doit</h4>
+            <ul>
+                <li>Clarifier le positionnement d&egrave;s le hero</li>
+                <li>Orienter la navigation par &eacute;quilibre, pas par produit</li>
+                <li>Installer la confiance progressivement</li>
+                <li>Proposer des CTA doux et multiples</li>
+                <li>Montrer peu de produits, en profondeur</li>
+                <li>Maintenir un ton structur&eacute; et pos&eacute;</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>La Homepage ne doit pas</h4>
+            <ul>
+                <li>Vendre de mani&egrave;re agressive</li>
+                <li>Multiplier les promotions</li>
+                <li>Saturer d'informations</li>
+                <li>Utiliser un langage d'urgence artificielle</li>
+                <li>Empiler les produits comme un catalogue</li>
+                <li>Forcer la conversion directe</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="statement-gold">
+        <p>Homepage = architecture de confiance. &nbsp;&bull;&nbsp; Landing page = moteur de conversion.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     LES 8 SECTIONS — MOCKUP VISUEL
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Mockup</span>
+    <h2>Les 8 Sections de la Homepage</h2>
+    <p>Visualisation de l'architecture compl&egrave;te avec contenu et CTA</p>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 1 — HERO
+     ════════════════════════════════════════════ -->
+<section>
+    <h2><span class="section-num">1</span> Hero &mdash; Positionnement imm&eacute;diat</h2>
+
+    <div class="goal-box">
+        <p><strong>Objectif :</strong> Rendre imm&eacute;diatement clair que Calebasse n'est pas une marque bio, ni un compl&eacute;ment classique, mais une <em>&laquo;&nbsp;&eacute;quilibre brand&nbsp;&raquo;</em>.</p>
+    </div>
+
+    <div class="mockup-frame">
+        <div class="mockup-browser-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">calebasse.com</span>
+        </div>
+        <div class="mockup-body">
+            <div class="hero-mockup">
+                <p class="institutional">Le laboratoire fran&ccedil;ais de la pharmacop&eacute;e chinoise depuis 1997</p>
+                <h3>L'Art de l'&Eacute;quilibre</h3>
+                <p class="hero-subtitle">Retrouver la coh&eacute;rence naturelle du corps pour laisser &eacute;merger sant&eacute; et beaut&eacute;.</p>
+                <div class="cta-group">
+                    <span class="cta-primary">D&eacute;couvrir notre approche</span>
+                    <span class="cta-secondary">Explorer les formules</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Composantes du Hero</h3>
+    <div class="asset-grid">
+        <div class="asset">
+            <div class="label">Ligne institutionnelle</div>
+            <div class="value">&laquo;&nbsp;Le laboratoire fran&ccedil;ais de la pharmacop&eacute;e chinoise depuis 1997&nbsp;&raquo;</div>
+            <div class="note">Cr&eacute;dibilit&eacute; imm&eacute;diate + ancrage temporel.</div>
+        </div>
+        <div class="asset">
+            <div class="label">Titre principal</div>
+            <div class="value">L'Art de l'&Eacute;quilibre</div>
+            <div class="note">Slogan de marque, positionne le territoire.</div>
+        </div>
+        <div class="asset">
+            <div class="label">Sous-titre</div>
+            <div class="value">Retrouver la coh&eacute;rence naturelle du corps pour laisser &eacute;merger sant&eacute; et beaut&eacute;.</div>
+            <div class="note">Promesse fonctionnelle + &eacute;motionnelle en une phrase.</div>
+        </div>
+        <div class="asset">
+            <div class="label">CTA</div>
+            <div class="value">CTA 1 : D&eacute;couvrir notre approche &nbsp;|&nbsp; CTA 2 : Explorer les formules</div>
+            <div class="note">Double entr&eacute;e : curiosit&eacute; (approche) et intention (formules).</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 2 — PROBLÈME RECADRÉ
+     ════════════════════════════════════════════ -->
+<section>
+    <h2><span class="section-num">2</span> Probl&egrave;me recadr&eacute; &mdash; &Eacute;ducation &amp; ouverture</h2>
+
+    <div class="goal-box">
+        <p><strong>Objectif :</strong> &Eacute;duquer le visiteur et ouvrir la logique de marque. Le probl&egrave;me n'est pas ce qui manque &mdash; c'est l'&eacute;quilibre du corps.</p>
+    </div>
+
+    <div class="mockup-frame">
+        <div class="mockup-browser-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">calebasse.com/#equilibre</span>
+        </div>
+        <div class="mockup-body">
+            <div class="mockup-section alt-bg">
+                <h4 class="section-label">Comprendre</h4>
+                <h3>Et si le probl&egrave;me n'&eacute;tait pas ce qui manque, mais l'&eacute;quilibre du corps&nbsp;?</h3>
+                <p>La plupart des solutions ciblent un sympt&ocirc;me. Nous lisons le signal qu'il envoie.</p>
+                <div class="three-col">
+                    <div class="mini-card">
+                        <div class="icon" style="color:var(--primary);">&#9672;</div>
+                        <h4>D&eacute;s&eacute;quilibre &eacute;nerg&eacute;tique</h4>
+                        <p>Fatigue, manque de vitalit&eacute;, sensibilit&eacute; au changement de saison.</p>
+                    </div>
+                    <div class="mini-card">
+                        <div class="icon" style="color:var(--accent);">&#9672;</div>
+                        <h4>D&eacute;s&eacute;quilibre digestif</h4>
+                        <p>Inconfort, lenteur digestive, sensation de lourdeur persistante.</p>
+                    </div>
+                    <div class="mini-card">
+                        <div class="icon" style="color:var(--primary-dark);">&#9672;</div>
+                        <h4>D&eacute;s&eacute;quilibre du cycle</h4>
+                        <p>Irr&eacute;gularit&eacute;s, tensions pr&eacute;menstruelles, inconfort hormonal.</p>
+                    </div>
+                </div>
+                <span class="cta-green" style="margin-top:10px;">Comprendre le d&eacute;s&eacute;quilibre</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-green">
+        <p>Cette section ouvre la logique de marque : le sympt&ocirc;me n'est pas le probl&egrave;me, le d&eacute;s&eacute;quilibre l'est. Cela pr&eacute;pare le visiteur &agrave; comprendre l'approche Calebasse.</p>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 3 — L'APPROCHE CALEBASSE
+     ════════════════════════════════════════════ -->
+<section>
+    <h2><span class="section-num">3</span> L'approche Calebasse &mdash; S&eacute;rieux &amp; diff&eacute;renciation</h2>
+
+    <div class="goal-box">
+        <p><strong>Objectif :</strong> Construire le s&eacute;rieux de la marque et affirmer la diff&eacute;renciation. Montrer la fusion tradition / science / qualit&eacute;.</p>
+    </div>
+
+    <div class="mockup-frame">
+        <div class="mockup-browser-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">calebasse.com/#approche</span>
+        </div>
+        <div class="mockup-body">
+            <div class="mockup-section">
+                <h4 class="section-label">Notre approche</h4>
+                <h3>L'Art de l'&Eacute;quilibre, une m&eacute;thode exigeante</h3>
+                <div class="three-col" style="margin-top:30px;">
+                    <div class="mini-card" style="border-top:3px solid var(--primary);">
+                        <h4>Tradition mill&eacute;naire</h4>
+                        <p>Des formules h&eacute;rit&eacute;es de plus de 2000 ans de pharmacop&eacute;e chinoise, transmises et affin&eacute;es au fil des si&egrave;cles.</p>
+                    </div>
+                    <div class="mini-card" style="border-top:3px solid var(--accent);">
+                        <h4>Science moderne</h4>
+                        <p>Chaque formule est valid&eacute;e par des contr&ocirc;les rigoureux, des analyses et les exigences de la recherche actuelle.</p>
+                    </div>
+                    <div class="mini-card" style="border-top:3px solid var(--primary-dark);">
+                        <h4>Exigence qualit&eacute;</h4>
+                        <p>S&eacute;lection des mati&egrave;res premi&egrave;res, tra&ccedil;abilit&eacute; compl&egrave;te, fabrication en laboratoire fran&ccedil;ais.</p>
+                    </div>
+                </div>
+                <div style="margin-top:30px; padding:24px; background:linear-gradient(135deg, rgba(44,85,48,0.08), rgba(44,85,48,0.03)); border-radius:10px; max-width:700px; margin-left:auto; margin-right:auto;">
+                    <p style="font-family:'Playfair Display',Georgia,serif; font-size:1.08rem; color:var(--primary); font-style:italic; margin:0;">
+                        &laquo;&nbsp;Nous n'agissons pas contre le corps. Nous l'accompagnons vers son &eacute;quilibre naturel.&nbsp;&raquo;
+                    </p>
+                </div>
+                <div style="margin-top:25px;">
+                    <span class="cta-green">Notre vision</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 4 — NAVIGATION PAR ÉQUILIBRE
+     ════════════════════════════════════════════ -->
+<section>
+    <h2><span class="section-num">4</span> Navigation par &eacute;quilibre &mdash; Zone critique de conversion</h2>
+
+    <div class="goal-box">
+        <p><strong>Objectif :</strong> Diriger le trafic de mani&egrave;re efficace tout en maintenant l'&eacute;l&eacute;vation de marque. Naviguer par <em>&laquo;&nbsp;besoin d'&eacute;quilibre&nbsp;&raquo;</em>, pas par produit.</p>
+    </div>
+
+    <div class="mockup-frame">
+        <div class="mockup-browser-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">calebasse.com/#equilibres</span>
+        </div>
+        <div class="mockup-body">
+            <div class="mockup-section alt-bg">
+                <h4 class="section-label">Trouver son &eacute;quilibre</h4>
+                <h3>Quel &eacute;quilibre recherchez-vous&nbsp;?</h3>
+                <p>Chaque formule Calebasse r&eacute;pond &agrave; un besoin d'&eacute;quilibre sp&eacute;cifique.</p>
+                <div class="four-col">
+                    <div class="equi-card">
+                        <div class="icon">&#9728;</div>
+                        <h4>&Eacute;nergie &amp; Vitalit&eacute;</h4>
+                        <p>Retrouver un &eacute;lan stable, sans sur-stimulation.</p>
+                        <span class="cta-outline">D&eacute;couvrir</span>
+                    </div>
+                    <div class="equi-card">
+                        <div class="icon">&#9790;</div>
+                        <h4>Sommeil &amp; S&eacute;r&eacute;nit&eacute;</h4>
+                        <p>Apaiser le mental, retrouver un sommeil profond.</p>
+                        <span class="cta-outline">D&eacute;couvrir</span>
+                    </div>
+                    <div class="equi-card">
+                        <div class="icon">&#9673;</div>
+                        <h4>Digestion &amp; Centre</h4>
+                        <p>Harmoniser le centre, soutenir le transit naturel.</p>
+                        <span class="cta-outline">D&eacute;couvrir</span>
+                    </div>
+                    <div class="equi-card">
+                        <div class="icon">&#10047;</div>
+                        <h4>&Eacute;quilibre f&eacute;minin</h4>
+                        <p>Accompagner le cycle, apaiser les tensions hormonales.</p>
+                        <span class="cta-outline">D&eacute;couvrir</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-gold">
+        <p>Cette section est la zone critique de conversion. La navigation par &eacute;quilibre (et non par cat&eacute;gorie produit) maintient la coh&eacute;rence de marque et guide le visiteur vers la bonne formule.</p>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 5 — PRODUITS PHARES
+     ════════════════════════════════════════════ -->
+<section>
+    <h2><span class="section-num">5</span> Produits phares &mdash; Montrer la profondeur</h2>
+
+    <div class="goal-box">
+        <p><strong>Objectif :</strong> Montrer la profondeur des formules, pas empiler les produits. S&eacute;lection de 3&ndash;4 produits maximum.</p>
+    </div>
+
+    <div class="mockup-frame">
+        <div class="mockup-browser-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">calebasse.com/#formules</span>
+        </div>
+        <div class="mockup-body">
+            <div class="mockup-section">
+                <h4 class="section-label">Nos formules</h4>
+                <h3>Formules d'&eacute;quilibre</h3>
+                <p>Chaque formule est le fruit d'un savoir mill&eacute;naire, valid&eacute; par la science moderne.</p>
+                <div class="product-cards">
+                    <div class="product-card">
+                        <div class="product-img">&#9672;</div>
+                        <h4>Formule Vitalit&eacute;</h4>
+                        <div class="function-tag">&Eacute;quilibre &eacute;nerg&eacute;tique</div>
+                        <p>Soutient le Qi et r&eacute;tablit l'&eacute;lan vital sans sur-stimulation artificielle.</p>
+                        <span class="cta-outline">Voir la formule</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img" style="background:rgba(212,165,116,0.12);">&#9790;</div>
+                        <h4>Formule S&eacute;r&eacute;nit&eacute;</h4>
+                        <div class="function-tag">&Eacute;quilibre du sommeil</div>
+                        <p>Apaise le Shen et harmonise le Yin pour un repos profond et r&eacute;parateur.</p>
+                        <span class="cta-outline">Voir la formule</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img" style="background:rgba(30,58,34,0.08);">&#10047;</div>
+                        <h4>Formule F&eacute;minin</h4>
+                        <div class="function-tag">&Eacute;quilibre du cycle</div>
+                        <p>Accompagne le cycle f&eacute;minin et r&eacute;duit les tensions li&eacute;es aux d&eacute;s&eacute;quilibres hormonaux.</p>
+                        <span class="cta-outline">Voir la formule</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Structure de chaque fiche produit</h3>
+    <div class="asset-grid">
+        <div class="asset">
+            <div class="label">Nom</div>
+            <div class="value">Nom de la formule</div>
+            <div class="note">Court, &eacute;vocateur, align&eacute; sur l'&eacute;quilibre.</div>
+        </div>
+        <div class="asset">
+            <div class="label">Fonction d'&eacute;quilibre</div>
+            <div class="value">Tag de cat&eacute;gorie d'&eacute;quilibre</div>
+            <div class="note">Ancre le produit dans la logique de marque.</div>
+        </div>
+        <div class="asset">
+            <div class="label">Description</div>
+            <div class="value">Phrase courte et fonctionnelle</div>
+            <div class="note">Ce que la formule fait, en langage d'&eacute;quilibre.</div>
+        </div>
+        <div class="asset">
+            <div class="label">CTA</div>
+            <div class="value">&laquo;&nbsp;Voir la formule&nbsp;&raquo;</div>
+            <div class="note">CTA doux, orient&eacute; exploration (pas &laquo;&nbsp;Acheter&nbsp;&raquo;).</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 6 — ÉDUCATION COURTE
+     ════════════════════════════════════════════ -->
+<section>
+    <h2><span class="section-num">6</span> &Eacute;ducation courte &mdash; Renforcer l'arch&eacute;type du Sage</h2>
+
+    <div class="goal-box">
+        <p><strong>Objectif :</strong> Renforcer l'arch&eacute;type du Sage par du contenu &eacute;ducatif. Mini-highlights du blog pour d&eacute;montrer la profondeur de savoir.</p>
+    </div>
+
+    <div class="mockup-frame">
+        <div class="mockup-browser-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">calebasse.com/#comprendre</span>
+        </div>
+        <div class="mockup-body">
+            <div class="mockup-section alt-bg">
+                <h4 class="section-label">Comprendre</h4>
+                <h3>Apprendre l'&eacute;quilibre</h3>
+                <div class="blog-cards">
+                    <div class="blog-card">
+                        <div class="blog-img" style="background:linear-gradient(135deg, rgba(44,85,48,0.2), rgba(74,124,89,0.1));">
+                            &#127807;
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-tag">Saisons</div>
+                            <h4>Comprendre l'&eacute;quilibre du printemps</h4>
+                            <p>Le printemps en MTC active le Foie et le Bois. Voici comment accompagner cette transition.</p>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-img" style="background:linear-gradient(135deg, rgba(212,165,116,0.2), rgba(212,165,116,0.08));">
+                            &#9889;
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-tag">&Eacute;nergie</div>
+                            <h4>Pourquoi la fatigue n'est pas un manque</h4>
+                            <p>La fatigue n'est pas toujours un d&eacute;ficit. C'est souvent le signal d'un d&eacute;s&eacute;quilibre plus profond.</p>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-img" style="background:linear-gradient(135deg, rgba(30,58,34,0.15), rgba(44,85,48,0.08));">
+                            &#127752;
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-tag">Fondamentaux</div>
+                            <h4>Le r&ocirc;le du Qi dans l'&eacute;nergie moderne</h4>
+                            <p>Le concept de Qi, central en MTC, &eacute;claire notre compr&eacute;hension de la vitalit&eacute; au quotidien.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:20px;">
+                    <span class="cta-green">Lire nos articles</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 7 — PREUVE & CRÉDIBILITÉ
+     ════════════════════════════════════════════ -->
+<section>
+    <h2><span class="section-num">7</span> Preuve &amp; Cr&eacute;dibilit&eacute; &mdash; Rassurer</h2>
+
+    <div class="goal-box">
+        <p><strong>Objectif :</strong> Rassurer par des preuves factuelles et sobres. Pas de t&eacute;moignages excessivement &eacute;motionnels &mdash; des faits, de la dur&eacute;e, de l'expertise.</p>
+    </div>
+
+    <div class="mockup-frame">
+        <div class="mockup-browser-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">calebasse.com/#confiance</span>
+        </div>
+        <div class="mockup-body">
+            <div class="mockup-section">
+                <div class="proof-bar">
+                    <div class="proof-item">
+                        <div class="proof-number">Depuis 1997</div>
+                        <div class="proof-label">Ann&eacute;es d'expertise</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">Pharmacop&eacute;e</div>
+                        <div class="proof-label">Expertise chinoise</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">100%</div>
+                        <div class="proof-label">Engagement qualit&eacute;</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number" style="font-size:1.3rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <div class="proof-label">Avis clients</div>
+                    </div>
+                </div>
+                <div style="max-width:600px; margin:20px auto 0; padding:20px 24px; background:rgba(44,85,48,0.04); border-radius:10px; border:1px solid rgba(44,85,48,0.1);">
+                    <p style="font-style:italic; color:var(--text-light); font-size:0.92rem; margin:0 0 8px;">
+                        &laquo;&nbsp;J'ai enfin trouv&eacute; une approche qui fait sens. Pas de promesse miracle, juste une logique claire et des r&eacute;sultats progressifs.&nbsp;&raquo;
+                    </p>
+                    <p style="font-size:0.82rem; color:var(--text-light); margin:0; font-weight:600;">&mdash; Un avis client sobre et factuel</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-green">
+        <p>Les &eacute;l&eacute;ments de preuve sont factuels et mesur&eacute;s. Les avis clients restent sobres &mdash; coh&eacute;rents avec l'arch&eacute;type du Sage. Pas de superlatifs, pas d'&eacute;motion excessive.</p>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     SECTION 8 — ÉMOTION
+     ════════════════════════════════════════════ -->
+<section>
+    <h2><span class="section-num">8</span> &Eacute;motion &mdash; Inspirer</h2>
+
+    <div class="goal-box">
+        <p><strong>Objectif :</strong> Cl&ocirc;turer avec une phrase immersive qui cristallise l'essence de la marque et invite &agrave; entrer dans l'univers Calebasse.</p>
+    </div>
+
+    <div class="mockup-frame">
+        <div class="mockup-browser-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">calebasse.com/#inspiration</span>
+        </div>
+        <div class="mockup-body">
+            <div class="emotion-mockup">
+                <p>Lorsque l'&eacute;quilibre est respect&eacute;, la sant&eacute; et la beaut&eacute; &eacute;mergent naturellement.</p>
+                <span class="cta-primary" style="font-size:1rem; padding:14px 36px;">Entrer dans l'Art de l'&Eacute;quilibre</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="statement">
+        <p>Cette derni&egrave;re section fonctionne comme une signature &eacute;motionnelle. Elle ne vend rien &mdash; elle invite.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     SYNTHÈSE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Synth&egrave;se</span>
+    <h2>Architecture compl&egrave;te</h2>
+    <p>R&eacute;capitulatif des 8 sections et de leurs r&ocirc;les</p>
+</div>
+
+<section>
+    <h2>Tableau r&eacute;capitulatif des 8 sections</h2>
+
+    <table class="sys-table">
+        <tr>
+            <th>N&deg;</th>
+            <th>Section</th>
+            <th>R&ocirc;le psychologique</th>
+            <th>CTA</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Hero</td>
+            <td>Positionner</td>
+            <td>D&eacute;couvrir notre approche / Explorer les formules</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Probl&egrave;me recadr&eacute;</td>
+            <td>Reframer</td>
+            <td>Comprendre le d&eacute;s&eacute;quilibre</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>L'approche Calebasse</td>
+            <td>Expliquer</td>
+            <td>Notre vision</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Navigation par &eacute;quilibre</td>
+            <td>Orienter</td>
+            <td>D&eacute;couvrir (x4)</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Produits phares</td>
+            <td>Montrer</td>
+            <td>Voir la formule</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>&Eacute;ducation courte</td>
+            <td>&Eacute;duquer</td>
+            <td>Lire nos articles</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Preuve &amp; Cr&eacute;dibilit&eacute;</td>
+            <td>Rassurer</td>
+            <td>&mdash;</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>&Eacute;motion</td>
+            <td>Inspirer</td>
+            <td>Entrer dans l'Art de l'&Eacute;quilibre</td>
+        </tr>
+    </table>
+</section>
+
+
+<section>
+    <h2>Principes de conversion</h2>
+
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="card">
+            <h3>Multi CTA doux</h3>
+            <p>Chaque section propose un CTA orient&eacute; exploration, jamais un &laquo;&nbsp;Acheter maintenant&nbsp;&raquo;. Le visiteur avance &agrave; son rythme.</p>
+        </div>
+        <div class="card accent">
+            <h3>Navigation par &eacute;quilibre</h3>
+            <p>Le visiteur navigue par besoin d'&eacute;quilibre, pas par cat&eacute;gorie produit. Cela maintient l'&eacute;l&eacute;vation de marque et oriente efficacement.</p>
+        </div>
+        <div class="card dark">
+            <h3>Peu de produits, en profondeur</h3>
+            <p>3&ndash;4 formules phares, pr&eacute;sent&eacute;es avec leur fonction d'&eacute;quilibre. Montrer la profondeur, pas le volume.</p>
+        </div>
+        <div class="card">
+            <h3>Ton structur&eacute;</h3>
+            <p>Chaque mot est calibr&eacute; selon l'arch&eacute;type du Sage : p&eacute;dagogique, confiant, pos&eacute;. Pas d'urgence artificielle, pas de surench&egrave;re.</p>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <h2>Flux de la Homepage</h2>
+
+    <div class="flow" style="font-size:0.95rem; margin:30px 0; flex-direction:column; gap:0;">
+        <span class="step" style="width:80%; margin-bottom:4px; padding:12px;"><strong>&#9312; Hero</strong> &mdash; Positionnement imm&eacute;diat</span>
+        <span class="arrow" style="font-size:1.3rem;">&darr;</span>
+        <span class="step" style="width:80%; margin:4px 0; padding:12px;"><strong>&#9313; Probl&egrave;me recadr&eacute;</strong> &mdash; &Eacute;ducation + logique de marque</span>
+        <span class="arrow" style="font-size:1.3rem;">&darr;</span>
+        <span class="step" style="width:80%; margin:4px 0; padding:12px;"><strong>&#9314; Approche Calebasse</strong> &mdash; S&eacute;rieux + diff&eacute;renciation</span>
+        <span class="arrow" style="font-size:1.3rem;">&darr;</span>
+        <span class="step" style="width:80%; margin:4px 0; padding:12px; background:rgba(44,85,48,0.2); font-weight:700;"><strong>&#9315; Navigation par &eacute;quilibre</strong> &mdash; Zone critique de conversion</span>
+        <span class="arrow" style="font-size:1.3rem;">&darr;</span>
+        <span class="step" style="width:80%; margin:4px 0; padding:12px;"><strong>&#9316; Produits phares</strong> &mdash; Profondeur, pas volume</span>
+        <span class="arrow" style="font-size:1.3rem;">&darr;</span>
+        <span class="step" style="width:80%; margin:4px 0; padding:12px;"><strong>&#9317; &Eacute;ducation courte</strong> &mdash; Arch&eacute;type du Sage</span>
+        <span class="arrow" style="font-size:1.3rem;">&darr;</span>
+        <span class="step" style="width:80%; margin:4px 0; padding:12px;"><strong>&#9318; Preuve &amp; Cr&eacute;dibilit&eacute;</strong> &mdash; Faits sobres</span>
+        <span class="arrow" style="font-size:1.3rem;">&darr;</span>
+        <span class="step" style="width:80%; margin:4px 0; padding:12px; background:rgba(44,85,48,0.25); font-weight:700;"><strong>&#9319; &Eacute;motion</strong> &mdash; Phrase immersive + CTA final</span>
+    </div>
+
+    <div class="statement">
+        <p style="font-size:1.15rem;">La Homepage est une architecture de confiance. Elle clarifie, oriente et installe la cr&eacute;dibilit&eacute; &mdash; elle ne vend pas.</p>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <p>Structure Homepage 2026 &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Document strat&eacute;gique interne</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

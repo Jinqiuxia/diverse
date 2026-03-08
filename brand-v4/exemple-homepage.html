@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Pharmacop&eacute;e Chinoise depuis 1997</title>
+    <meta name="description" content="Calebasse, Le Laboratoire Français de la Pharmacopée Chinoise depuis 1997. Formules naturelles issues de la tradition millénaire pour retrouver l'équilibre du corps.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        /* ══════════════════════════════════════
+           DESIGN TOKENS
+           ══════════════════════════════════════ */
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+            --radius: 8px;
+            --radius-lg: 12px;
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ══════════════════════════════════════
+           RESET & BASE
+           ══════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ══════════════════════════════════════
+           BACK LINK (fixed)
+           ══════════════════════════════════════ */
+        .back-link {
+            position: fixed;
+            top: 14px;
+            left: 14px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        .back-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(-2px);
+        }
+
+        /* ══════════════════════════════════════
+           NAVIGATION
+           ══════════════════════════════════════ */
+        .site-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0 40px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .nav-logo span {
+            display: block;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 300;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-top: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.88);
+            font-size: 0.88rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: white; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: rgba(255,255,255,0.15) !important;
+            border: 1px solid rgba(255,255,255,0.3) !important;
+            padding: 7px 20px !important;
+            border-radius: 6px !important;
+            font-weight: 600 !important;
+            color: white !important;
+            transition: var(--transition) !important;
+        }
+        .nav-cta:hover {
+            background: rgba(255,255,255,0.25) !important;
+        }
+        .nav-cta::after { display: none !important; }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+
+        /* ══════════════════════════════════════
+           SECTION 1 — HERO
+           ══════════════════════════════════════ */
+        .hero {
+            position: relative;
+            background: linear-gradient(145deg, var(--primary-dark) 0%, var(--primary) 40%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 180px 20px 120px;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(74,124,89,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(212,165,116,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .hero .institutional {
+            font-size: 0.78rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            font-weight: 300;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.7;
+            opacity: 0.9;
+            max-width: 580px;
+            margin: 0 auto 44px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+        .btn-primary {
+            background: white;
+            color: var(--primary-dark);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.5);
+        }
+        .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+        .btn-accent:hover {
+            background: #c9965f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212,165,116,0.3);
+        }
+        .btn-green {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-green:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44,85,48,0.25);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .btn-sm {
+            padding: 10px 22px;
+            font-size: 0.88rem;
+        }
+
+        /* Decorative scroll hint */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0.5;
+            animation: scrollBounce 2.5s ease-in-out infinite;
+        }
+        .scroll-hint::before {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 32px;
+            border: 1.5px solid rgba(255,255,255,0.6);
+            border-radius: 10px;
+            position: relative;
+        }
+        .scroll-hint::after {
+            content: "";
+            display: block;
+            width: 3px;
+            height: 6px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 2px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollDot 2.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+        @keyframes scrollDot {
+            0%, 100% { opacity: 1; top: 8px; }
+            50% { opacity: 0.3; top: 18px; }
+        }
+
+        /* ══════════════════════════════════════
+           SHARED SECTION STYLES
+           ══════════════════════════════════════ */
+        .section {
+            padding: 90px 20px;
+        }
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            font-weight: 300;
+            max-width: 620px;
+            line-height: 1.7;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .section-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        /* ══════════════════════════════════════
+           SECTION 2 — PROBLEME RECADRE
+           ══════════════════════════════════════ */
+        .probleme { background: white; }
+
+        .imbalance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .imbalance-card {
+            text-align: center;
+            padding: 40px 28px;
+            border-radius: var(--radius-lg);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .imbalance-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-light);
+        }
+        .imbalance-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.4rem;
+        }
+        .imbalance-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem;
+            margin: 0 0 14px 0;
+            text-align: center;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .imbalance-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ══════════════════════════════════════
+           SECTION 3 — APPROCHE CALEBASSE
+           ══════════════════════════════════════ */
+        .approche {
+            background: var(--bg);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 56px;
+        }
+        .pillar-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+        }
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .pillar-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 0 0 3px 3px;
+        }
+        .pillar-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        .pillar-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem;
+            margin: 0 0 14px 0;
+            text-align: center;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .pillar-card p {
+            color: var(--text-light);
+            font-size: 0.93rem;
+            line-height: 1.7;
+        }
+
+        .brand-quote {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            border-left: none;
+            position: relative;
+        }
+        .brand-quote::before {
+            content: "\201C";
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            line-height: 1;
+            opacity: 0.5;
+        }
+        .brand-quote p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--primary-dark);
+            line-height: 1.8;
+            padding-top: 20px;
+        }
+
+        /* ══════════════════════════════════════
+           SECTION 4 — NAVIGATION PAR EQUILIBRE
+           ══════════════════════════════════════ */
+        .categories { background: white; }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .cat-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            background: var(--bg);
+        }
+        .cat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .cat-visual {
+            height: 140px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            position: relative;
+        }
+        .cat-card:nth-child(1) .cat-visual { background: linear-gradient(135deg, #2c5530, #4a8c5e); }
+        .cat-card:nth-child(2) .cat-visual { background: linear-gradient(135deg, #1e3a52, #3a6a8a); }
+        .cat-card:nth-child(3) .cat-visual { background: linear-gradient(135deg, #5a3a22, #8a6a44); }
+        .cat-card:nth-child(4) .cat-visual { background: linear-gradient(135deg, #6a2a4a, #9a5a7a); }
+
+        .cat-body {
+            padding: 24px 22px;
+        }
+        .cat-body h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            margin: 0 0 8px 0;
+            text-align: left;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .cat-body p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .cat-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .cat-link:hover {
+            color: var(--primary-dark);
+            gap: 10px;
+        }
+        .cat-link::after {
+            content: "\2192";
+            transition: var(--transition);
+        }
+
+        /* ══════════════════════════════════════
+           SECTION 5 — PRODUITS PHARES
+           ══════════════════════════════════════ */
+        .produits { background: var(--bg); }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .product-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #f5f0eb 0%, #ebe5de 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .product-image-placeholder {
+            width: 100px;
+            height: 130px;
+            background: linear-gradient(180deg, rgba(44,85,48,0.08), rgba(44,85,48,0.02));
+            border-radius: 6px 6px 50% 50% / 6px 6px 30% 30%;
+            border: 1px solid rgba(44,85,48,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image-placeholder::after {
+            content: "C";
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+        .product-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        .product-body {
+            padding: 26px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-function {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .product-body h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            text-align: left;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        .product-body > p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.65;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .product-price {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        .product-price span {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        /* ══════════════════════════════════════
+           SECTION 6 — EDUCATION COURTE
+           ══════════════════════════════════════ */
+        .education { background: white; }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .article-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .article-image {
+            height: 160px;
+            position: relative;
+        }
+        .article-card:nth-child(1) .article-image { background: linear-gradient(135deg, #3a6a3e, #5a9a5e); }
+        .article-card:nth-child(2) .article-image { background: linear-gradient(135deg, #2a4a5a, #4a7a8a); }
+        .article-card:nth-child(3) .article-image { background: linear-gradient(135deg, #6a4a3a, #9a7a6a); }
+
+        .article-image .article-category {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            background: rgba(255,255,255,0.92);
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        .article-body {
+            padding: 24px 22px;
+        }
+        .article-body h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.08rem;
+            margin: 0 0 12px 0;
+            text-align: left;
+            color: var(--primary-dark);
+            font-weight: 600;
+            line-height: 1.45;
+        }
+        .article-body p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .article-link:hover {
+            color: var(--primary-dark);
+            gap: 10px;
+        }
+        .article-link::after {
+            content: "\2192";
+            transition: var(--transition);
+        }
+
+        /* ══════════════════════════════════════
+           SECTION 7 — PREUVE & CREDIBILITE
+           ══════════════════════════════════════ */
+        .preuve {
+            background: var(--bg);
+        }
+
+        .proof-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            margin-bottom: 56px;
+        }
+        .proof-item {
+            text-align: center;
+            padding: 32px 20px;
+            border-right: 1px solid var(--border);
+        }
+        .proof-item:last-child { border-right: none; }
+        .proof-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+        .proof-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .testimony {
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+        }
+        .testimony blockquote {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .testimony blockquote::before {
+            content: "\201C";
+            font-size: 3.5rem;
+            color: var(--accent);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            line-height: 1;
+            opacity: 0.4;
+        }
+        .testimony blockquote p {
+            padding-top: 16px;
+        }
+        .testimony cite {
+            font-style: normal;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+        .testimony cite strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* ══════════════════════════════════════
+           NEWSLETTER
+           ══════════════════════════════════════ */
+        .newsletter {
+            background: white;
+            padding: 70px 20px;
+        }
+        .newsletter-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .newsletter-inner h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .newsletter-inner p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 460px;
+            margin: 0 auto;
+        }
+        .newsletter-form input[type="email"] {
+            flex: 1;
+            padding: 14px 18px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.92rem;
+            color: var(--text);
+            background: var(--bg);
+            transition: var(--transition);
+            outline: none;
+        }
+        .newsletter-form input[type="email"]:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(44,85,48,0.1);
+        }
+        .newsletter-form input[type="email"]::placeholder {
+            color: #aaa;
+        }
+
+        /* ══════════════════════════════════════
+           SECTION 8 — EMOTION & FERMETURE
+           ══════════════════════════════════════ */
+        .closing {
+            background: linear-gradient(145deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 110px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .closing::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(212,165,116,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .closing-content {
+            position: relative;
+            z-index: 2;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .closing .closing-quote {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        .closing .closing-quote::before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0 auto 30px;
+            opacity: 0.6;
+        }
+
+        /* ══════════════════════════════════════
+           FOOTER
+           ══════════════════════════════════════ */
+        .site-footer {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.75);
+            padding: 60px 20px 30px;
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        .footer-brand h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            color: white;
+            margin: 0 0 8px 0;
+            text-align: left;
+            font-weight: 600;
+        }
+        .footer-brand .footer-tagline {
+            font-style: italic;
+            font-size: 0.88rem;
+            color: var(--accent-light);
+            margin-bottom: 18px;
+        }
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .footer-col h4 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 18px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.65);
+            transition: var(--transition);
+        }
+        .footer-col a:hover { color: var(--accent-light); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.4);
+            transition: var(--transition);
+        }
+        .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE — TABLET
+           ══════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .cat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE — MOBILE
+           ══════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .back-link {
+                top: 10px;
+                left: 10px;
+                font-size: 0.72rem;
+                padding: 5px 10px;
+            }
+
+            /* Nav */
+            .site-nav {
+                padding: 0 20px;
+                height: 60px;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--primary-dark);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                box-shadow: var(--shadow-lg);
+            }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+
+            /* Hero */
+            .hero {
+                padding: 130px 20px 80px;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero .hero-subtitle {
+                font-size: 1.05rem;
+            }
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+            .scroll-hint { display: none; }
+
+            /* Sections */
+            .section { padding: 60px 20px; }
+            .section-title { font-size: 1.7rem; }
+
+            .imbalance-grid,
+            .pillars-grid,
+            .products-grid,
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cat-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .cat-visual { height: 100px; }
+
+            .proof-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .proof-item:nth-child(2) { border-right: none; }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .closing {
+                padding: 70px 20px;
+            }
+            .closing .closing-quote {
+                font-size: 1.25rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+
+        /* ══════════════════════════════════════
+           PRINT STYLES
+           ══════════════════════════════════════ */
+        @media print {
+            * { color: #000 !important; background: white !important; box-shadow: none !important; }
+            .back-link,
+            .nav-toggle,
+            .scroll-hint { display: none !important; }
+            .site-nav { position: static; background: white !important; }
+            .nav-links a { color: #333 !important; }
+            .hero {
+                background: #f5f5f5 !important;
+                color: #000 !important;
+                padding: 60px 20px 40px;
+            }
+            .hero h1, .hero .hero-subtitle, .hero .institutional { color: #000 !important; }
+            .hero::after { display: none; }
+            .section { padding: 40px 20px; page-break-inside: avoid; }
+            .imbalance-card, .pillar-card, .product-card, .article-card, .cat-card {
+                border: 1px solid #ccc !important;
+                page-break-inside: avoid;
+            }
+            .proof-bar { border: 1px solid #ccc !important; }
+            .proof-item { border-right: 1px solid #ccc !important; }
+            .closing { background: #f5f5f5 !important; color: #000 !important; }
+            .closing .closing-quote { color: #000 !important; }
+            .site-footer { background: #f5f5f5 !important; color: #333 !important; }
+            .footer-brand h3, .footer-col h4 { color: #000 !important; }
+            .footer-col a, .footer-brand p, .footer-brand .footer-tagline { color: #555 !important; }
+            .newsletter { display: none; }
+            .btn { border: 1px solid #999 !important; }
+        }
+
+        /* ══════════════════════════════════════
+           UTILITY / ANIMATION
+           ══════════════════════════════════════ */
+        .fade-target {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-target.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════ BACK LINK ═══════════ -->
+    <a href="Brand-Strategie-v4.html" class="back-link">&larr; Retour &agrave; la Plateforme</a>
+
+    <!-- ═══════════ SECTION 1 — HERO ═══════════ -->
+    <section class="hero" id="hero">
+
+        <!-- Navigation -->
+        <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+            <a href="#" class="nav-logo">
+                Calebasse
+                <span>Pharmacop&eacute;e Chinoise</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Sant&eacute;</a></li>
+                <li><a href="#">Beaut&eacute;</a></li>
+                <li><a href="#">Plantes</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="nav-cta">Mon compte</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <p class="institutional">Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise depuis 1997</p>
+            <h1>L'Art de l'&Eacute;quilibre</h1>
+            <p class="hero-subtitle">Quand le corps retrouve son &eacute;quilibre, la sant&eacute; et la beaut&eacute; surviennent naturellement.</p>
+            <div class="hero-ctas">
+                <a href="#approche" class="btn btn-primary">D&eacute;couvrir notre approche</a>
+                <a href="#produits" class="btn btn-secondary">Explorer les formules</a>
+            </div>
+        </div>
+
+        <div class="scroll-hint"></div>
+    </section>
+
+    <!-- ═══════════ SECTION 2 — PROBLEME RECADRE ═══════════ -->
+    <section class="section probleme" id="probleme">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Comprendre</span>
+                <h2 class="section-title">Quand le corps perd son &eacute;quilibre</h2>
+                <p class="section-subtitle">La m&eacute;decine traditionnelle chinoise consid&egrave;re chaque sympt&ocirc;me comme le signal d'un d&eacute;s&eacute;quilibre plus profond.</p>
+            </div>
+            <div class="imbalance-grid">
+                <!-- Card 1 -->
+                <div class="imbalance-card fade-target">
+                    <div class="imbalance-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3>D&eacute;s&eacute;quilibre &eacute;nerg&eacute;tique</h3>
+                    <p>Fatigue persistante, &eacute;nergie irr&eacute;guli&egrave;re, vitalit&eacute; en baisse. Le Qi ne circule plus librement.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="imbalance-card fade-target">
+                    <div class="imbalance-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><path d="M8 8h.01M16 8h.01"/></svg>
+                    </div>
+                    <h3>D&eacute;s&eacute;quilibre digestif</h3>
+                    <p>Digestion lente, inconforts r&eacute;currents, lourdeurs. Le Centre, pivot de la vitalit&eacute;, fonctionne au ralenti.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="imbalance-card fade-target">
+                    <div class="imbalance-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>D&eacute;s&eacute;quilibre du cycle</h3>
+                    <p>Irr&eacute;gularit&eacute;s, tensions, d&eacute;s&eacute;quilibres hormonaux. Le rythme naturel du corps est perturb&eacute;.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ SECTION 3 — L'APPROCHE CALEBASSE ═══════════ -->
+    <section class="section approche" id="approche">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Notre approche</span>
+                <h2 class="section-title">L'&eacute;quilibre comme philosophie</h2>
+                <p class="section-subtitle">Trois piliers fondent notre exigence depuis 1997.</p>
+            </div>
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card fade-target">
+                    <div class="pillar-number">1</div>
+                    <h3>Tradition mill&eacute;naire</h3>
+                    <p>Formules issues de la pharmacop&eacute;e chinoise, transmises et perfectionn&eacute;es depuis des mill&eacute;naires. Un h&eacute;ritage vivant, pas un argument marketing.</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="pillar-card fade-target">
+                    <div class="pillar-number">2</div>
+                    <h3>Science moderne</h3>
+                    <p>Chaque formule valid&eacute;e par des standards scientifiques stricts. Tradition et rigueur ne s'opposent pas &mdash; elles se compl&egrave;tent.</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="pillar-card fade-target">
+                    <div class="pillar-number">3</div>
+                    <h3>Exigence qualit&eacute;</h3>
+                    <p>Ingr&eacute;dients 100% naturels, fabrication en France, contr&ocirc;le rigoureux. La qualit&eacute; n'est pas une option &mdash; c'est un pr&eacute;requis.</p>
+                </div>
+            </div>
+            <div class="brand-quote fade-target">
+                <p>Nous ne cherchons pas &agrave; masquer les sympt&ocirc;mes. Nous aidons l'organisme &agrave; retrouver son ordre naturel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ SECTION 4 — NAVIGATION PAR EQUILIBRE ═══════════ -->
+    <section class="section categories" id="categories">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">&Eacute;quilibres</span>
+                <h2 class="section-title">Trouver votre &eacute;quilibre</h2>
+                <p class="section-subtitle">Chaque formule r&eacute;pond &agrave; un type de d&eacute;s&eacute;quilibre. Identifiez le v&ocirc;tre.</p>
+            </div>
+            <div class="cat-grid">
+                <!-- Cat 1 -->
+                <div class="cat-card fade-target">
+                    <div class="cat-visual">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <div class="cat-body">
+                        <h3>&Eacute;nergie &amp; Vitalit&eacute;</h3>
+                        <p>Retrouver un rythme stable et durable. Soutenir le Qi pour une &eacute;nergie qui ne fl&eacute;chit pas.</p>
+                        <a href="#" class="cat-link">D&eacute;couvrir</a>
+                    </div>
+                </div>
+                <!-- Cat 2 -->
+                <div class="cat-card fade-target">
+                    <div class="cat-visual">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </div>
+                    <div class="cat-body">
+                        <h3>Sommeil &amp; S&eacute;r&eacute;nit&eacute;</h3>
+                        <p>Favoriser un repos naturellement r&eacute;parateur. Apaiser le Shen pour retrouver la s&eacute;r&eacute;nit&eacute;.</p>
+                        <a href="#" class="cat-link">D&eacute;couvrir</a>
+                    </div>
+                </div>
+                <!-- Cat 3 -->
+                <div class="cat-card fade-target">
+                    <div class="cat-visual">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>
+                    </div>
+                    <div class="cat-body">
+                        <h3>Digestion &amp; Centre</h3>
+                        <p>Soutenir l'&eacute;quilibre digestif au quotidien. Renforcer le Centre, source de toute transformation.</p>
+                        <a href="#" class="cat-link">D&eacute;couvrir</a>
+                    </div>
+                </div>
+                <!-- Cat 4 -->
+                <div class="cat-card fade-target">
+                    <div class="cat-visual">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="cat-body">
+                        <h3>&Eacute;quilibre f&eacute;minin</h3>
+                        <p>Accompagner les cycles avec douceur. Harmoniser le Sang et le Qi pour un &eacute;quilibre en mouvement.</p>
+                        <a href="#" class="cat-link">D&eacute;couvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ SECTION 5 — PRODUITS PHARES ═══════════ -->
+    <section class="section produits" id="produits">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Nos formules</span>
+                <h2 class="section-title">Produits phares</h2>
+                <p class="section-subtitle">Des formules con&ccedil;ues pour accompagner le retour &agrave; l'&eacute;quilibre, pas pour promettre des miracles.</p>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-target">
+                    <div class="product-image">
+                        <div class="product-image-placeholder"></div>
+                        <span class="product-badge">Best-seller</span>
+                    </div>
+                    <div class="product-body">
+                        <span class="product-function">&Eacute;quilibre &eacute;nerg&eacute;tique</span>
+                        <h3>Formule Anti-fatigue</h3>
+                        <p>Soutient la vitalit&eacute; et favorise un flux d'&eacute;nergie stable. Aide &agrave; maintenir un niveau d'&eacute;nergie harmonieux tout au long de la journ&eacute;e.</p>
+                        <div class="product-footer">
+                            <span class="product-price">35,90 &euro;</span>
+                            <a href="#" class="btn btn-outline btn-sm">Voir la formule</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card fade-target">
+                    <div class="product-image">
+                        <div class="product-image-placeholder"></div>
+                    </div>
+                    <div class="product-body">
+                        <span class="product-function">&Eacute;quilibre &eacute;motionnel</span>
+                        <h3>Formule Calme &amp; D&eacute;tente</h3>
+                        <p>Accompagne la s&eacute;r&eacute;nit&eacute; int&eacute;rieure et un sommeil harmonieux. Contribue &agrave; apaiser le mental pour retrouver un calme durable.</p>
+                        <div class="product-footer">
+                            <span class="product-price">39,90 &euro;</span>
+                            <a href="#" class="btn btn-outline btn-sm">Voir la formule</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card fade-target">
+                    <div class="product-image">
+                        <div class="product-image-placeholder"></div>
+                    </div>
+                    <div class="product-body">
+                        <span class="product-function">&Eacute;quilibre nourricier</span>
+                        <h3>Formule Nutrition des cheveux</h3>
+                        <p>Nourrit en profondeur pour une beaut&eacute; qui refl&egrave;te l'&eacute;quilibre interne. Participe &agrave; renforcer la vitalit&eacute; capillaire de l'int&eacute;rieur.</p>
+                        <div class="product-footer">
+                            <span class="product-price">36,90 &euro;</span>
+                            <a href="#" class="btn btn-outline btn-sm">Voir la formule</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ SECTION 6 — EDUCATION COURTE ═══════════ -->
+    <section class="section education" id="education">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-label">Comprendre l'&eacute;quilibre</span>
+                <h2 class="section-title">Apprendre &agrave; &eacute;couter son corps</h2>
+                <p class="section-subtitle">Des articles pour comprendre les principes de la m&eacute;decine traditionnelle chinoise, sans jargon inutile.</p>
+            </div>
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <div class="article-card fade-target">
+                    <div class="article-image">
+                        <span class="article-category">&Eacute;nergie</span>
+                    </div>
+                    <div class="article-body">
+                        <h3>Toujours fatigu&eacute; ? Et si votre Qi &eacute;tait simplement &agrave; sec ?</h3>
+                        <p>Comprendre pourquoi la fatigue persiste malgr&eacute; le repos, et comment la MTC aborde ce d&eacute;s&eacute;quilibre fondamental.</p>
+                        <a href="#" class="article-link">Lire</a>
+                    </div>
+                </div>
+                <!-- Article 2 -->
+                <div class="article-card fade-target">
+                    <div class="article-image">
+                        <span class="article-category">Philosophie MTC</span>
+                    </div>
+                    <div class="article-body">
+                        <h3>Comprendre l'&eacute;quilibre yin-yang : la cl&eacute; d'une sant&eacute; durable</h3>
+                        <p>Le yin et le yang ne sont pas des concepts abstraits. Ils sont au c&oelig;ur de chaque processus physiologique.</p>
+                        <a href="#" class="article-link">Lire</a>
+                    </div>
+                </div>
+                <!-- Article 3 -->
+                <div class="article-card fade-target">
+                    <div class="article-image">
+                        <span class="article-category">Beaut&eacute;</span>
+                    </div>
+                    <div class="article-body">
+                        <h3>Pourquoi la beaut&eacute; commence de l'int&eacute;rieur selon la MTC</h3>
+                        <p>La peau, les cheveux, les ongles &mdash; autant de miroirs de l'&eacute;quilibre interne. D&eacute;couvrez l'approche de la MTC.</p>
+                        <a href="#" class="article-link">Lire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ SECTION 7 — PREUVE & CREDIBILITE ═══════════ -->
+    <section class="section preuve" id="preuve">
+        <div class="section-inner">
+            <div class="proof-bar fade-target">
+                <div class="proof-item">
+                    <div class="proof-value">Depuis 1997</div>
+                    <div class="proof-label">Plus de 25 ans d'expertise</div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-value">100% naturel</div>
+                    <div class="proof-label">Ingr&eacute;dients s&eacute;lectionn&eacute;s</div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-value">Fabriqu&eacute; en France</div>
+                    <div class="proof-label">Laboratoire fran&ccedil;ais</div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-value">Conseils d'experts</div>
+                    <div class="proof-label">Accompagnement personnalis&eacute;</div>
+                </div>
+            </div>
+            <div class="testimony fade-target">
+                <blockquote>
+                    <p>J'ai d&eacute;couvert Calebasse il y a deux ans. Ce qui m'a convaincue, ce n'est pas une promesse spectaculaire &mdash; c'est une logique que j'ai enfin comprise.</p>
+                </blockquote>
+                <cite><strong>Marie L.</strong> &mdash; Paris</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ NEWSLETTER ═══════════ -->
+    <section class="newsletter" id="newsletter">
+        <div class="newsletter-inner fade-target">
+            <span class="section-label">Rester inform&eacute;</span>
+            <h2>Recevez nos cl&eacute;s d'&eacute;quilibre</h2>
+            <p>Conseils de saison, principes de la MTC et s&eacute;lection de formules &mdash; directement dans votre bo&icirc;te mail. Pas de spam, que de la substance.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="Votre adresse e-mail" aria-label="Adresse e-mail" required>
+                <button type="submit" class="btn btn-green btn-sm">S'inscrire</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ═══════════ SECTION 8 — EMOTION & FERMETURE ═══════════ -->
+    <section class="closing" id="closing">
+        <div class="closing-content fade-target">
+            <p class="closing-quote">Prendre soin de son &eacute;quilibre, c'est prendre soin de tout ce qui en d&eacute;coule &mdash; sant&eacute;, vitalit&eacute;, beaut&eacute;.</p>
+            <a href="#categories" class="btn btn-accent">Entrer dans l'Art de l'&Eacute;quilibre</a>
+        </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <!-- Brand column -->
+                <div class="footer-brand">
+                    <h3>Calebasse</h3>
+                    <p class="footer-tagline">L'Art de l'&Eacute;quilibre</p>
+                    <p>Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise.<br>
+                    Paris 13&egrave;me &mdash; depuis 1997.</p>
+                    <p style="margin-top: 12px;">
+                        <svg style="display:inline-block;vertical-align:middle;margin-right:6px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        01 45 85 88 00
+                    </p>
+                </div>
+                <!-- Col: Nos formules -->
+                <div class="footer-col">
+                    <h4>Nos formules</h4>
+                    <ul>
+                        <li><a href="#">&Eacute;nergie &amp; Vitalit&eacute;</a></li>
+                        <li><a href="#">Sommeil &amp; S&eacute;r&eacute;nit&eacute;</a></li>
+                        <li><a href="#">Digestion &amp; Centre</a></li>
+                        <li><a href="#">&Eacute;quilibre f&eacute;minin</a></li>
+                        <li><a href="#">Plantes &amp; M&eacute;langes</a></li>
+                    </ul>
+                </div>
+                <!-- Col: Apprendre -->
+                <div class="footer-col">
+                    <h4>Apprendre</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Notre approche</a></li>
+                        <li><a href="#">La pharmacop&eacute;e chinoise</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Col: Calebasse -->
+                <div class="footer-col">
+                    <h4>Calebasse</h4>
+                    <ul>
+                        <li><a href="#">Notre histoire</a></li>
+                        <li><a href="#">Notre boutique &mdash; Paris 13&egrave;me</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Espace professionnel</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Calebasse &mdash; Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise</span>
+                <div class="footer-legal">
+                    <a href="#">Mentions l&eacute;gales</a>
+                    <a href="#">CGV</a>
+                    <a href="#">Politique de confidentialit&eacute;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════ SCROLL ANIMATION ═══════════ -->
+    <script>
+        // Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            var targets = document.querySelectorAll('.fade-target');
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+                targets.forEach(function(t) { observer.observe(t); });
+            } else {
+                // Fallback: show everything
+                targets.forEach(function(t) { t.classList.add('visible'); });
+            }
+        });
+    </script>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synth&egrave;se Strat&eacute;gique — Calebasse — L'Art de l'&Eacute;quilibre</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--primary-light) 100%);
+            color: white;
+            padding: 80px 20px 70px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header .brand-name {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            opacity: 0.7;
+            margin-bottom: 16px;
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 14px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.8;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 22px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ── Part dividers ── */
+        .part-header {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+        .part-header .part-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .part-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .part-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Asset row ── */
+        .asset-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .asset {
+            background: rgba(44,85,48,0.04);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 12px;
+            padding: 22px;
+        }
+        .asset .label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .asset .value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.08rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .asset .note {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green { background: var(--primary); color: white; }
+        .tag-gold  { background: var(--accent); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+
+        /* ── Ladder ── */
+        .ladder { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: 25px 0; }
+        .ladder-step { padding: 22px 28px; width: 100%; text-align: center; }
+        .ladder-step h4 { margin: 0 0 6px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .ladder-step p  { margin: 0; font-size: 0.95rem; }
+        .l5 { background: var(--primary-dark); color: white; width: 62%; border-radius: 12px 12px 0 0; }
+        .l5 h4 { color: var(--accent-light); }
+        .l4 { background: var(--primary); color: white; width: 72%; }
+        .l4 h4 { color: var(--accent-light); }
+        .l3 { background: var(--primary-light); color: white; width: 82%; }
+        .l3 h4 { color: var(--accent-light); }
+        .l2 { background: rgba(44,85,48,0.15); width: 91%; }
+        .l2 h4 { color: var(--primary); }
+        .l1 { background: rgba(44,85,48,0.07); width: 100%; border-radius: 0 0 12px 12px; }
+        .l1 h4 { color: var(--primary); }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── Do / Don't ── */
+        .do-dont {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            margin: 20px 0; border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .do-col, .dont-col { padding: 24px; }
+        .do-col { background: rgba(44,85,48,0.06); border-right: 1px solid var(--border); }
+        .dont-col { background: rgba(180,68,68,0.04); }
+        .do-col h4 { color: var(--primary); margin-top: 0; }
+        .dont-col h4 { color: var(--red); margin-top: 0; }
+        .dont-col li::before { background: var(--red); }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* ── System table ── */
+        .sys-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            border-radius: 12px; overflow: hidden;
+        }
+        .sys-table th {
+            background: var(--primary); color: white;
+            padding: 12px 18px; text-align: left;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sys-table td {
+            padding: 12px 18px; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .sys-table tr:nth-child(even) td { background: rgba(44,85,48,0.03); }
+        .sys-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ── Key figure ── */
+        .key-figure {
+            text-align: center;
+            padding: 15px;
+        }
+        .key-figure .number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .key-figure .label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ── Before/After ── */
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 0;
+            margin: 25px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .ba-before {
+            padding: 28px;
+            background: rgba(180,68,68,0.04);
+        }
+        .ba-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            font-size: 2rem;
+            color: var(--accent);
+            background: var(--card-bg);
+        }
+        .ba-after {
+            padding: 28px;
+            background: rgba(44,85,48,0.06);
+        }
+        .ba-before h4 { color: var(--red); margin-top: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .ba-after h4 { color: var(--primary); margin-top: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ── Platform compact grid ── */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 25px 0;
+        }
+        .platform-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+        .platform-item:hover {
+            border-color: var(--primary);
+        }
+        .platform-item .pi-num {
+            display: inline-block;
+            width: 28px; height: 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .platform-item .pi-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .platform-item .pi-content {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .platform-item.span-full {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(44,85,48,0.06) 0%, rgba(212,165,116,0.06) 100%);
+            border-color: var(--accent);
+        }
+        .platform-item.span-full .pi-content {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ── Nav cards ── */
+        .nav-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px; margin: 25px 0;
+        }
+        .nav-card {
+            background: var(--card-bg); border-radius: 12px; padding: 22px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none; color: var(--text);
+        }
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        .nav-card h4 { color: var(--primary); margin: 0 0 6px; font-size: 1rem; }
+        .nav-card p { color: var(--text-light); font-size: 0.88rem; margin: 0; }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section { padding: 25px; }
+            .cards { grid-template-columns: 1fr; }
+            .asset-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .do-col { border-right: none; border-bottom: 1px solid var(--border); }
+            .before-after { grid-template-columns: 1fr; }
+            .ba-arrow { padding: 10px 0; font-size: 1.5rem; }
+            .platform-grid { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body { background: white; }
+            header { background: var(--primary); }
+            section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .part-header { break-before: page; }
+        }
+    </style>
+</head>
+<body>
+<!-- Password Gate -->
+<div id="pw-gate" style="position:fixed;inset:0;z-index:99999;background:#2c5530;display:flex;align-items:center;justify-content:center;">
+  <div style="text-align:center;color:#fff;font-family:Georgia,serif;">
+    <p style="font-size:24pt;margin-bottom:12px;">&#x1f512; Acc&egrave;s prot&eacute;g&eacute;</p>
+    <p style="font-size:11pt;color:#c8e6cc;margin-bottom:20px;">Veuillez entrer le mot de passe</p>
+    <input id="pw-input" type="password" placeholder="Mot de passe" style="padding:10px 16px;font-size:14pt;border:2px solid #d4a574;border-radius:6px;outline:none;text-align:center;width:200px;" onkeydown="if(event.key==='Enter')document.getElementById('pw-btn').click()">
+    <br><button id="pw-btn" onclick="if(document.getElementById('pw-input').value==='8800'){sessionStorage.setItem('cb-auth','1');document.getElementById('pw-gate').remove()}else{document.getElementById('pw-input').style.borderColor='#c44';document.getElementById('pw-input').value=''}" style="margin-top:12px;padding:10px 30px;font-size:13pt;background:#d4a574;color:#fff;border:none;border-radius:6px;cursor:pointer;">Entrer</button>
+  </div>
+</div>
+<script>if(sessionStorage.getItem('cb-auth')==='1')document.getElementById('pw-gate').remove();</script>
+
+<header>
+    <p class="brand-name">Calebasse</p>
+    <h1>L'Art de l'&Eacute;quilibre</h1>
+    <p class="slogan">Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise depuis 1997</p>
+    <p class="subtitle">Nouvelle strat&eacute;gie de marque &mdash; Un cadre unificateur pour notre identit&eacute;, notre communication et notre croissance</p>
+    <span class="doc-type">Synth&egrave;se ex&eacute;cutive 2026</span>
+</header>
+
+<div class="container">
+
+
+<!-- ═══════════════════════════════════════════════════
+     QUI NOUS SOMMES
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Fondations</span>
+    <h2>Qui Nous Sommes</h2>
+    <p>Nos actifs de marque et notre position sur le march&eacute;</p>
+</div>
+
+<section>
+    <h2>Notre Identit&eacute; actuelle en Bref</h2>
+
+    <div class="asset-grid" style="grid-template-columns: 1fr;">
+        <div class="asset" style="padding: 26px;">
+            <div class="label">Identit&eacute;</div>
+            <div class="value" style="font-size:1.15rem;">Calebasse &mdash; Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise depuis 1997</div>
+        </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; margin:25px 0; text-align:center;">
+      
+        <div class="key-figure">
+            <div class="number" style="color:var(--accent);">MTC</div>
+            <div class="label">M&eacute;decine Traditionnelle Chinoise</div>
+        </div>
+        <div class="key-figure">
+            <div class="number">100%</div>
+            <div class="label">Ingr&eacute;dients naturels</div>
+        </div>
+        <div class="key-figure">
+            <div class="number" style="color:var(--accent);">2</div>
+            <div class="label">Axes : sant&eacute; &amp; beaut&eacute;</div>
+        </div>
+          <div class="key-figure">
+            <div class="number">1997</div>
+            <div class="label">Fond&eacute; &agrave; Paris</div>
+        </div>
+    </div>
+
+    <h3>Nos actifs de marque</h3>
+    <div class="asset-grid">
+        <div class="asset">
+            <div class="label">Identit&eacute; &amp; diff&eacute;renciation</div>
+            <div class="value">La M&eacute;decine Traditionnelle Chinoise</div>
+            <div class="note">Ce qui nous rend imm&eacute;diatement reconnaissables.</div>
+        </div>
+        <div class="asset">
+            <div class="label">Promesse historique</div>
+            <div class="value">Sant&eacute; et beaut&eacute; par la nature</div>
+            <div class="note">Notre promesse fonctionnelle, toujours valide.</div>
+        </div>
+        <div class="asset">
+            <div class="label">Preuve par le temps</div>
+            <div class="value">Depuis 1997 &mdash; Expert MTC</div>
+            <div class="note">Pr&egrave;s de 30 ans de savoir-faire.</div>
+        </div>
+        <div class="asset">
+            <div class="label">Preuve par la rigueur</div>
+            <div class="value">Tradition + Science moderne</div>
+            <div class="note">Validation scientifique de la tradition.</div>
+        </div>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     LE CONSTAT
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Le constat</span>
+    <h2>Pourquoi &Eacute;voluer</h2>
+    <p>Ce qui manque aujourd'hui &agrave; notre marque</p>
+</div>
+
+<section>
+    <h2>Pr&eacute;parer notre croissance</h2>
+    <p>Calebasse poss&egrave;de des actifs solides. Mais pour accompagner notre d&eacute;veloppement, trois enjeux appellent un cadre de marque plus structur&eacute; :</p>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:28px;">
+        <div style="text-align:center; padding:36px 24px; border-radius:12px; background:var(--card-bg); border:1px solid var(--border); transition:all .3s;">
+            <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--primary-light)); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+            </div>
+            <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:1.1rem; color:var(--primary-dark); font-weight:600; margin-bottom:12px; text-align:center;">Pas de concept f&eacute;d&eacute;rateur</h4>
+            <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">Nos actifs (MTC, nature, science, qualit&eacute;) ne sont pas reli&eacute;s par un fil conducteur clair. Le client voit des pi&egrave;ces, pas un puzzle complet.</p>
+        </div>
+        <div style="text-align:center; padding:36px 24px; border-radius:12px; background:var(--card-bg); border:1px solid var(--border); transition:all .3s;">
+            <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--primary-light)); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:1.1rem; color:var(--primary-dark); font-weight:600; margin-bottom:12px; text-align:center;">Un slogan g&eacute;n&eacute;rique</h4>
+            <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">&laquo;&nbsp;Sant&eacute; et beaut&eacute; par la nature&nbsp;&raquo; pourrait &ecirc;tre utilis&eacute; par des dizaines de marques. Il d&eacute;crit la cat&eacute;gorie, pas notre identit&eacute;.</p>
+        </div>
+        <div style="text-align:center; padding:36px 24px; border-radius:12px; background:var(--card-bg); border:1px solid var(--border); transition:all .3s;">
+            <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--primary-light)); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            </div>
+            <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:1.1rem; color:var(--primary-dark); font-weight:600; margin-bottom:12px; text-align:center;">&Eacute;largissement de la gamme</h4>
+            <p style="color:var(--text-light); font-size:0.92rem; line-height:1.7;">L'expansion de nos lignes de produits implique des r&eacute;f&eacute;rences qui ne seront pas toutes 100&nbsp;% naturelles. Il faut un cadre de marque suffisamment robuste pour int&eacute;grer cette &eacute;volution.</p>
+        </div>
+    </div>
+
+    <div class="box-gold" style="margin-top:28px;">
+        <p>Il nous faut une logique profonde qui relie tous nos actifs en un r&eacute;cit coh&eacute;rent, m&eacute;morable et diff&eacute;renciant &mdash; et qui accompagne notre croissance.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     LE NOUVEAU CADRE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Le nouveau cadre</span>
+    <h2>L'&Eacute;quilibre comme Principe Unificateur</h2>
+    <p>Le concept qui relie tous nos actifs en une identit&eacute; coh&eacute;rente</p>
+</div>
+
+<section>
+    <h2>La D&eacute;couverte Cl&eacute;</h2>
+    <p>La MTC repose tout enti&egrave;re sur un principe fondamental : <span class="hl">l'&eacute;quilibre</span>. &Eacute;quilibre yin-yang, &eacute;quilibre des cinq &eacute;l&eacute;ments, &eacute;quilibre du Qi, du sang et des fluides, &eacute;quilibre entre l'&ecirc;tre humain et la nature.</p>
+
+    <div class="statement-gold">
+        <p>Lorsque le corps est en &eacute;quilibre int&eacute;rieur, lorsqu'il est en harmonie avec la nature, la sant&eacute; et la beaut&eacute; en sont la cons&eacute;quence naturelle.</p>
+    </div>
+
+    <p>Ce concept d'&eacute;quilibre n'est pas un ajout marketing. Il est inscrit dans l'ADN m&ecirc;me de ce que nous faisons. Il suffit de le <strong>nommer</strong> et de le <strong>structurer</strong>.</p>
+
+    <h3>Ce que l'&eacute;quilibre unifie</h3>
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+            <h3>Nos produits</h3>
+            <p>Ils ne ciblent pas les sympt&ocirc;mes en surface, ils r&eacute;tablissent l'&eacute;quilibre en profondeur.</p>
+        </div>
+        <div class="card accent">
+            <h3>Notre promesse</h3>
+            <p>Sant&eacute; et beaut&eacute; ne sont pas des objectifs &agrave; atteindre, mais les cons&eacute;quences d'un &eacute;quilibre retrouv&eacute;.</p>
+        </div>
+        <div class="card dark">
+            <h3>Notre diff&eacute;renciation</h3>
+            <p>L&agrave; o&ugrave; d'autres corrigent un sympt&ocirc;me, nous restaurons un &eacute;quilibre.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Un Nouveau Slogan pour les 10 Prochaines Ann&eacute;es</h2>
+
+    <div class="before-after">
+        <div class="ba-before">
+            <h4>Avant</h4>
+            <p style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--text); margin-top:12px;">Sant&eacute; et beaut&eacute; par la nature</p>
+            <p style="font-size:0.9rem; color:var(--text-light); margin-top:10px;">Descripteur de cat&eacute;gorie &mdash; g&eacute;n&eacute;rique, interchangeable, aucun lien avec la MTC.</p>
+        </div>
+        <div class="ba-arrow">&rarr;</div>
+        <div class="ba-after">
+            <h4>D&eacute;sormais</h4>
+            <p style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--primary); margin-top:12px; font-weight:600;">L'Art de l'&Eacute;quilibre</p>
+            <p style="font-size:0.9rem; color:var(--text-light); margin-top:10px;">Identit&eacute; de marque &mdash; unique, m&eacute;morable, ancr&eacute; dans la philosophie MTC.</p>
+        </div>
+    </div>
+
+    <p style="margin-top:16px;"><strong>Art</strong> porte trois sens :</p>
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+            <h3>Ma&icirc;trise technique</h3>
+            <p>La pr&eacute;cision de nos formulations.</p>
+        </div>
+        <div class="card accent">
+            <h3>Tradition vivante</h3>
+            <p>Un savoir transmis et perfectionn&eacute;.</p>
+        </div>
+        <div class="card dark">
+            <h3>&Eacute;l&eacute;gance</h3>
+            <p>Une approche raffin&eacute;e, jamais brute.</p>
+        </div>
+    </div>
+
+    <div class="box-green">
+        <p>&laquo;&nbsp;Sant&eacute; et beaut&eacute; par la nature&nbsp;&raquo; reste valide comme promesse fonctionnelle dans la communication produit. &laquo;&nbsp;L'Art de l'&Eacute;quilibre&nbsp;&raquo; devient la signature de marque &mdash; ce qui nous d&eacute;finit.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     DIFFÉRENCIATION
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Diff&eacute;renciation</span>
+    <h2>Ce Qui Nous Distingue</h2>
+    <p>M&ecirc;me point de d&eacute;part, autre lecture</p>
+</div>
+
+<section>
+    <h2>Deux Logiques Face au M&ecirc;me Sympt&ocirc;me</h2>
+    <p>Face &agrave; la fatigue, au stress, ou &agrave; un probl&egrave;me de peau, le client trouve deux approches sur le march&eacute;. Le point de d&eacute;part est le m&ecirc;me. La diff&eacute;rence est dans la <strong>lecture du probl&egrave;me</strong>.</p>
+
+    <table class="sys-table" style="margin-top:25px;">
+        <tr>
+            <th></th>
+            <th style="color:rgba(255,255,255,0.7); font-weight:400;">Logique dominante</th>
+            <th>Calebasse</th>
+        </tr>
+        <tr>
+            <td>Lecture</td>
+            <td>Le sympt&ocirc;me <strong>est</strong> le probl&egrave;me</td>
+            <td>Le sympt&ocirc;me est un <strong>signal</strong></td>
+        </tr>
+        <tr>
+            <td>Logique</td>
+            <td>Lin&eacute;aire &mdash; cibler et corriger</td>
+            <td>Syst&eacute;mique &mdash; comprendre et r&eacute;&eacute;quilibrer</td>
+        </tr>
+        <tr>
+            <td>Port&eacute;e</td>
+            <td>Locale &mdash; une cause, un effet</td>
+            <td>Globale &mdash; un &eacute;quilibre, des cons&eacute;quences</td>
+        </tr>
+        <tr>
+            <td>Horizon</td>
+            <td>Soulagement</td>
+            <td>&Eacute;quilibre durable</td>
+        </tr>
+    </table>
+
+    <div class="two-col">
+        <div class="col-box" style="border:1px solid rgba(180,68,68,0.2); background:rgba(180,68,68,0.03);">
+            <h4 style="color:var(--red);">Logique lin&eacute;aire</h4>
+            <div class="flow" style="color:var(--red); font-size:0.88rem; justify-content:flex-start;">
+                <span class="step" style="background:rgba(180,68,68,0.08);">Sympt&ocirc;me</span>
+                <span class="arrow" style="color:var(--red);">&rarr;</span>
+                <span class="step" style="background:rgba(180,68,68,0.08);">Cibler</span>
+                <span class="arrow" style="color:var(--red);">&rarr;</span>
+                <span class="step" style="background:rgba(180,68,68,0.08);">Corriger</span>
+                <span class="arrow" style="color:var(--red);">&rarr;</span>
+                <span class="step" style="background:rgba(180,68,68,0.08);">Soulagement</span>
+            </div>
+        </div>
+        <div class="col-box" style="border:1px solid rgba(44,85,48,0.2);">
+            <h4 style="color:var(--primary);">Logique syst&eacute;mique</h4>
+            <div class="flow" style="font-size:0.88rem; justify-content:flex-start;">
+                <span class="step">Sympt&ocirc;me</span>
+                <span class="arrow">&rarr;</span>
+                <span class="step">Lire le d&eacute;s&eacute;quilibre</span>
+                <span class="arrow">&rarr;</span>
+                <span class="step">R&eacute;&eacute;quilibrer</span>
+                <span class="arrow">&rarr;</span>
+                <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">Sant&eacute; &amp; beaut&eacute;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="statement">
+        <p>M&ecirc;me point de d&eacute;part, autre lecture. Calebasse ne traite pas le sympt&ocirc;me &mdash; elle restaure l'&eacute;quilibre dont le sympt&ocirc;me signalait l'absence.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PLATEFORME DE MARQUE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Plateforme</span>
+    <h2>Les 9 Composantes de Notre Marque</h2>
+    <p>Le cadre complet de notre identit&eacute; renouvel&eacute;e</p>
+</div>
+
+<section>
+    <div class="platform-grid">
+        <div class="platform-item">
+            <span class="pi-num">1</span>
+            <div class="pi-title">Identit&eacute;</div>
+            <div class="pi-content">Calebasse &mdash; Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise depuis 1997</div>
+        </div>
+        <div class="platform-item">
+            <span class="pi-num">2</span>
+            <div class="pi-title">Vision</div>
+            <div class="pi-content">La sant&eacute; et la beaut&eacute; ne sont pas des objectifs &agrave; atteindre, mais les cons&eacute;quences naturelles d'un &eacute;quilibre retrouv&eacute;.</div>
+        </div>
+        <div class="platform-item">
+            <span class="pi-num">3</span>
+            <div class="pi-title">Mission</div>
+            <div class="pi-content">Accompagner chacun vers un r&eacute;&eacute;quilibrage profond et durable, en s'appuyant sur la pharmacop&eacute;e chinoise et une exigence scientifique moderne.</div>
+        </div>
+        <div class="platform-item">
+            <span class="pi-num">4</span>
+            <div class="pi-title">Promesse fonctionnelle</div>
+            <div class="pi-content">Aider l'organisme &agrave; retrouver son &eacute;quilibre afin de soutenir durablement la sant&eacute; et de r&eacute;v&eacute;ler une beaut&eacute; naturelle.</div>
+        </div>
+        <div class="platform-item">
+            <span class="pi-num" style="background:var(--accent);">5</span>
+            <div class="pi-title">Promesse &eacute;motionnelle</div>
+            <div class="pi-content">Offrir un sentiment d'harmonie int&eacute;rieure, de stabilit&eacute; et de confiance dans son propre rythme.</div>
+        </div>
+        <div class="platform-item">
+            <span class="pi-num">6</span>
+            <div class="pi-title">Positionnement</div>
+            <div class="pi-content">Un laboratoire expert de l'&eacute;quilibre, &agrave; la crois&eacute;e de la tradition mill&eacute;naire et de la rigueur scientifique moderne.</div>
+        </div>
+        <div class="platform-item">
+            <span class="pi-num">7</span>
+            <div class="pi-title">Valeurs</div>
+            <div class="pi-content">&Eacute;quilibre &bull; Tradition &amp; Science &bull; Naturalit&eacute; &bull; Respect &bull; Durabilit&eacute;</div>
+        </div>
+        <div class="platform-item">
+            <span class="pi-num" style="background:var(--accent);">8</span>
+            <div class="pi-title">Diff&eacute;renciation</div>
+            <div class="pi-content">Logique syst&eacute;mique vs lin&eacute;aire &mdash; le sympt&ocirc;me est un signal, pas le probl&egrave;me.</div>
+        </div>
+
+        <div class="platform-item span-full">
+            <span class="pi-num" style="background:var(--primary-dark);">9</span>
+            <div class="pi-title" style="font-size:1.15rem;">Essence de Marque</div>
+            <div class="pi-content" style="font-size:1.15rem;">L'&Eacute;quilibre comme fondement naturel de la sant&eacute; et de la beaut&eacute;.</div>
+        </div>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     BRAND LADDER + ARCHETYPE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Architecture</span>
+    <h2>Brand Ladder &amp; Archetype</h2>
+    <p>La structure de valeur et la personnalit&eacute; de Calebasse</p>
+</div>
+
+<section>
+    <h2>Brand Ladder</h2>
+    <p style="text-align:center; color:var(--text-light); margin-bottom:10px;">Cinq niveaux de valeur, du produit &agrave; la vision du monde</p>
+
+    <div class="ladder">
+        <div class="ladder-step l5">
+            <h4>Vision du monde</h4>
+            <p style="font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic;">Harmonie entre l'humain et le vivant</p>
+        </div>
+        <div class="ladder-step l4">
+            <h4>Valeur centrale</h4>
+            <p style="font-family:'Playfair Display',serif; font-size:1.15rem; font-style:italic;">L'&Eacute;quilibre</p>
+        </div>
+        <div class="ladder-step l3">
+            <h4>B&eacute;n&eacute;fices &eacute;motionnels</h4>
+            <p>S&eacute;r&eacute;nit&eacute; &bull; Confiance &bull; Stabilit&eacute; &bull; Coh&eacute;rence int&eacute;rieure</p>
+        </div>
+        <div class="ladder-step l2">
+            <h4>B&eacute;n&eacute;fices fonctionnels</h4>
+            <p>&Eacute;nergie stable &bull; Sommeil harmonieux &bull; Digestion fluide &bull; Cycle r&eacute;gulier</p>
+        </div>
+        <div class="ladder-step l1">
+            <h4>Attributs produit</h4>
+            <p>Pharmacop&eacute;e chinoise &bull; Formules traditionnelles &bull; Mati&egrave;res naturelles &bull; Validation scientifique &bull; Depuis 1997</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Brand Archetype</h2>
+
+    <div class="two-col">
+        <div class="col-box" style="text-align:center; border:2px solid var(--primary);">
+            <p><span class="tag tag-green">Arch&eacute;type principal</span></p>
+            <p style="font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--primary); margin:15px 0; font-weight:600;">Le Sage</p>
+            <p style="color:var(--text-light);">Structure &bull; L&eacute;gitimit&eacute; &bull; Sagesse &bull; Profondeur</p>
+        </div>
+        <div class="col-box" style="text-align:center; border:2px solid var(--accent);">
+            <p><span class="tag tag-gold">Arch&eacute;type secondaire</span></p>
+            <p style="font-family:'Playfair Display',serif; font-size:1.5rem; color:#8b5a2b; margin:15px 0; font-weight:600;">Le Protecteur</p>
+            <p style="color:var(--text-light);">Bienveillance &bull; Proximit&eacute; &bull; Accompagnement</p>
+        </div>
+    </div>
+
+    <div class="do-dont" style="margin-top:25px;">
+        <div class="do-col">
+            <h4>Calebasse est</h4>
+            <ul>
+                <li>Calme, structur&eacute;, p&eacute;dagogique</li>
+                <li>Confiant sans &ecirc;tre arrogant</li>
+                <li>Bienveillant et pr&eacute;sent</li>
+                <li>Cultiv&eacute;, jamais simpliste</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Calebasse n'est pas</h4>
+            <ul>
+                <li>Urgente ou exag&eacute;r&eacute;e</li>
+                <li>Sensationnaliste ou racoleuse</li>
+                <li>Agressive ou alarmiste</li>
+                <li>Une marque &laquo;&nbsp;wow effect&nbsp;&raquo;</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="statement">
+        <p style="font-size:1.3rem;">Calebasse est le Sage qui guide avec bienveillance vers l'&eacute;quilibre.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     SYSTÈME DE MARQUE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Synth&egrave;se</span>
+    <h2>Syst&egrave;me de Marque</h2>
+    <p>Vue d'ensemble de la nouvelle architecture</p>
+</div>
+
+<section>
+    <table class="sys-table">
+        <tr><th>Composante</th><th>Calebasse</th></tr>
+        <tr><td>Racine</td><td>Pharmacop&eacute;e chinoise</td></tr>
+        <tr><td>M&eacute;thode</td><td>Art de l'&Eacute;quilibre</td></tr>
+        <tr><td>Validation</td><td>Science moderne</td></tr>
+        <tr><td>Promesse fonctionnelle</td><td>R&eacute;&eacute;quilibrer durablement</td></tr>
+        <tr><td>Promesse &eacute;motionnelle</td><td>Rassurer et harmoniser</td></tr>
+        <tr><td>Finalit&eacute;</td><td>Sant&eacute; &amp; Beaut&eacute; comme cons&eacute;quence</td></tr>
+    </table>
+
+    <div class="statement-gold" style="margin-top:30px;">
+        <p style="font-size:1.35rem; font-style:normal; font-weight:600;">L'&Eacute;quilibre comme fondement naturel de la sant&eacute; et de la beaut&eacute;.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     DOCUMENTS COMPLÉMENTAIRES
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Pour aller plus loin</span>
+    <h2>Documentation Compl&egrave;te</h2>
+    <p>Tous les d&eacute;tails et d&eacute;clinaisons op&eacute;rationnelles</p>
+</div>
+
+<section>
+    <div class="nav-cards" style="grid-template-columns: 1fr;">
+        <a class="nav-card" href="Brand-Strategie-v4.html" style="border:2px solid var(--primary); background:rgba(44,85,48,0.03);">
+            <h4 style="font-size:1.1rem;">Plateforme de Marque &mdash; Document Complet</h4>
+            <p>Le document strat&eacute;gique int&eacute;gral : fondations, identit&eacute; renouvel&eacute;e, les 9 composantes, Brand Ladder, archetype.</p>
+        </a>
+    </div>
+
+    <h3>D&eacute;clinaisons op&eacute;rationnelles</h3>
+    <div class="nav-cards">
+        <a class="nav-card" href="Brand-v4-narrative.html">
+            <h4>Narrative &amp; Tone</h4>
+            <p>Matrice narrative, filtre de d&eacute;cision, calibration du ton.</p>
+        </a>
+        <a class="nav-card" href="Brand-v4-scenarios.html">
+            <h4>3 Sc&eacute;narios de Tonalit&eacute;</h4>
+            <p>Ton Produit, &Eacute;ducatif, Campagne.</p>
+        </a>
+        <a class="nav-card" href="Brand-v4-voice-chart.html">
+            <h4>Brand Voice Cheat Sheet</h4>
+            <p>R&eacute;f&eacute;rence rapide pour la communication.</p>
+        </a>
+        <a class="nav-card" href="Brand-v4-charte-produit.html">
+            <h4>Charte de Langage Produit</h4>
+            <p>R&egrave;gles et template universel des fiches.</p>
+        </a>
+        <a class="nav-card" href="Brand-v4-homepage.html">
+            <h4>Structure Homepage</h4>
+            <p>Architecture de la page d'accueil.</p>
+        </a>
+        <a class="nav-card" href="Brand-v4-landing.html">
+            <h4>Template Landing Page</h4>
+            <p>Structure de conversion optimis&eacute;e.</p>
+        </a>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <p>Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Synth&egrave;se strat&eacute;gique 2026</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

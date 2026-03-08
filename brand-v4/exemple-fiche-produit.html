@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formule Sucre &mdash; Wu Wei Jiang Tang Tang &mdash; Calebasse</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+        .hl-bold { font-weight: 700; color: var(--primary); }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        ul ul { margin-top: 10px; margin-left: 14px; }
+        ul ul li::before {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            top: 11px;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Asset row ── */
+        .asset-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .asset {
+            background: rgba(44,85,48,0.04);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 12px;
+            padding: 22px;
+        }
+        .asset .label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .asset .value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.08rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .asset .note {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green { background: var(--primary); color: white; }
+        .tag-gold  { background: var(--accent); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* ── System table ── */
+        .sys-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            border-radius: 12px; overflow: hidden;
+        }
+        .sys-table th {
+            background: var(--primary); color: white;
+            padding: 12px 18px; text-align: left;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sys-table td {
+            padding: 12px 18px; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .sys-table tr:nth-child(even) td { background: rgba(44,85,48,0.03); }
+        .sys-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ══════════════════════════════════════════════
+           PRODUCT PAGE SPECIFIC STYLES
+           ══════════════════════════════════════════════ */
+
+        /* ── Product Hero ── */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .product-image-placeholder {
+            background: linear-gradient(135deg, rgba(44,85,48,0.08) 0%, rgba(212,165,116,0.12) 100%);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 16px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+        .product-image-placeholder .img-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+        .product-image-placeholder .img-label {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+        .product-info .product-category {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .product-info .product-category .breadcrumb {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+        .product-info .product-category .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .product-info .product-category .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .product-info h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 4px;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .product-info .chinese-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .product-info .price {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        .product-info .short-desc {
+            font-size: 1.02rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+        .product-info .benefits-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .product-info .stock-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 22px;
+        }
+        .product-info .stock-status .dot {
+            width: 10px; height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        .btn-add-cart {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(44,85,48,0.3);
+            letter-spacing: 0.5px;
+        }
+        .btn-add-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(44,85,48,0.4);
+        }
+
+        /* ── Ingredient card ── */
+        .ingredient-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ingredient-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .ingredient-card .ingredient-name-zh {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .ingredient-card h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin: 0 0 6px 0;
+        }
+        .ingredient-card .ingredient-latin {
+            font-size: 0.82rem;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .ingredient-card .ingredient-dosage {
+            display: inline-block;
+            background: rgba(44,85,48,0.08);
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .ingredient-card p {
+            color: var(--text-light);
+            font-size: 0.94rem;
+            margin: 0;
+        }
+
+        /* ── Timeline steps ── */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .timeline-step {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .timeline-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .timeline-step:nth-child(2) { border-top-color: var(--accent); }
+        .timeline-step:nth-child(3) { border-top-color: var(--primary-dark); }
+        .timeline-step .step-period {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .timeline-step h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin: 0 0 10px 0;
+        }
+        .timeline-step p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            margin: 0;
+        }
+
+        /* ── Related products ── */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .related-product {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .related-product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        .related-product .related-img {
+            width: 70px; height: 70px;
+            background: rgba(44,85,48,0.08);
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+        .related-product h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1rem;
+            margin: 0 0 4px 0;
+        }
+        .related-product .related-fn {
+            font-size: 0.78rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .related-product .related-price {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ── Precautions ── */
+        .precaution {
+            background: rgba(212,165,116,0.06);
+            border: 1px solid rgba(212,165,116,0.2);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 12px 0;
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section { padding: 25px; }
+            .product-hero { grid-template-columns: 1fr; }
+            .product-info h2 { font-size: 1.6rem; }
+            .cards { grid-template-columns: 1fr; }
+            .asset-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .timeline { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.6rem; }
+            .product-info .price { font-size: 1.8rem; }
+            .btn-add-cart { width: 100%; text-align: center; }
+        }
+
+        /* ── Print ── */
+        @media print {
+            body { background: white; }
+            header { background: var(--primary); }
+            section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .btn-add-cart { box-shadow: none; }
+            .card, .ingredient-card, .timeline-step { box-shadow: none; border: 1px solid #ddd; }
+            .related-grid { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Formule Sucre</h1>
+    <p class="slogan">L'Art de l'&Eacute;quilibre</p>
+    <p class="subtitle">Wu Wei Jiang Tang Tang &mdash; &#20116;&#21619;&#38477;&#31958;&#27748;</p>
+    <span class="doc-type">Fiche produit</span>
+</header>
+
+<div class="container">
+
+<a class="back-link" href="Brand-Strategie-v4.html">&larr; Retour &agrave; la Plateforme</a>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 1 — PRODUCT HERO
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <div class="product-hero">
+        <div class="product-image-placeholder">
+            <div class="img-icon">&#127811;</div>
+            <div class="img-label">Image produit</div>
+            <div style="margin-top:12px; font-size:0.82rem; color:var(--text-light); opacity:0.5;">Formule Sucre &mdash; 60 g&eacute;lules</div>
+        </div>
+        <div class="product-info">
+            <div class="product-category">
+                <span class="breadcrumb"><a href="#">Sant&eacute; cardiovasculaire</a> &rsaquo; <a href="#">&Eacute;quilibre du sucre</a></span>
+            </div>
+            <h2>Formule Sucre</h2>
+            <div class="chinese-name">Wu Wei Jiang Tang Tang &mdash; &#20116;&#21619;&#38477;&#31958;&#27748;</div>
+            <div class="price">38,90&nbsp;&euro;</div>
+            <p class="short-desc">Compl&eacute;ment alimentaire compos&eacute; de 5 plantes chinoises reconnues en m&eacute;decine chinoise pour leur action sur le sucre. Cette formule accompagne l'organisme dans sa capacit&eacute; naturelle &agrave; r&eacute;guler le glucose.</p>
+            <div class="benefits-tags">
+                <span class="tag tag-green">Circulation sanguine</span>
+                <span class="tag tag-green">&Eacute;quilibre du sucre</span>
+                <span class="tag tag-outline">Glucose normal</span>
+            </div>
+            <div class="stock-status">
+                <span class="dot"></span>
+                En stock
+            </div>
+            <br>
+            <button class="btn-add-cart">Ajouter au panier</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 2 — COMPRENDRE LE DÉSÉQUILIBRE
+     Niveau 1 : Le déséquilibre expliqué
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>Comprendre le d&eacute;s&eacute;quilibre</h2>
+
+    <h3>Pourquoi le sucre fluctue</h3>
+
+    <p>En M&eacute;decine Traditionnelle Chinoise, l'instabilit&eacute; de la glyc&eacute;mie n'est pas consid&eacute;r&eacute;e comme un probl&egrave;me isol&eacute;. Elle refl&egrave;te un d&eacute;s&eacute;quilibre plus profond, impliquant notamment une <span class="hl">d&eacute;ficience du Qi</span> &mdash; en particulier le Qi de la Rate &mdash; et une <span class="hl">insuffisance du Yin</span>.</p>
+
+    <div class="two-col" style="margin-top:25px;">
+        <div class="col-box">
+            <h4>D&eacute;ficience du Qi de la Rate</h4>
+            <p>La Rate, en MTC, est responsable de la transformation et du transport des nutriments. Lorsque son &eacute;nergie s'affaiblit, l'organisme peine &agrave; distribuer et r&eacute;guler correctement l'&eacute;nergie issue de l'alimentation.</p>
+        </div>
+        <div class="col-box">
+            <h4>Insuffisance du Yin</h4>
+            <p>Le Yin repr&eacute;sente les fluides, la fra&icirc;cheur et la substance nourricière du corps. Son insuffisance peut entra&icirc;ner une chaleur interne et une difficult&eacute; pour l'organisme &agrave; maintenir un &eacute;quilibre m&eacute;tabolique stable.</p>
+        </div>
+    </div>
+
+    <div class="statement">
+        <p>Le sympt&ocirc;me signale un d&eacute;s&eacute;quilibre syst&eacute;mique, pas un probl&egrave;me m&eacute;tabolique isol&eacute;.</p>
+    </div>
+
+    <div class="flow" style="font-size:1rem; margin: 28px 0;">
+        <span class="step">D&eacute;ficience du Qi</span>
+        <span class="arrow">+</span>
+        <span class="step">Insuffisance du Yin</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">D&eacute;r&eacute;gulation &eacute;nerg&eacute;tique</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">Instabilit&eacute; glyc&eacute;mique</span>
+    </div>
+
+    <div class="box-gold">
+        <p>Comprendre l'origine du d&eacute;s&eacute;quilibre est la premi&egrave;re &eacute;tape vers un r&eacute;&eacute;quilibrage durable. C'est cette lecture globale qui distingue l'approche de la pharmacop&eacute;e chinoise.</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 3 — LA FORMULE ET SON RÔLE
+     Niveau 2 : Le rôle de la formule
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>La formule et son r&ocirc;le</h2>
+
+    <p>Wu Wei Jiang Tang Tang associe <span class="hl-bold">5 plantes</span> s&eacute;lectionn&eacute;es selon la logique de la pharmacop&eacute;e chinoise. Chacune participe &agrave; soutenir un aspect sp&eacute;cifique de l'&eacute;quilibre interne. Ensemble, elles accompagnent l'organisme vers une r&eacute;gulation plus harmonieuse.</p>
+
+    <h3>Les 5 plantes de la formule</h3>
+
+    <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+        <!-- Huang Qi -->
+        <div class="ingredient-card">
+            <div class="ingredient-name-zh">Huang Qi &mdash; &#40644;&#33450;</div>
+            <h4>Astragale</h4>
+            <div class="ingredient-latin">Astragalus membranaceus</div>
+            <span class="ingredient-dosage">900 mg</span>
+            <p>Tonifie le Qi et soutient l'&eacute;nergie de la Rate. L'Astragale contribue &agrave; renforcer la capacit&eacute; de l'organisme &agrave; transformer et distribuer l'&eacute;nergie de mani&egrave;re &eacute;quilibr&eacute;e.</p>
+        </div>
+
+        <!-- Cang Zhu -->
+        <div class="ingredient-card" style="border-top-color: var(--accent);">
+            <div class="ingredient-name-zh">Cang Zhu &mdash; &#33485;&#26415;</div>
+            <h4>Atractylode lanc&eacute;e</h4>
+            <div class="ingredient-latin">Atractylodes lancea</div>
+            <span class="ingredient-dosage">600 mg</span>
+            <p>Renforce la fonction de transport de la Rate. L'Atractylode favorise la capacit&eacute; du corps &agrave; mobiliser les fluides et &agrave; maintenir un m&eacute;tabolisme harmonieux.</p>
+        </div>
+
+        <!-- Ren Shen -->
+        <div class="ingredient-card" style="border-top-color: var(--primary-dark);">
+            <div class="ingredient-name-zh">Ren Shen &mdash; &#20154;&#21442;</div>
+            <h4>Ginseng</h4>
+            <div class="ingredient-latin">Panax ginseng</div>
+            <span class="ingredient-dosage">300 mg</span>
+            <p>Soutient le Qi profond et participe &agrave; la vitalit&eacute; fondamentale de l'organisme. Le Ginseng aide &agrave; maintenir un niveau d'&eacute;nergie stable et durable.</p>
+        </div>
+
+        <!-- Sheng Di Huang -->
+        <div class="ingredient-card" style="border-top-color: var(--accent);">
+            <div class="ingredient-name-zh">Sheng Di Huang &mdash; &#29983;&#22320;&#40644;</div>
+            <h4>Rehmannia</h4>
+            <div class="ingredient-latin">Rehmannia glutinosa</div>
+            <span class="ingredient-dosage">600 mg</span>
+            <p>Nourrit le Yin et contribue &agrave; apaiser la chaleur interne. Le Rehmannia accompagne le corps dans le maintien de ses fluides essentiels et de sa fra&icirc;cheur naturelle.</p>
+        </div>
+
+        <!-- Xuan Shen -->
+        <div class="ingredient-card">
+            <div class="ingredient-name-zh">Xuan Shen &mdash; &#29572;&#21442;</div>
+            <h4>Figuier de Chine</h4>
+            <div class="ingredient-latin">Scrophularia ningpoensis</div>
+            <span class="ingredient-dosage">600 mg</span>
+            <p>Soutient l'&eacute;quilibre des fluides et nourrit le Yin. La Scrophulaire participe &agrave; maintenir l'hydratation interne et favorise une r&eacute;gulation harmonieuse.</p>
+        </div>
+
+    </div>
+
+    <div class="statement-gold">
+        <p>Chaque plante soutient un aspect de l'&eacute;quilibre. Ensemble, elles forment une synergie coh&eacute;rente &mdash; au service de l'harmonie du corps, pas contre le sympt&ocirc;me.</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 4 — UN RÉÉQUILIBRAGE PROGRESSIF
+     Niveau 3 : L'action progressive
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>Un r&eacute;&eacute;quilibrage progressif</h2>
+
+    <p>L'approche de la pharmacop&eacute;e chinoise s'inscrit dans le temps long. Le corps a son propre rythme de r&eacute;&eacute;quilibrage. Formule Sucre accompagne ce processus naturel, progressivement, sans brusquer l'organisme.</p>
+
+    <div class="timeline">
+        <div class="timeline-step">
+            <div class="step-period">Premi&egrave;res semaines</div>
+            <h4>Soutien initial</h4>
+            <p>Le corps commence &agrave; recevoir le soutien des plantes. Les m&eacute;canismes internes se mettent en mouvement. C'est une phase d'adaptation o&ugrave; l'organisme int&egrave;gre progressivement la formule.</p>
+        </div>
+        <div class="timeline-step">
+            <div class="step-period">1 &agrave; 2 mois</div>
+            <h4>Installation de l'&eacute;quilibre</h4>
+            <p>Le Qi de la Rate retrouve progressivement sa capacit&eacute; de r&eacute;gulation. Le Yin se reconstitue. L'&eacute;quilibre interne s'installe de mani&egrave;re plus stable.</p>
+        </div>
+        <div class="timeline-step">
+            <div class="step-period">3 mois et au-del&agrave;</div>
+            <h4>Stabilit&eacute; durable</h4>
+            <p>L'organisme retrouve ses fonctions naturelles de r&eacute;gulation. L'&eacute;quilibre, soutenu dans la dur&eacute;e, se maintient avec coh&eacute;rence et stabilit&eacute;.</p>
+        </div>
+    </div>
+
+    <div class="box-green">
+        <p>La r&eacute;gularit&eacute; est essentielle. Un usage constant et r&eacute;gulier permet au corps de r&eacute;pondre progressivement et durablement. Le r&eacute;sultat s'inscrit dans la constance, pas dans l'imm&eacute;diatet&eacute;.</p>
+    </div>
+
+    <div class="flow" style="font-size:1rem; margin: 25px 0;">
+        <span class="step">R&eacute;gularit&eacute;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Patience</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Coh&eacute;rence</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">&Eacute;quilibre durable</span>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 5 — LE RÉSULTAT NATUREL
+     Niveau 4 : Le résultat naturel
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>Le r&eacute;sultat naturel</h2>
+
+    <div class="statement">
+        <p style="font-size:1.3rem; font-style:normal; font-weight:600;">Lorsque l'&eacute;quilibre interne est soutenu, le corps retrouve sa capacit&eacute; naturelle &agrave; r&eacute;guler le glucose.</p>
+    </div>
+
+    <p style="text-align:center; max-width:700px; margin:25px auto; font-size:1.02rem; color:var(--text-light);">La sant&eacute; n'est pas un objectif &agrave; atteindre par la force. C'est une cons&eacute;quence de l'&eacute;quilibre retrouv&eacute;. Lorsque le Qi circule librement, lorsque le Yin est nourri, lorsque la Rate remplit pleinement sa fonction de transformation &mdash; l'organisme retrouve sa coh&eacute;rence.</p>
+
+    <div class="two-col">
+        <div class="col-box" style="text-align:center;">
+            <h4 style="margin-top:0; text-align:center;">Ce que la formule accompagne</h4>
+            <ul style="text-align:left;">
+                <li>Soutient la <strong>circulation sanguine</strong></li>
+                <li>Contribue &agrave; <strong>&eacute;quilibrer le taux de sucre</strong></li>
+                <li>Aide &agrave; maintenir un <strong>taux de glucose normal</strong></li>
+                <li>Favorise la <strong>capacit&eacute; naturelle de r&eacute;gulation</strong> de l'organisme</li>
+            </ul>
+        </div>
+        <div class="col-box" style="text-align:center;">
+            <h4 style="margin-top:0; text-align:center;">Ce que la formule ne promet pas</h4>
+            <ul style="text-align:left;">
+                <li>Un r&eacute;sultat imm&eacute;diat ou spectaculaire</li>
+                <li>Un remplacement de suivi m&eacute;dical</li>
+                <li>Une transformation radicale du m&eacute;tabolisme</li>
+                <li>Une action isol&eacute;e sur un seul param&egrave;tre</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="statement-gold">
+        <p>La sant&eacute; &eacute;merge de l'&eacute;quilibre. Formule Sucre accompagne le corps vers cet &eacute;quilibre &mdash; sans forcer, sans brusquer, avec la patience d'une tradition mill&eacute;naire.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 6 — INFORMATIONS PRATIQUES
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>Composition et utilisation</h2>
+
+    <h3>Composition d&eacute;taill&eacute;e</h3>
+    <p style="text-align:center; color:var(--text-light); margin-bottom:20px;">Pour 6 g&eacute;lules (dose journali&egrave;re) = 3 g</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>Ingr&eacute;dient</th>
+            <th>Nom chinois</th>
+            <th>Nom latin</th>
+            <th>Dosage</th>
+        </tr>
+        <tr>
+            <td>Astragale</td>
+            <td>Huang Qi</td>
+            <td><em>Astragalus membranaceus</em></td>
+            <td>900 mg</td>
+        </tr>
+        <tr>
+            <td>Atractylode lanc&eacute;e</td>
+            <td>Cang Zhu</td>
+            <td><em>Atractylodes lancea</em></td>
+            <td>600 mg</td>
+        </tr>
+        <tr>
+            <td>Ginseng</td>
+            <td>Ren Shen</td>
+            <td><em>Panax ginseng</em></td>
+            <td>300 mg</td>
+        </tr>
+        <tr>
+            <td>Rehmannia</td>
+            <td>Sheng Di Huang</td>
+            <td><em>Rehmannia glutinosa</em></td>
+            <td>600 mg</td>
+        </tr>
+        <tr>
+            <td>Figuier de Chine</td>
+            <td>Xuan Shen</td>
+            <td><em>Scrophularia ningpoensis</em></td>
+            <td>600 mg</td>
+        </tr>
+    </table>
+
+    <h3>Conseils d'utilisation</h3>
+
+    <div class="asset-grid">
+        <div class="asset">
+            <div class="label">Posologie</div>
+            <div class="value">3 g&eacute;lules matin et soir</div>
+            <div class="note">Soit 6 g&eacute;lules par jour, avec de l'eau, en dehors des repas.</div>
+        </div>
+        <div class="asset">
+            <div class="label">Dur&eacute;e recommand&eacute;e</div>
+            <div class="value">Cure de 2 &agrave; 3 mois minimum</div>
+            <div class="note">La constance est essentielle. Un usage r&eacute;gulier permet au corps de r&eacute;pondre progressivement.</div>
+        </div>
+    </div>
+
+    <h3>Pr&eacute;cautions</h3>
+
+    <div class="precaution">
+        <strong>Ce compl&eacute;ment alimentaire ne se substitue pas &agrave; une alimentation vari&eacute;e et &eacute;quilibr&eacute;e ni &agrave; un mode de vie sain.</strong> Ne pas d&eacute;passer la dose journali&egrave;re recommand&eacute;e. Tenir hors de port&eacute;e des jeunes enfants. Conserver &agrave; l'abri de la chaleur et de l'humidit&eacute;.
+    </div>
+    <div class="precaution">
+        <strong>Consultez votre m&eacute;decin</strong> si vous suivez un traitement m&eacute;dical, si vous &ecirc;tes enceinte ou allaitante, ou si vous avez un diagnostic m&eacute;dical li&eacute; &agrave; la glyc&eacute;mie. Ce produit ne remplace pas un suivi m&eacute;dical adapt&eacute;.
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION 7 — PRODUITS ASSOCIÉS
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>Formules associ&eacute;es</h2>
+
+    <p style="text-align:center; color:var(--text-light); margin-bottom:10px;">D'autres formules qui peuvent accompagner votre d&eacute;marche d'&eacute;quilibre</p>
+
+    <div class="related-grid">
+        <a href="#" class="related-product">
+            <div class="related-img" style="background:rgba(44,85,48,0.08);">&#127811;</div>
+            <h4>Formule Circulation</h4>
+            <div class="related-fn">&Eacute;quilibre cardiovasculaire</div>
+            <p style="font-size:0.88rem; color:var(--text-light); margin-bottom:12px;">Soutient la circulation sanguine et favorise la fluidit&eacute; naturelle du sang.</p>
+            <div class="related-price">34,90&nbsp;&euro;</div>
+        </a>
+        <a href="#" class="related-product">
+            <div class="related-img" style="background:rgba(212,165,116,0.12);">&#127807;</div>
+            <h4>Formule Digestion</h4>
+            <div class="related-fn">&Eacute;quilibre digestif</div>
+            <p style="font-size:0.88rem; color:var(--text-light); margin-bottom:12px;">Accompagne la Rate dans sa fonction de transformation et soutient le transit naturel.</p>
+            <div class="related-price">36,90&nbsp;&euro;</div>
+        </a>
+        <a href="#" class="related-product">
+            <div class="related-img" style="background:rgba(30,58,34,0.08);">&#9728;</div>
+            <h4>Formule Vitalit&eacute;</h4>
+            <div class="related-fn">&Eacute;quilibre &eacute;nerg&eacute;tique</div>
+            <p style="font-size:0.88rem; color:var(--text-light); margin-bottom:12px;">Soutient le Qi et favorise un &eacute;lan vital stable et durable, sans sur-stimulation.</p>
+            <div class="related-price">38,90&nbsp;&euro;</div>
+        </a>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SIGNATURE
+     ═══════════════════════════════════════════════════ -->
+<section style="text-align:center; padding:45px 38px;">
+    <div class="statement" style="margin:0;">
+        <p style="font-size:1.25rem; font-style:normal; font-weight:400; line-height:1.8;">Formule Sucre s'inscrit dans l'Art de l'&Eacute;quilibre.<br>Chaque ingr&eacute;dient, chaque dosage, chaque conseil a &eacute;t&eacute; pens&eacute; pour accompagner le corps vers son &eacute;quilibre naturel &mdash; sans forcer, sans brusquer, avec la patience d'une tradition mill&eacute;naire.</p>
+    </div>
+    <div style="margin-top:30px;">
+        <button class="btn-add-cart">Ajouter au panier &mdash; 38,90&nbsp;&euro;</button>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <p>Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise depuis 1997</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

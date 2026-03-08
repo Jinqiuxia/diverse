@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Sc&eacute;narios de Tonalit&eacute; &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+
+        /* ── Part dividers ── */
+        .part-header {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+        .part-header .part-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .part-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .part-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+        .hl-bold { font-weight: 700; color: var(--primary); }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        ul ul { margin-top: 10px; margin-left: 14px; }
+        ul ul li::before {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            top: 11px;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+        .box-red {
+            background: rgba(180,68,68,0.07);
+            border: 1px solid rgba(180,68,68,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-red p { margin: 0; font-weight: 600; color: var(--red); font-size: 1.02rem; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green { background: var(--primary); color: white; }
+        .tag-gold  { background: var(--accent); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+        .tag-red   { background: var(--red); color: white; }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── Do / Don't ── */
+        .do-dont {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            margin: 20px 0; border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .do-col, .dont-col { padding: 24px; }
+        .do-col { background: rgba(44,85,48,0.06); border-right: 1px solid var(--border); }
+        .dont-col { background: rgba(180,68,68,0.04); }
+        .do-col h4 { color: var(--primary); margin-top: 0; }
+        .dont-col h4 { color: var(--red); margin-top: 0; }
+        .dont-col li::before { background: var(--red); }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* ── System table ── */
+        .sys-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            border-radius: 12px; overflow: hidden;
+        }
+        .sys-table th {
+            background: var(--primary); color: white;
+            padding: 12px 18px; text-align: left;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sys-table td {
+            padding: 12px 18px; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .sys-table tr:nth-child(even) td { background: rgba(44,85,48,0.03); }
+        .sys-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        /* ── Calibration bar ── */
+        .calibration { margin: 18px 0; }
+        .calibration-row {
+            display: flex; align-items: center; margin-bottom: 8px;
+        }
+        .calibration-label {
+            width: 130px; font-size: 0.9rem; font-weight: 600; color: var(--text);
+            flex-shrink: 0;
+        }
+        .calibration-bar {
+            flex: 1; height: 10px; background: var(--border);
+            border-radius: 5px; position: relative; overflow: hidden;
+        }
+        .calibration-fill {
+            height: 100%; border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+        .calibration-value {
+            width: 50px; text-align: right; font-size: 0.85rem;
+            font-weight: 700; color: var(--primary); flex-shrink: 0; margin-left: 10px;
+        }
+        .calibration-note {
+            font-size: 0.8rem; color: var(--text-light); margin-top: 2px; margin-bottom: 12px;
+            padding-left: 130px;
+        }
+
+        /* ── Scenario section styling ── */
+        .scenario-section {
+            border-left: 5px solid var(--primary);
+        }
+        .scenario-section.accent-border {
+            border-left-color: var(--accent);
+        }
+        .scenario-section.dark-border {
+            border-left-color: var(--primary-dark);
+        }
+        .scenario-number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            opacity: 0.15;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: -10px;
+        }
+        .scenario-number.accent { color: var(--accent); }
+        .scenario-number.dark { color: var(--primary-dark); }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section { padding: 25px; }
+            .cards { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .do-col { border-right: none; border-bottom: 1px solid var(--border); }
+            .calibration-label { width: 100px; font-size: 0.82rem; }
+            .calibration-note { padding-left: 100px; }
+        }
+        @media print {
+            body { background: white; }
+            header { background: var(--primary); }
+            section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .part-header { break-before: page; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>4 Sc&eacute;narios de Tonalit&eacute;</h1>
+    <p class="slogan">L'Art de l'&Eacute;quilibre</p>
+    <p class="subtitle">Calebasse &mdash; D&eacute;clinaison op&eacute;rationnelle de la voix de marque</p>
+    <span class="doc-type">Document strat&eacute;gique interne</span>
+</header>
+
+<div class="container">
+
+<a href="Brand-Strategie-v4.html" class="back-link">&larr; Retour &agrave; la Plateforme</a>
+
+
+<!-- ═══════════════════════════════════════════════════
+     INTRODUCTION
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>Principe directeur</h2>
+    <p>La voix de marque Calebasse doit &ecirc;tre <span class="hl">consistante</span> mais <span class="hl-accent">modulable</span>. Le ton reste toujours align&eacute; avec l'archetype du Sage et les valeurs de la plateforme de marque, mais il s'adapte au contexte de communication.</p>
+
+    <div class="statement">
+        <p>Une voix. Quatre registres. Toujours ma&icirc;tris&eacute;e.</p>
+    </div>
+
+    <p style="margin-top:18px;">Quatre sc&eacute;narios fondamentaux structurent l'expression de Calebasse :</p>
+
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="card">
+            <h3>&numero; Ton Produit</h3>
+            <p>Fiche produit, packaging, page de vente</p>
+        </div>
+        <div class="card accent">
+            <h3>&numero; Ton &Eacute;ducatif</h3>
+            <p>Blog, newsletter, contenu social &eacute;ducatif</p>
+        </div>
+        <div class="card dark">
+            <h3>&numero; Ton Campagne</h3>
+            <p>Campagne saisonni&egrave;re, coffret, temps forts</p>
+        </div>
+        <div class="card" style="border-top-color: #8b5a2b;">
+            <h3 style="color:#8b5a2b;">&numero; Ton Promotionnel</h3>
+            <p>Offres, ads conversion, email promo, landing promo</p>
+        </div>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     SCÉNARIO 1 — TON PRODUIT
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Sc&eacute;nario 1</span>
+    <h2>Ton Produit</h2>
+    <p>Fiche produit &bull; Packaging &bull; Page de vente</p>
+</div>
+
+<section class="scenario-section">
+    <h2>Objectif &amp; Archetype</h2>
+
+    <div class="two-col">
+        <div class="col-box" style="text-align:center;">
+            <h4 style="margin-top:0;">Objectif</h4>
+            <p style="font-weight:600; color:var(--primary); font-size:1.05rem; margin-top:10px;">Rassurer, expliquer, structurer, convaincre par la logique</p>
+        </div>
+        <div class="col-box" style="text-align:center; border:2px solid var(--primary);">
+            <h4 style="margin-top:0;">Archetype dominant</h4>
+            <p style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--primary); margin:10px 0; font-weight:600;">Le Sage</p>
+            <p style="font-size:0.9rem; color:var(--text-light);">Dominant &mdash; posture d'autorit&eacute; calme</p>
+        </div>
+    </div>
+
+    <h3>Ton</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; justify-content:center;">
+        <span class="tag tag-green">Pr&eacute;cis</span>
+        <span class="tag tag-green">Clair</span>
+        <span class="tag tag-green">Structur&eacute;</span>
+        <span class="tag tag-green">Sans emphase</span>
+        <span class="tag tag-green">Factuel mais pos&eacute;</span>
+    </div>
+
+    <h3>Formule d'expression</h3>
+    <div class="flow" style="font-size:1rem; margin: 20px 0;">
+        <span class="step">D&eacute;s&eacute;quilibre expliqu&eacute;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Logique MTC</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Action progressive</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">R&eacute;sultat naturel</span>
+    </div>
+
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Vocabulaire approuv&eacute;</h4>
+            <ul>
+                <li>Soutenir</li>
+                <li>Accompagner</li>
+                <li>Contribuer</li>
+                <li>Favoriser</li>
+                <li>R&eacute;&eacute;quilibrer</li>
+                <li>Progressivement</li>
+                <li>Durablement</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Vocabulaire &agrave; &eacute;viter</h4>
+            <ul>
+                <li>Traiter</li>
+                <li>Gu&eacute;rir</li>
+                <li>Transformer radicalement</li>
+                <li>Combattre / Lutter contre</li>
+            </ul>
+            <h4 style="margin-top:12px;">Usage contextuel</h4>
+            <ul style="color:#8b5a2b;">
+                <li>&Eacute;liminer <span style="font-size:0.85rem;">(OK pour action concr&egrave;te : toxines)</span></li>
+                <li>Booster <span style="font-size:0.85rem;">(OK en promo ou fonctionnel pr&eacute;cis)</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Calibration du ton</h3>
+    <div class="calibration">
+        <div class="calibration-row">
+            <span class="calibration-label">Stimulation</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:20%;"></div></div>
+            <span class="calibration-value">2 / 10</span>
+        </div>
+        <div class="calibration-note">Max 2 en fiche produit &mdash; jamais de stimulation &eacute;motionnelle</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Urgence</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:10%; background:linear-gradient(90deg, var(--red) 0%, #c66 100%);"></div></div>
+            <span class="calibration-value">1 / 10</span>
+        </div>
+        <div class="calibration-note">Max 1 en fiche produit &mdash; aucune pression temporelle (jusqu'&agrave; 4 en contexte promotionnel)</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Combat</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:10%; background:linear-gradient(90deg, var(--red) 0%, #c66 100%);"></div></div>
+            <span class="calibration-value">1 / 10</span>
+        </div>
+        <div class="calibration-note">Max 1 &mdash; z&eacute;ro langage de combat destructeur</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Performance</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:30%;"></div></div>
+            <span class="calibration-value">3 / 10</span>
+        </div>
+        <div class="calibration-note">Max 3 &mdash; discours progressif, jamais spectaculaire</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Sagesse</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:80%; background:linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);"></div></div>
+            <span class="calibration-value">8 / 10</span>
+        </div>
+        <div class="calibration-note">Curseur principal &mdash; le Sage rassure par la structure et la logique</div>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     SCÉNARIO 2 — TON ÉDUCATIF
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Sc&eacute;nario 2</span>
+    <h2>Ton &Eacute;ducatif</h2>
+    <p>Blog &bull; Newsletter &bull; Contenu social &eacute;ducatif</p>
+</div>
+
+<section class="scenario-section accent-border">
+    <h2>Objectif &amp; Archetype</h2>
+
+    <div class="two-col">
+        <div class="col-box" style="text-align:center;">
+            <h4 style="margin-top:0;">Objectif</h4>
+            <p style="font-weight:600; color:var(--primary); font-size:1.05rem; margin-top:10px;">Transmettre, &eacute;clairer, faire comprendre, cr&eacute;er un moment de <em>&laquo;&nbsp;ah, je comprends&nbsp;&raquo;</em></p>
+        </div>
+        <div class="col-box" style="text-align:center; border:2px solid var(--accent);">
+            <h4 style="margin-top:0;">Archetype dominant</h4>
+            <p style="font-family:'Playfair Display',serif; font-size:1.3rem; color:#8b5a2b; margin:10px 0; font-weight:600;">Le Sage pur</p>
+            <p style="font-size:0.9rem; color:var(--text-light);">Posture p&eacute;dagogique &mdash; transmission et &eacute;clairage</p>
+        </div>
+    </div>
+
+    <h3>Ton</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; justify-content:center;">
+        <span class="tag tag-gold">P&eacute;dagogique</span>
+        <span class="tag tag-gold">Culturel</span>
+        <span class="tag tag-gold">Explicatif</span>
+        <span class="tag tag-gold">Structur&eacute;</span>
+        <span class="tag tag-gold">Calme</span>
+    </div>
+
+    <h3>Formule d'expression</h3>
+    <div class="flow" style="font-size:1rem; margin: 20px 0;">
+        <span class="step">Probl&egrave;me courant</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Lecture MTC</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Logique d'&eacute;quilibre</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(212,165,116,0.3); font-weight:700;">Application simple</span>
+    </div>
+
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Vocabulaire approuv&eacute;</h4>
+            <ul>
+                <li>Selon la MTC</li>
+                <li>D&eacute;s&eacute;quilibre</li>
+                <li>Coh&eacute;rence</li>
+                <li>Logique interne</li>
+                <li>Relation entre&hellip;</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Vocabulaire interdit</h4>
+            <ul>
+                <li>Dramatisation</li>
+                <li>Storytelling &eacute;motionnel excessif</li>
+                <li>Effet &laquo;&nbsp;r&eacute;v&eacute;lation choc&nbsp;&raquo;</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Calibration du ton</h3>
+    <div class="calibration">
+        <div class="calibration-row">
+            <span class="calibration-label">Stimulation</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:10%;"></div></div>
+            <span class="calibration-value">1 / 10</span>
+        </div>
+        <div class="calibration-note">Interdit au-dessus de 1 &mdash; le contenu &eacute;duque, il n'excite pas</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Urgence</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:0%; background:linear-gradient(90deg, var(--red) 0%, #c66 100%);"></div></div>
+            <span class="calibration-value">0 / 10</span>
+        </div>
+        <div class="calibration-note">Strictement interdit &mdash; z&eacute;ro urgence</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Combat</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:0%; background:linear-gradient(90deg, var(--red) 0%, #c66 100%);"></div></div>
+            <span class="calibration-value">0 / 10</span>
+        </div>
+        <div class="calibration-note">Strictement interdit &mdash; z&eacute;ro langage de combat</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Performance</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:20%;"></div></div>
+            <span class="calibration-value">2 / 10</span>
+        </div>
+        <div class="calibration-note">Interdit au-dessus de 2 &mdash; on explique, on ne vante pas</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Sagesse</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:95%; background:linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);"></div></div>
+            <span class="calibration-value">9-10 / 10</span>
+        </div>
+        <div class="calibration-note">Curseur au maximum &mdash; le Sage dans sa forme la plus pure</div>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     SCÉNARIO 3 — TON CAMPAGNE SAISONNIÈRE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Sc&eacute;nario 3</span>
+    <h2>Ton Campagne Saisonni&egrave;re</h2>
+    <p>Printemps &bull; Nouvel An chinois &bull; Coffret &bull; Temps forts</p>
+</div>
+
+<section class="scenario-section dark-border">
+    <h2>Objectif &amp; Archetype</h2>
+
+    <div class="two-col">
+        <div class="col-box" style="text-align:center;">
+            <h4 style="margin-top:0;">Objectif</h4>
+            <p style="font-weight:600; color:var(--primary); font-size:1.05rem; margin-top:10px;">Inspirer, rythmer, connecter &agrave; la saison, cr&eacute;er une envie douce</p>
+        </div>
+        <div class="col-box" style="text-align:center; border:2px solid var(--primary-dark);">
+            <h4 style="margin-top:0;">Archetypes combin&eacute;s</h4>
+            <p style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--primary-dark); margin:10px 0; font-weight:600;">Le Sage + Le Protecteur</p>
+            <p style="font-size:0.9rem; color:var(--text-light);">Posture inspirante et bienveillante</p>
+        </div>
+    </div>
+
+    <h3>Ton</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; justify-content:center;">
+        <span class="tag tag-outline">Po&eacute;tique mais ma&icirc;tris&eacute;</span>
+        <span class="tag tag-outline">Sensoriel l&eacute;ger</span>
+        <span class="tag tag-outline">Saisonnier</span>
+        <span class="tag tag-outline">Inspirant</span>
+    </div>
+
+    <h3>Formule d'expression</h3>
+    <div class="flow" style="font-size:0.95rem; margin: 20px 0;">
+        <span class="step">Saison</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">&Eacute;nergie dominante</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">D&eacute;s&eacute;quilibre typique</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Rituel propos&eacute;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(30,58,34,0.2); font-weight:700;">Invitation douce</span>
+    </div>
+
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Vocabulaire approuv&eacute;</h4>
+            <ul>
+                <li>Saison</li>
+                <li>Rythme</li>
+                <li>Transition</li>
+                <li>&Eacute;nergie</li>
+                <li>Nourrir / Clarifier / Apaiser</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Vocabulaire &agrave; &eacute;viter</h4>
+            <ul>
+                <li>Promo agressive</li>
+                <li>Fausse raret&eacute; / Fausse urgence</li>
+                <li>Langage de combat destructeur</li>
+            </ul>
+            <h4 style="margin-top:12px;">Autoris&eacute; en campagne</h4>
+            <ul style="color:#8b5a2b;">
+                <li>Offre temporaire encadr&eacute;e</li>
+                <li>Urgence v&eacute;ridique (date r&eacute;elle)</li>
+                <li>Booster / Stimuler (contexte fonctionnel)</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Calibration du ton</h3>
+    <div class="calibration">
+        <div class="calibration-row">
+            <span class="calibration-label">Stimulation</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:30%;"></div></div>
+            <span class="calibration-value">3 / 10</span>
+        </div>
+        <div class="calibration-note">Max 3 en campagne saisonni&egrave;re &mdash; l&eacute;g&egrave;re inspiration sensorielle permise (jusqu'&agrave; 5 en campagne promo)</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Urgence</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:20%; background:linear-gradient(90deg, var(--accent) 0%, #c6a06a 100%);"></div></div>
+            <span class="calibration-value">2 / 10</span>
+        </div>
+        <div class="calibration-note">Max 2 en campagne saisonni&egrave;re &mdash; saisonnalit&eacute; naturelle (jusqu'&agrave; 5 en campagne promotionnelle encadr&eacute;e)</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Combat</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:10%; background:linear-gradient(90deg, var(--red) 0%, #c66 100%);"></div></div>
+            <span class="calibration-value">1 / 10</span>
+        </div>
+        <div class="calibration-note">Max 1 &mdash; z&eacute;ro langage de combat destructeur</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Performance</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:30%;"></div></div>
+            <span class="calibration-value">3 / 10</span>
+        </div>
+        <div class="calibration-note">Max 3 en campagne saisonni&egrave;re &mdash; suggestion douce (jusqu'&agrave; 5 en campagne promo)</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Sagesse</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:80%; background:linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);"></div></div>
+            <span class="calibration-value">8 / 10</span>
+        </div>
+        <div class="calibration-note">Curseur &eacute;lev&eacute; &mdash; la sagesse guide l'inspiration saisonni&egrave;re</div>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     SCÉNARIO 4 — TON PROMOTIONNEL
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Sc&eacute;nario 4</span>
+    <h2>Ton Promotionnel</h2>
+    <p>Offres &bull; Ads conversion &bull; Email promo &bull; Landing promo</p>
+</div>
+
+<section class="scenario-section" style="border-left: 4px solid #8b5a2b;">
+    <h2>Objectif &amp; Archetype</h2>
+
+    <div class="two-col">
+        <div class="col-box" style="text-align:center;">
+            <h4 style="margin-top:0;">Objectif</h4>
+            <p style="font-weight:600; color:#8b5a2b; font-size:1.05rem; margin-top:10px;">Convertir, proposer un b&eacute;n&eacute;fice clair, cr&eacute;er l'envie d'agir &mdash; dans un cadre premium</p>
+        </div>
+        <div class="col-box" style="text-align:center; border:2px solid #8b5a2b;">
+            <h4 style="margin-top:0;">Archetypes combin&eacute;s</h4>
+            <p style="font-family:'Playfair Display',serif; font-size:1.3rem; color:#8b5a2b; margin:10px 0; font-weight:600;">Le Protecteur + Le Sage</p>
+            <p style="font-size:0.9rem; color:var(--text-light);">Le Protecteur guide l'action &mdash; le Sage l&eacute;gitime l'offre</p>
+        </div>
+    </div>
+
+    <h3>Ton</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; justify-content:center;">
+        <span class="tag" style="background:rgba(212,165,116,0.2); border:1px solid var(--accent); color:#8b5a2b;">Direct</span>
+        <span class="tag" style="background:rgba(212,165,116,0.2); border:1px solid var(--accent); color:#8b5a2b;">Orient&eacute; b&eacute;n&eacute;fice</span>
+        <span class="tag" style="background:rgba(212,165,116,0.2); border:1px solid var(--accent); color:#8b5a2b;">Engageant</span>
+        <span class="tag" style="background:rgba(212,165,116,0.2); border:1px solid var(--accent); color:#8b5a2b;">Premium</span>
+        <span class="tag" style="background:rgba(212,165,116,0.2); border:1px solid var(--accent); color:#8b5a2b;">Confiant</span>
+    </div>
+
+    <h3>Formule d'expression</h3>
+    <div class="flow" style="font-size:0.95rem; margin: 20px 0;">
+        <span class="step">Accroche / B&eacute;n&eacute;fice</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Offre claire</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Preuve de valeur</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(212,165,116,0.35); font-weight:700;">CTA direct</span>
+    </div>
+
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Vocabulaire autoris&eacute;</h4>
+            <ul>
+                <li>Offre d&eacute;couverte</li>
+                <li>Profiter de / B&eacute;n&eacute;ficier de</li>
+                <li>Booster / Stimuler (contexte fonctionnel)</li>
+                <li>&Eacute;liminer (action concr&egrave;te : toxines)</li>
+                <li>&Eacute;dition limit&eacute;e</li>
+                <li>Jusqu'au [date]</li>
+                <li>Livraison offerte</li>
+                <li>Commander / Ajouter au panier</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Vocabulaire interdit</h4>
+            <ul>
+                <li>Fausse urgence / Fausse raret&eacute;</li>
+                <li>Langage de combat destructeur</li>
+                <li>Promesse miraculeuse</li>
+                <li>Superlatifs non justifi&eacute;s</li>
+                <li>Ton alarmiste ou manipulateur</li>
+                <li>D&eacute;nigrement de concurrents</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Calibration du ton</h3>
+    <div class="calibration">
+        <div class="calibration-row">
+            <span class="calibration-label">Stimulation</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:50%; background:linear-gradient(90deg, var(--accent) 0%, #c6a06a 100%);"></div></div>
+            <span class="calibration-value">5 / 10</span>
+        </div>
+        <div class="calibration-note">Jusqu'&agrave; 5 &mdash; engager l'envie sans exc&egrave;s &eacute;motionnel</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Urgence</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:50%; background:linear-gradient(90deg, var(--accent) 0%, #c6a06a 100%);"></div></div>
+            <span class="calibration-value">5 / 10</span>
+        </div>
+        <div class="calibration-note">Jusqu'&agrave; 5 &mdash; urgence encadr&eacute;e et v&eacute;ridique (date r&eacute;elle, &eacute;dition limit&eacute;e)</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Combat</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:10%; background:linear-gradient(90deg, var(--red) 0%, #c66 100%);"></div></div>
+            <span class="calibration-value">1 / 10</span>
+        </div>
+        <div class="calibration-note">Max 1 &mdash; z&eacute;ro langage de combat destructeur, m&ecirc;me en promo</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Performance</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:50%; background:linear-gradient(90deg, var(--accent) 0%, #c6a06a 100%);"></div></div>
+            <span class="calibration-value">5 / 10</span>
+        </div>
+        <div class="calibration-note">Jusqu'&agrave; 5 &mdash; b&eacute;n&eacute;fice tangible, promesse encadr&eacute;e</div>
+
+        <div class="calibration-row">
+            <span class="calibration-label">Sagesse</span>
+            <div class="calibration-bar"><div class="calibration-fill" style="width:60%; background:linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);"></div></div>
+            <span class="calibration-value">6 / 10</span>
+        </div>
+        <div class="calibration-note">Pr&eacute;sent mais en retrait &mdash; la l&eacute;gitimit&eacute; soutient l'offre sans la dominer</div>
+    </div>
+
+    <h3>Exemples on-brand</h3>
+    <div class="box-green">
+        <p style="margin-bottom:10px;"><strong>Email promo :</strong> &laquo;&nbsp;Offre d&eacute;couverte : votre premi&egrave;re formule &agrave; -20%. Retrouvez votre &eacute;quilibre.&nbsp;&raquo;</p>
+        <p style="margin-bottom:10px;"><strong>Social ads :</strong> &laquo;&nbsp;3 formules pour booster l'&eacute;clat de votre peau cet &eacute;t&eacute;. Offre valable jusqu'au 30 juin.&nbsp;&raquo;</p>
+        <p style="margin-bottom:10px;"><strong>Landing promo :</strong> &laquo;&nbsp;&Eacute;dition limit&eacute;e Printemps &mdash; Coffret &Eacute;quilibre : 3 formules essentielles &agrave; prix d&eacute;couverte.&nbsp;&raquo;</p>
+        <p><strong>CTA :</strong> &laquo;&nbsp;Profiter de l'offre&nbsp;&raquo; &bull; &laquo;&nbsp;Commander ma formule&nbsp;&raquo; &bull; &laquo;&nbsp;Essayer maintenant&nbsp;&raquo;</p>
+    </div>
+
+    <h3 style="margin-top:25px;">Exemples off-brand</h3>
+    <div class="box-red">
+        <p style="margin-bottom:10px;">&laquo;&nbsp;&#128293;&#128293;&#128293; DERNI&Egrave;RE CHANCE !!! -50% TOUT DOIT DISPARA&Icirc;TRE !!!&nbsp;&raquo;</p>
+        <p style="margin-bottom:10px;">&laquo;&nbsp;ACHETEZ MAINTENANT avant qu'il ne soit trop tard !!!&nbsp;&raquo;</p>
+        <p>&laquo;&nbsp;R&eacute;sultats miraculeux garantis en 3 jours !&nbsp;&raquo;</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     SYNTHÈSE COMPARATIVE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Synth&egrave;se</span>
+    <h2>Comparaison des Quatre Sc&eacute;narios</h2>
+    <p>Vue d'ensemble pour choisir le bon registre</p>
+</div>
+
+<section>
+    <h2>Tableau comparatif</h2>
+
+    <table class="sys-table">
+        <tr>
+            <th>Sc&eacute;nario</th>
+            <th>Emphasis</th>
+            <th>Temp&eacute;rature &eacute;motionnelle</th>
+            <th>Structure</th>
+        </tr>
+        <tr>
+            <td>Produit</td>
+            <td>Rassurer</td>
+            <td>Mod&eacute;r&eacute;e</td>
+            <td>Tr&egrave;s structur&eacute;e</td>
+        </tr>
+        <tr>
+            <td>&Eacute;ducatif</td>
+            <td>Expliquer</td>
+            <td>Calme</td>
+            <td>Tr&egrave;s &eacute;lev&eacute;e</td>
+        </tr>
+        <tr>
+            <td>Campagne</td>
+            <td>Inspirer</td>
+            <td>Douce</td>
+            <td>Moyenne</td>
+        </tr>
+        <tr>
+            <td>Promotionnel</td>
+            <td>Convertir</td>
+            <td>Engageante</td>
+            <td>Directe</td>
+        </tr>
+    </table>
+
+    <h3>Calibration compar&eacute;e</h3>
+    <table class="sys-table">
+        <tr>
+            <th>Curseur</th>
+            <th>Produit</th>
+            <th>&Eacute;ducatif</th>
+            <th>Campagne</th>
+            <th>Promotionnel</th>
+        </tr>
+        <tr>
+            <td>Stimulation</td>
+            <td>2 / 10</td>
+            <td>1 / 10</td>
+            <td>3 / 10</td>
+            <td>5 / 10</td>
+        </tr>
+        <tr>
+            <td>Urgence</td>
+            <td>1 / 10</td>
+            <td>0 / 10</td>
+            <td>2 / 10</td>
+            <td>5 / 10</td>
+        </tr>
+        <tr>
+            <td>Combat</td>
+            <td>1 / 10</td>
+            <td>0 / 10</td>
+            <td>1 / 10</td>
+            <td>1 / 10</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>3 / 10</td>
+            <td>2 / 10</td>
+            <td>3 / 10</td>
+            <td>5 / 10</td>
+        </tr>
+        <tr>
+            <td>Sagesse</td>
+            <td>8 / 10</td>
+            <td>9-10 / 10</td>
+            <td>8 / 10</td>
+            <td>6 / 10</td>
+        </tr>
+    </table>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     DISCIPLINE FONDAMENTALE
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>Discipline fondamentale</h2>
+
+    <div class="box-red">
+        <p>Quel que soit le sc&eacute;nario, ces r&egrave;gles sont absolues :</p>
+    </div>
+
+    <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top:20px;">
+        <div class="card">
+            <h3>Pas de langage de combat destructeur</h3>
+            <p>&laquo;&nbsp;Combattre&nbsp;&raquo;, &laquo;&nbsp;lutter contre&nbsp;&raquo;, &laquo;&nbsp;d&eacute;truire&nbsp;&raquo; sont proscrits. &laquo;&nbsp;&Eacute;liminer&nbsp;&raquo; est accept&eacute; pour une action concr&egrave;te (ex : toxines).</p>
+        </div>
+        <div class="card accent">
+            <h3>Jamais de langage miracle</h3>
+            <p>&laquo;&nbsp;Gu&eacute;rir&nbsp;&raquo;, &laquo;&nbsp;transformer radicalement&nbsp;&raquo;, &laquo;&nbsp;r&eacute;sultats spectaculaires&nbsp;&raquo; sont interdits.</p>
+        </div>
+        <div class="card dark">
+            <h3>Jamais d'anxi&eacute;t&eacute;</h3>
+            <p>Aucune dramatisation, aucun alarmisme, aucune pression &eacute;motionnelle n&eacute;gative.</p>
+        </div>
+        <div class="card">
+            <h3>Jamais d'exag&eacute;ration</h3>
+            <p>Toute promesse doit &ecirc;tre mesur&eacute;e, progressive, ancr&eacute;e dans la logique.</p>
+        </div>
+    </div>
+
+    <div class="statement">
+        <p style="font-size:1.3rem; font-style:normal; font-weight:600;">Toujours : Ma&icirc;trise + Coh&eacute;rence + &Eacute;quilibre</p>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <p>4 Sc&eacute;narios de Tonalit&eacute; 2026 &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Document strat&eacute;gique interne</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

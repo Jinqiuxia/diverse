@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Voice Cheat Sheet — Calebasse — L'Art de l'Équilibre</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+        .hl-bold { font-weight: 700; color: var(--primary); }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        ul ul { margin-top: 10px; margin-left: 14px; }
+        ul ul li::before {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            top: 11px;
+        }
+
+        ol { padding-left: 22px; }
+        ol li {
+            margin-bottom: 10px;
+            padding-left: 6px;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green { background: var(--primary); color: white; }
+        .tag-gold  { background: var(--accent); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+        .tag-red { background: var(--red); color: white; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+        .box-red {
+            background: rgba(180,68,68,0.07);
+            border: 1px solid rgba(180,68,68,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-red p { margin: 0; font-weight: 600; color: var(--red); font-size: 1.02rem; }
+
+        /* ── Do / Don't ── */
+        .do-dont {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            margin: 20px 0; border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .do-col, .dont-col { padding: 24px; }
+        .do-col { background: rgba(44,85,48,0.06); border-right: 1px solid var(--border); }
+        .dont-col { background: rgba(180,68,68,0.04); }
+        .do-col h4 { color: var(--primary); margin-top: 0; }
+        .dont-col h4 { color: var(--red); margin-top: 0; }
+        .dont-col li::before { background: var(--red); }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── System table ── */
+        .sys-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            border-radius: 12px; overflow: hidden;
+        }
+        .sys-table th {
+            background: var(--primary); color: white;
+            padding: 12px 18px; text-align: left;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sys-table td {
+            padding: 12px 18px; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .sys-table tr:nth-child(even) td { background: rgba(44,85,48,0.03); }
+        .sys-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        /* ── Score bar ── */
+        .score-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .score-label {
+            width: 130px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+        .score-bar-track {
+            flex: 1;
+            height: 10px;
+            background: rgba(44,85,48,0.08);
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        .score-bar-fill {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+        .score-value {
+            width: 60px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        /* ── Word cloud / tags row ── */
+        .word-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .word-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .word-tag.good {
+            background: rgba(44,85,48,0.10);
+            border: 1px solid rgba(44,85,48,0.25);
+            color: var(--primary);
+        }
+        .word-tag.bad {
+            background: rgba(180,68,68,0.07);
+            border: 1px solid rgba(180,68,68,0.2);
+            color: var(--red);
+            text-decoration: line-through;
+            text-decoration-color: rgba(180,68,68,0.4);
+        }
+
+        /* ── Correction row ── */
+        .correction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+        .correction-item {
+            background: rgba(44,85,48,0.04);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 10px;
+            padding: 16px 20px;
+            text-align: center;
+        }
+        .correction-item .problem {
+            font-size: 0.88rem;
+            color: var(--red);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .correction-item .arrow {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .correction-item .fix {
+            font-size: 0.92rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ── Triad ── */
+        .triad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .triad-item {
+            text-align: center;
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid rgba(44,85,48,0.15);
+            background: rgba(44,85,48,0.04);
+        }
+        .triad-item .triad-concept {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .triad-item .triad-meaning {
+            font-size: 0.92rem;
+            color: var(--text-light);
+        }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* ── Narrative steps ── */
+        .narrative-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 20px 0;
+        }
+        .narrative-step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 22px;
+            position: relative;
+        }
+        .narrative-step:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: 33px;
+            bottom: -2px;
+            width: 2px;
+            height: 4px;
+            background: var(--accent);
+        }
+        .narrative-step .step-num {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .narrative-step:nth-child(1) .step-num { background: rgba(44,85,48,0.12); color: var(--primary); }
+        .narrative-step:nth-child(2) .step-num { background: rgba(44,85,48,0.18); color: var(--primary); }
+        .narrative-step:nth-child(3) .step-num { background: rgba(44,85,48,0.25); color: var(--primary); }
+        .narrative-step:nth-child(4) .step-num { background: var(--primary); color: white; }
+        .narrative-step .step-text {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section { padding: 25px; }
+            .cards { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .do-col { border-right: none; border-bottom: 1px solid var(--border); }
+            .triad { grid-template-columns: 1fr; }
+            .correction-grid { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body { background: white; }
+            header { background: var(--primary); }
+            section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Brand Voice Cheat Sheet</h1>
+    <p class="slogan">L'Art de l'&Eacute;quilibre</p>
+    <p class="subtitle">Calebasse &mdash; R&eacute;f&eacute;rence rapide pour la voix de marque</p>
+    <span class="doc-type">Guide de r&eacute;f&eacute;rence interne</span>
+</header>
+
+<div class="container">
+
+<a href="Brand-Strategie-v4.html" class="back-link">&larr; Retour &agrave; la Plateforme</a>
+
+
+<!-- ═══════════════════════════════════════════════════
+     1. NOTRE VOIX FONDAMENTALE
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>1. Notre voix fondamentale</h2>
+
+    <h3>Calebasse est</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin: 20px 0;">
+        <span class="tag tag-green">Ma&icirc;tris&eacute;e</span>
+        <span class="tag tag-green">Structur&eacute;e</span>
+        <span class="tag tag-green">Calme</span>
+        <span class="tag tag-green">Cultiv&eacute;e</span>
+        <span class="tag tag-green">Bienveillante</span>
+    </div>
+
+    <div class="statement-gold">
+        <p>&laquo;&nbsp;Un expert qui explique avec s&eacute;r&eacute;nit&eacute;, pas comme un vendeur qui promet.&nbsp;&raquo;</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     2. PRINCIPE ABSOLU
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>2. Principe absolu</h2>
+
+    <div class="statement">
+        <p style="font-size:1.35rem;">&laquo;&nbsp;Toujours parler d'&eacute;quilibre. Le combat destructeur n'est pas notre registre.&nbsp;&raquo;</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     3. STRUCTURE NARRATIVE TYPE
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>3. Structure narrative type</h2>
+
+    <div class="narrative-steps">
+        <div class="narrative-step">
+            <div class="step-num">1</div>
+            <div class="step-text">Expliquer le d&eacute;s&eacute;quilibre</div>
+        </div>
+        <div class="narrative-step">
+            <div class="step-num">2</div>
+            <div class="step-text">Apporter la logique MTC</div>
+        </div>
+        <div class="narrative-step">
+            <div class="step-num">3</div>
+            <div class="step-text">Proposer un r&eacute;&eacute;quilibrage progressif</div>
+        </div>
+        <div class="narrative-step">
+            <div class="step-num">4</div>
+            <div class="step-text">Laisser &eacute;merger sant&eacute; et beaut&eacute;</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     4 & 5. MOTS À UTILISER / MOTS À ÉVITER
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>4 &amp; 5. Vocabulaire de marque</h2>
+
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>&#10004; Les mots que nous utilisons</h4>
+            <div class="word-tags" style="margin-top:14px;">
+                <span class="word-tag good">r&eacute;&eacute;quilibrer</span>
+                <span class="word-tag good">accompagner</span>
+                <span class="word-tag good">soutenir</span>
+                <span class="word-tag good">restaurer</span>
+                <span class="word-tag good">favoriser</span>
+                <span class="word-tag good">progressivement</span>
+                <span class="word-tag good">durablement</span>
+                <span class="word-tag good">harmonie</span>
+                <span class="word-tag good">coh&eacute;rence</span>
+                <span class="word-tag good">ordre naturel</span>
+                <span class="word-tag good">rythme</span>
+            </div>
+        </div>
+        <div class="dont-col">
+            <h4>&#10008; Les mots que nous &eacute;vitons</h4>
+            <div class="word-tags" style="margin-top:14px;">
+                <span class="word-tag bad">combattre</span>
+                <span class="word-tag bad">lutter contre</span>
+                <span class="word-tag bad">solution miracle</span>
+                <span class="word-tag bad">transformation radicale</span>
+                <span class="word-tag bad">r&eacute;sultat imm&eacute;diat</span>
+                <span class="word-tag bad">r&eacute;volutionnaire</span>
+                <span class="word-tag bad">perfection</span>
+            </div>
+            <h4 style="margin-top:18px;">&#9888; Usage contextuel</h4>
+            <div class="word-tags" style="margin-top:10px;">
+                <span class="word-tag" style="background:rgba(212,165,116,0.25); border-color:var(--accent); color:#8b5a2b;">&eacute;liminer</span>
+                <span class="word-tag" style="background:rgba(212,165,116,0.25); border-color:var(--accent); color:#8b5a2b;">booster</span>
+                <span class="word-tag" style="background:rgba(212,165,116,0.25); border-color:var(--accent); color:#8b5a2b;">stimuler</span>
+                <span class="word-tag" style="background:rgba(212,165,116,0.25); border-color:var(--accent); color:#8b5a2b;">urgence</span>
+            </div>
+            <p style="font-size:0.85rem; margin-top:8px; color:#8b5a2b;">Accept&eacute;s en contexte promotionnel ou fonctionnel pr&eacute;cis</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     6. TONALITÉ IDÉALE
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>6. Tonalit&eacute; id&eacute;ale</h2>
+
+    <div class="box-green">
+        <p style="text-align:center;">Zone cible pour la <strong>communication de marque</strong> (hors promotionnel)</p>
+    </div>
+
+    <p style="text-align:center; font-size:0.92rem; color:var(--text-light); margin-bottom:8px;">&Eacute;chelle directe : 0 = absent, 10 = maximum</p>
+
+    <h3>Calibration du ton</h3>
+
+    <div style="max-width:600px; margin:25px auto;">
+        <div class="score-row">
+            <span class="score-label">Stimulation</span>
+            <div class="score-bar-track">
+                <div class="score-bar-fill" style="width:20%;"></div>
+            </div>
+            <span class="score-value">1 &ndash; 3</span>
+        </div>
+        <div class="score-row">
+            <span class="score-label">Urgence</span>
+            <div class="score-bar-track">
+                <div class="score-bar-fill" style="width:10%; background: linear-gradient(90deg, var(--red), #c66);"></div>
+            </div>
+            <span class="score-value">0 &ndash; 2</span>
+        </div>
+        <div class="score-row">
+            <span class="score-label">Combat</span>
+            <div class="score-bar-track">
+                <div class="score-bar-fill" style="width:10%; background: linear-gradient(90deg, var(--red), #c66);"></div>
+            </div>
+            <span class="score-value">0 &ndash; 1</span>
+        </div>
+        <div class="score-row">
+            <span class="score-label">Performance</span>
+            <div class="score-bar-track">
+                <div class="score-bar-fill" style="width:25%;"></div>
+            </div>
+            <span class="score-value">2 &ndash; 3</span>
+        </div>
+        <div class="score-row">
+            <span class="score-label">Sagesse</span>
+            <div class="score-bar-track">
+                <div class="score-bar-fill" style="width:90%; background: linear-gradient(90deg, var(--accent), #b8956a);"></div>
+            </div>
+            <span class="score-value">8 &ndash; 10</span>
+        </div>
+    </div>
+
+    <div class="box-gold">
+        <p style="text-align:center; font-size:0.88rem;">En <strong>contexte promotionnel</strong>, Stimulation, Urgence et Performance peuvent monter jusqu'&agrave; <strong>5 / 10</strong>. Voir <a href="Brand-v4-scenarios.html" style="color:#8b5a2b;">Sc&eacute;nario 4</a>.</p>
+    </div>
+
+    <h3>Corrections de tonalit&eacute;</h3>
+    <div class="correction-grid">
+        <div class="correction-item">
+            <div class="problem">Trop excit&eacute;</div>
+            <div class="arrow">&darr;</div>
+            <div class="fix">Corriger</div>
+        </div>
+        <div class="correction-item">
+            <div class="problem">Trop commercial</div>
+            <div class="arrow">&darr;</div>
+            <div class="fix">Simplifier</div>
+        </div>
+        <div class="correction-item">
+            <div class="problem">Trop spectaculaire</div>
+            <div class="arrow">&darr;</div>
+            <div class="fix">Calmer</div>
+        </div>
+        <div class="correction-item">
+            <div class="problem">Trop m&eacute;dical</div>
+            <div class="arrow">&darr;</div>
+            <div class="fix">Humaniser</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     7. POSTURE ÉMOTIONNELLE
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>7. Posture &eacute;motionnelle</h2>
+
+    <div class="statement">
+        <p>&laquo;&nbsp;Nous ne promettons pas de changer le corps. Nous aidons le corps &agrave; retrouver son ordre naturel.&nbsp;&raquo;</p>
+    </div>
+
+    <div class="triad">
+        <div class="triad-item">
+            <div class="triad-concept">Beaut&eacute;</div>
+            <div class="triad-meaning">= cons&eacute;quence</div>
+        </div>
+        <div class="triad-item" style="border-color: rgba(212,165,116,0.35); background: rgba(212,165,116,0.08);">
+            <div class="triad-concept" style="color: #8b5a2b;">Sant&eacute;</div>
+            <div class="triad-meaning">= coh&eacute;rence</div>
+        </div>
+        <div class="triad-item">
+            <div class="triad-concept">&Eacute;quilibre</div>
+            <div class="triad-meaning">= fondement</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     8. RÈGLE D'OR FINALE
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>8. R&egrave;gle d'or finale</h2>
+
+    <div class="statement">
+        <p style="font-size:1.15rem;">&laquo;&nbsp;Cette phrase parle-t-elle d'&eacute;quilibre et d'harmonie, ou d'urgence et de performance&nbsp;?&nbsp;&raquo;</p>
+        <p style="font-style:normal; font-size:1.05rem; margin-top:14px; opacity:0.92;">En communication de marque : si c'est la deuxi&egrave;me &rarr; <strong>r&eacute;&eacute;crire.</strong></p>
+        <p style="font-style:normal; font-size:0.95rem; margin-top:8px; opacity:0.8;">En contenu promotionnel : urgence encadr&eacute;e et offre de b&eacute;n&eacute;fice autoris&eacute;es, dans un ton premium.</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SIGNATURE INTERNE
+     ═══════════════════════════════════════════════════ -->
+<section>
+    <h2>Signature interne</h2>
+
+    <div class="two-col">
+        <div class="col-box" style="text-align:center; border:2px solid var(--primary);">
+            <h4 style="color:var(--primary); margin-top:0; margin-bottom:14px;">Calebasse doit toujours sembler</h4>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+                <span class="tag tag-green">Stable</span>
+                <span class="tag tag-green">Intelligente</span>
+                <span class="tag tag-green">Ma&icirc;tris&eacute;e</span>
+            </div>
+        </div>
+        <div class="col-box" style="text-align:center; border:2px solid var(--red); background:rgba(180,68,68,0.03);">
+            <h4 style="color:var(--red); margin-top:0; margin-bottom:14px;">Jamais</h4>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+                <span class="tag tag-red">Excit&eacute;e</span>
+                <span class="tag tag-red">Pressante</span>
+                <span class="tag tag-red">Spectaculaire</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <p>Brand Voice Cheat Sheet 2026 &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Guide de r&eacute;f&eacute;rence interne</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charte de Langage Produit v2 — Calebasse — L'Art de l'Équilibre</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+            /* v2 parcours colors */
+            --parcours-a: #2c5530;
+            --parcours-b: #3d6b8e;
+            --parcours-c: #8b5a2b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+        header .version-badge {
+            display: inline-block;
+            margin-top: 12px;
+            background: var(--accent);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+
+        /* ── Part dividers ── */
+        .part-header {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+        .part-header .part-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .part-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .part-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+        .hl-bold { font-weight: 700; color: var(--primary); }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        ul ul { margin-top: 10px; margin-left: 14px; }
+        ul ul li::before {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            top: 11px;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+        .box-red {
+            background: rgba(180,68,68,0.07);
+            border: 1px solid rgba(180,68,68,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-red p { margin: 0; font-weight: 600; color: var(--red); font-size: 1.02rem; }
+        .box-blue {
+            background: linear-gradient(135deg, rgba(61,107,142,0.10) 0%, rgba(61,107,142,0.04) 100%);
+            border: 1px solid rgba(61,107,142,0.2);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-blue p { margin: 0; font-weight: 600; color: var(--parcours-b); font-size: 1.02rem; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green { background: var(--primary); color: white; }
+        .tag-gold  { background: var(--accent); color: white; }
+        .tag-blue  { background: var(--parcours-b); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── Do / Don't ── */
+        .do-dont {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            margin: 20px 0; border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .do-col, .dont-col { padding: 24px; }
+        .do-col { background: rgba(44,85,48,0.06); border-right: 1px solid var(--border); }
+        .dont-col { background: rgba(180,68,68,0.04); }
+        .do-col h4 { color: var(--primary); margin-top: 0; }
+        .dont-col h4 { color: var(--red); margin-top: 0; }
+        .dont-col li::before { background: var(--red); }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* ── System table ── */
+        .sys-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            border-radius: 12px; overflow: hidden;
+        }
+        .sys-table th {
+            background: var(--primary); color: white;
+            padding: 12px 18px; text-align: left;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sys-table td {
+            padding: 12px 18px; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .sys-table tr:nth-child(even) td { background: rgba(44,85,48,0.03); }
+        .sys-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        /* ── Parcours section styling ── */
+        .parcours-section {
+            border-left: 5px solid var(--primary);
+        }
+        .parcours-section.parcours-b {
+            border-left-color: var(--parcours-b);
+        }
+        .parcours-section.parcours-c {
+            border-left-color: var(--parcours-c);
+        }
+
+        /* ── Template section ── */
+        .template-section {
+            background: linear-gradient(135deg, #f7f3ed 0%, #faf8f4 100%);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border: 1px solid rgba(212,165,116,0.25);
+        }
+        .template-section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        .template-section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        .template-section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Template step boxes ── */
+        .template-step {
+            background: var(--card-bg);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px;
+            padding: 22px;
+            margin: 18px 0;
+        }
+        .template-step .step-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+        .template-step h4 {
+            display: inline;
+            margin: 0;
+        }
+        .template-step p { margin-top: 10px; }
+        .template-step .placeholder {
+            background: rgba(212,165,116,0.15);
+            border: 1px dashed rgba(212,165,116,0.5);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ── Decision tree ── */
+        .decision-tree {
+            max-width: 700px;
+            margin: 30px auto;
+        }
+        .decision-node {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 18px 22px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+        .decision-branches {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .decision-branch {
+            text-align: center;
+        }
+        .decision-branch .branch-arrow {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .decision-branch .branch-label {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .decision-branch .branch-result {
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .branch-result.result-a {
+            background: rgba(44,85,48,0.1);
+            border: 2px solid var(--parcours-a);
+            color: var(--parcours-a);
+        }
+        .branch-result.result-b {
+            background: rgba(61,107,142,0.08);
+            border: 2px solid var(--parcours-b);
+            color: var(--parcours-b);
+        }
+        .branch-result.result-c {
+            background: rgba(139,90,43,0.08);
+            border: 2px solid var(--parcours-c);
+            color: var(--parcours-c);
+        }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section, .template-section { padding: 25px; }
+            .cards { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .do-col { border-right: none; border-bottom: 1px solid var(--border); }
+            .decision-branches { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body { background: white; }
+            header { background: var(--primary); }
+            section, .template-section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .part-header { break-before: page; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Charte de Langage Produit</h1>
+    <p class="slogan">L'Art de l'&Eacute;quilibre</p>
+    <p class="subtitle">Calebasse &mdash; Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise depuis 1997</p>
+    <span class="doc-type">Document op&eacute;rationnel interne</span>
+    <br>
+</header>
+
+<div class="container">
+
+<a class="back-link" href="Brand-Strategie-v4.html">&larr; Retour &agrave; la Plateforme</a>
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 1 — PRINCIPES UNIVERSELS
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 1</span>
+    <h2>Principes Universels</h2>
+    <p>R&egrave;gles absolues, valables pour <em>tous</em> les produits Calebasse, quel que soit le parcours narratif</p>
+</div>
+
+
+<!-- 1. Règle fondamentale -->
+<section>
+    <h2>1. R&egrave;gle Fondamentale</h2>
+
+    <div class="statement">
+        <p>Un produit Calebasse ne combat pas. Il accompagne le corps vers son &eacute;quilibre naturel.</p>
+    </div>
+
+    <div class="do-dont">
+        <div class="dont-col">
+            <h4>&#10060; Un produit Calebasse ne&hellip;</h4>
+            <ul>
+                <li>Ne <strong>combat</strong> pas</li>
+                <li>Ne <strong>promet</strong> pas de miracle</li>
+                <li>Ne <strong>transforme</strong> pas radicalement</li>
+            </ul>
+        </div>
+        <div class="do-col">
+            <h4>&#10004; Un produit Calebasse&hellip;</h4>
+            <ul>
+                <li><strong>Soutient</strong></li>
+                <li><strong>Accompagne</strong></li>
+                <li><strong>R&eacute;&eacute;quilibre</strong> ou <strong>entretient</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- 2. Formules universelles -->
+<section>
+    <h2>2. Vocabulaire Universel</h2>
+
+    <h3>Toujours autoris&eacute;</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin:20px 0;">
+        <span class="tag tag-green">contribue &agrave;&hellip;</span>
+        <span class="tag tag-green">favorise&hellip;</span>
+        <span class="tag tag-green">soutient&hellip;</span>
+        <span class="tag tag-green">participe &agrave;&hellip;</span>
+        <span class="tag tag-green">aide &agrave; maintenir&hellip;</span>
+        <span class="tag tag-green">accompagne&hellip;</span>
+    </div>
+
+    <h3>Toujours interdit</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin:20px 0;">
+        <span class="tag" style="background:var(--red); color:white;">gu&eacute;rit</span>
+        <span class="tag" style="background:var(--red); color:white;">solution miracle</span>
+        <span class="tag" style="background:var(--red); color:white;">r&eacute;sultat garanti</span>
+        <span class="tag" style="background:var(--red); color:white;">transformation visible imm&eacute;diate</span>
+        <span class="tag" style="background:var(--red); color:white;">combat la fatigue</span>
+        <span class="tag" style="background:var(--red); color:white;">anti-&hellip; (si agressif)</span>
+    </div>
+
+    <h3>Usage contextuel</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin:20px 0;">
+        <span class="tag" style="background:rgba(212,165,116,0.3); border:1px solid var(--accent); color:#8b5a2b;">&eacute;liminer <small>(action concr&egrave;te : toxines)</small></span>
+        <span class="tag" style="background:rgba(212,165,116,0.3); border:1px solid var(--accent); color:#8b5a2b;">booster <small>(contexte promo / fonctionnel)</small></span>
+        <span class="tag" style="background:rgba(212,165,116,0.3); border:1px solid var(--accent); color:#8b5a2b;">stimuler <small>(contexte fonctionnel pr&eacute;cis)</small></span>
+    </div>
+</section>
+
+
+<!-- 3. Tonalité universelle -->
+<section>
+    <h2>3. Tonalit&eacute; Universelle</h2>
+
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>&#10004; Toujours</h4>
+            <ul>
+                <li><strong>Clair</strong> &mdash; chaque phrase apporte de l'information</li>
+                <li><strong>Structur&eacute;</strong> &mdash; la logique est visible</li>
+                <li><strong>Ma&icirc;tris&eacute;</strong> &mdash; aucune exag&eacute;ration</li>
+                <li><strong>Confiant</strong> &mdash; la marque sait ce qu'elle dit</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>&#10060; Jamais</h4>
+            <ul>
+                <li><strong>Dramatique</strong></li>
+                <li><strong>Sensationnaliste</strong></li>
+                <li><strong>Trop &eacute;motionnel</strong></li>
+                <li><strong>Trop marketing</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- 4. Les 4 pièges -->
+<section>
+    <h2>4. Les 4 Pi&egrave;ges &agrave; &Eacute;viter</h2>
+
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">&#10060; Ton m&eacute;dical froid</h3>
+            <p>Ne pas r&eacute;diger comme une notice pharmaceutique. Rester accessible, humain et p&eacute;dagogique.</p>
+        </div>
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">&#10060; Ton miracle marketing</h3>
+            <p>Pas de superlatifs, pas de promesses spectaculaires, pas de formulations sensationnalistes.</p>
+        </div>
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">&#10060; Ton mystique &eacute;sot&eacute;rique</h3>
+            <p>Pas de vocabulaire flou, abstrait ou spirituel. La MTC est pr&eacute;sent&eacute;e avec rigueur.</p>
+        </div>
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">&#10060; Ton performance sportive</h3>
+            <p>Pas de langage de d&eacute;passement ou de challenge. Calebasse accompagne, ne pousse pas.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- 5. Beauté = Conséquence -->
+<section>
+    <h2>5. Beaut&eacute; = Cons&eacute;quence</h2>
+
+    <div class="flow" style="font-size:1.1rem; margin: 30px 0;">
+        <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">&Eacute;quilibre</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Sant&eacute;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(212,165,116,0.3);">Beaut&eacute;</span>
+    </div>
+
+    <div class="box-green">
+        <p>La beaut&eacute; n'est jamais un objectif en soi. Elle est la cons&eacute;quence visible d'un &eacute;quilibre int&eacute;rieur retrouv&eacute; ou entretenu.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 2 — LES 3 PARCOURS NARRATIFS
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 2 &mdash; Nouveau en v2</span>
+    <h2>Les 3 Parcours Narratifs</h2>
+    <p>Chaque produit emprunte <em>un</em> parcours selon sa nature. Tous partagent les principes universels, mais le cadrage narratif diff&egrave;re.</p>
+</div>
+
+
+<!-- Vue d'ensemble des 3 parcours -->
+<section>
+    <h2>Vue d'ensemble</h2>
+
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card" style="border-top-color: var(--parcours-a);">
+            <h3 style="color:var(--parcours-a);">A &mdash; &Eacute;quilibre MTC</h3>
+            <p><strong>Logique compl&egrave;te de r&eacute;&eacute;quilibrage.</strong> Le produit r&eacute;pond &agrave; un d&eacute;s&eacute;quilibre identifi&eacute; selon la grille MTC.</p>
+            <div style="margin-top:14px;">
+                <span class="tag tag-green">Formule complexe</span>
+                <span class="tag tag-green">Cure syst&eacute;mique</span>
+                <span class="tag tag-green">Programme MTC</span>
+            </div>
+        </div>
+        <div class="card" style="border-top-color: var(--parcours-b);">
+            <h3 style="color:var(--parcours-b);">B &mdash; Soutien Fonctionnel</h3>
+            <p><strong>B&eacute;n&eacute;fice cibl&eacute;, ingr&eacute;dient identifi&eacute;.</strong> Le produit soutient une fonction pr&eacute;cise sans n&eacute;cessiter le cadre complet MTC.</p>
+            <div style="margin-top:14px;">
+                <span class="tag tag-blue">Mono-ingr&eacute;dient</span>
+                <span class="tag tag-blue">Compl&eacute;ment cibl&eacute;</span>
+                <span class="tag tag-blue">Soin fonctionnel</span>
+            </div>
+        </div>
+        <div class="card" style="border-top-color: var(--parcours-c);">
+            <h3 style="color:var(--parcours-c);">C &mdash; Rituel &amp; Exp&eacute;rience</h3>
+            <p><strong>Geste, moment, sensation.</strong> Le produit s'int&egrave;gre dans un rituel de bien-&ecirc;tre. L'exp&eacute;rience prime sur le m&eacute;canisme.</p>
+            <div style="margin-top:14px;">
+                <span class="tag tag-gold">Th&eacute; / Infusion</span>
+                <span class="tag tag-gold">Accessoire</span>
+                <span class="tag tag-gold">Coffret</span>
+                <span class="tag tag-gold">Cosm&eacute;tique sensoriel</span>
+            </div>
+        </div>
+    </div>
+
+    <h3>Arbre de d&eacute;cision</h3>
+
+    <div class="decision-tree">
+        <div class="decision-node">
+            Ce produit repose-t-il sur un d&eacute;s&eacute;quilibre MTC identifiable ?
+        </div>
+        <div class="decision-branches">
+            <div class="decision-branch">
+                <div class="branch-arrow">&darr;</div>
+                <div class="branch-label">Oui, d&eacute;s&eacute;quilibre clair<br>(organe, &eacute;l&eacute;ment, &eacute;nergie)</div>
+                <div class="branch-result result-a">Parcours A<br>&Eacute;quilibre MTC</div>
+            </div>
+            <div class="decision-branch">
+                <div class="branch-arrow">&darr;</div>
+                <div class="branch-label">Non, mais b&eacute;n&eacute;fice<br>fonctionnel pr&eacute;cis</div>
+                <div class="branch-result result-b">Parcours B<br>Soutien Fonctionnel</div>
+            </div>
+            <div class="decision-branch">
+                <div class="branch-arrow">&darr;</div>
+                <div class="branch-label">Non, c'est un objet,<br>un geste, une exp&eacute;rience</div>
+                <div class="branch-result result-c">Parcours C<br>Rituel &amp; Exp&eacute;rience</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-gold">
+        <p style="text-align:center; font-size:0.92rem;">En cas de doute entre deux parcours, choisir celui qui semble le plus naturel &agrave; lire pour le client. L'objectif est la clart&eacute;, pas la rigidit&eacute;.</p>
+    </div>
+</section>
+
+
+<!-- Tableau comparatif -->
+<section>
+    <h2>Comparaison des 3 Parcours</h2>
+
+    <table class="sys-table">
+        <tr>
+            <th></th>
+            <th style="color:rgba(255,255,255,0.95);">A &mdash; &Eacute;quilibre MTC</th>
+            <th style="color:rgba(255,255,255,0.95);">B &mdash; Soutien Fonctionnel</th>
+            <th style="color:rgba(255,255,255,0.95);">C &mdash; Rituel &amp; Exp&eacute;rience</th>
+        </tr>
+        <tr>
+            <td>Entr&eacute;e narrative</td>
+            <td>D&eacute;s&eacute;quilibre MTC</td>
+            <td>Besoin / fonction cibl&eacute;e</td>
+            <td>Moment / intention</td>
+        </tr>
+        <tr>
+            <td>Cadrage</td>
+            <td>Organe, &eacute;l&eacute;ment, &eacute;nergie</td>
+            <td>Ingr&eacute;dient et son r&ocirc;le</td>
+            <td>Geste et sensation</td>
+        </tr>
+        <tr>
+            <td>Logique centrale</td>
+            <td>R&eacute;&eacute;quilibrage profond</td>
+            <td>Soutien direct d'une fonction</td>
+            <td>Harmonie par le rituel</td>
+        </tr>
+        <tr>
+            <td>Notion de temps</td>
+            <td>Processus long, progressif</td>
+            <td>Usage r&eacute;gulier, b&eacute;n&eacute;fice cumulatif</td>
+            <td>R&eacute;p&eacute;tition du geste, ancrage</td>
+        </tr>
+        <tr>
+            <td>Ton dominant</td>
+            <td>P&eacute;dagogique / Sage</td>
+            <td>Factuel / Rassurant</td>
+            <td>Sensoriel / Invitant</td>
+        </tr>
+        <tr>
+            <td>MTC requise</td>
+            <td>Oui, structurante</td>
+            <td>Optionnelle, en contexte</td>
+            <td>L&eacute;g&egrave;re, en inspiration</td>
+        </tr>
+        <tr>
+            <td>Exemples produits</td>
+            <td>Formule S&eacute;r&eacute;nit&eacute;, Cure Foie-V&eacute;sicule, Programme Digestion</td>
+            <td>G&eacute;lules de Reishi, Magn&eacute;sium marin, S&eacute;rum &agrave; l'acide hyaluronique</td>
+            <td>Th&eacute; Yin, Gua Sha, Coffret D&eacute;couverte, Huile de massage</td>
+        </tr>
+    </table>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARCOURS A — ÉQUILIBRE MTC
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label" style="background:var(--parcours-a);">Parcours A</span>
+    <h2>&Eacute;quilibre MTC</h2>
+    <p>Formules complexes, cures syst&eacute;miques, produits ancr&eacute;s dans la logique MTC</p>
+</div>
+
+<section class="parcours-section">
+    <h2>Structure narrative &mdash; Parcours A</h2>
+
+    <div class="flow" style="font-size:1rem; margin: 25px 0;">
+        <span class="step">D&eacute;s&eacute;quilibre expliqu&eacute;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Logique MTC</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">Action progressive</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">R&eacute;sultat naturel</span>
+    </div>
+
+    <p>C'est le parcours fondateur de Calebasse. La fiche produit raconte une histoire de r&eacute;&eacute;quilibrage : le corps pr&eacute;sente un d&eacute;s&eacute;quilibre, la MTC l'explique, la formule l'accompagne, le r&eacute;sultat &eacute;merge naturellement.</p>
+
+    <h3>Les 10 blocs du template</h3>
+    <table class="sys-table">
+        <tr><th>Bloc</th><th>Contenu</th></tr>
+        <tr><td>1. Titre</td><td>Nom + Fonction d'&eacute;quilibre</td></tr>
+        <tr><td>2. Accroche</td><td>3-4 lignes posant le contexte et la promesse d'&eacute;quilibre</td></tr>
+        <tr><td>3. D&eacute;s&eacute;quilibre</td><td>Explication MTC : pourquoi ce sympt&ocirc;me, quel d&eacute;s&eacute;quilibre &eacute;nerg&eacute;tique</td></tr>
+        <tr><td>4. Logique formule</td><td>Plantes/ingr&eacute;dients et leur r&ocirc;le de <em>soutien</em></td></tr>
+        <tr><td>5. Action progressive</td><td>Le corps r&eacute;pond &agrave; son rythme, r&eacute;&eacute;quilibrage en profondeur</td></tr>
+        <tr><td>6. B&eacute;n&eacute;fices</td><td>&Eacute;quilibre de&hellip; / Soutien de&hellip; / Harmonie de&hellip;</td></tr>
+        <tr><td>7. Sant&eacute; &amp; Beaut&eacute;</td><td>La beaut&eacute; comme cons&eacute;quence de l'&eacute;quilibre</td></tr>
+        <tr><td>8. Pour qui ?</td><td>Profils cibles dans l'esprit Calebasse</td></tr>
+        <tr><td>9. Conseils</td><td>Posologie, dur&eacute;e, r&eacute;gularit&eacute;</td></tr>
+        <tr><td>10. Conclusion</td><td>Signature &laquo;&nbsp;L'Art de l'&Eacute;quilibre&nbsp;&raquo;</td></tr>
+    </table>
+
+    <h3>Exemple on-brand</h3>
+    <div class="box-green">
+        <p style="font-weight:400; margin-bottom:10px;"><strong>Formule S&eacute;r&eacute;nit&eacute; &mdash; &Eacute;quilibre du sommeil et de la d&eacute;tente</strong></p>
+        <p style="font-weight:400; font-size:0.95rem;">
+            En MTC, les difficult&eacute;s d'endormissement signalent souvent un d&eacute;s&eacute;quilibre entre le C&oelig;ur et le Rein &mdash; le Feu et l'Eau ne communiquent plus harmonieusement. Formule S&eacute;r&eacute;nit&eacute; associe le jujube, le schisandra et la valerian pour soutenir cette communication et favoriser un retour progressif vers un sommeil profond et r&eacute;parateur.
+        </p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARCOURS B — SOUTIEN FONCTIONNEL
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label" style="background:var(--parcours-b);">Parcours B</span>
+    <h2>Soutien Fonctionnel</h2>
+    <p>Mono-ingr&eacute;dients, compl&eacute;ments cibl&eacute;s, soins &agrave; b&eacute;n&eacute;fice direct</p>
+</div>
+
+<section class="parcours-section parcours-b">
+    <h2>Structure narrative &mdash; Parcours B</h2>
+
+    <div class="flow" style="font-size:1rem; margin: 25px 0;">
+        <span class="step" style="background:rgba(61,107,142,0.15);">Besoin identifi&eacute;</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(61,107,142,0.15);">Ingr&eacute;dient &amp; son r&ocirc;le</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(61,107,142,0.15);">Usage r&eacute;gulier</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(61,107,142,0.3); font-weight:700;">B&eacute;n&eacute;fice progressif</span>
+    </div>
+
+    <p>Ce parcours convient aux produits dont le m&eacute;canisme est <strong>direct et compr&eacute;hensible</strong> sans passer par le cadre complet MTC. Le ton reste Calebasse (structur&eacute;, ma&icirc;tris&eacute;, progressif), mais on ne force pas un d&eacute;s&eacute;quilibre l&agrave; o&ugrave; le client attend simplement de comprendre <em>quoi</em> et <em>pourquoi</em>.</p>
+
+    <h3>Diff&eacute;rences cl&eacute;s avec le Parcours A</h3>
+    <div class="two-col">
+        <div class="col-box">
+            <h4 style="color:var(--parcours-b);">Ce qui change</h4>
+            <ul>
+                <li>Pas de <strong>bloc &laquo;&nbsp;d&eacute;s&eacute;quilibre MTC&nbsp;&raquo;</strong> obligatoire</li>
+                <li>Entr&eacute;e par le <strong>besoin concret</strong> du client</li>
+                <li>Focus sur l'<strong>ingr&eacute;dient</strong> et sa fonction prouv&eacute;e</li>
+                <li>MTC &eacute;voqu&eacute;e <strong>en contexte</strong> si pertinente, jamais forc&eacute;e</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h4>Ce qui reste identique</h4>
+            <ul>
+                <li>Ton <strong>ma&icirc;tris&eacute; et structur&eacute;</strong></li>
+                <li>Vocabulaire Calebasse (<em>soutenir, accompagner, favoriser</em>)</li>
+                <li>Notion de <strong>progression</strong> et de <strong>r&eacute;gularit&eacute;</strong></li>
+                <li><strong>Beaut&eacute; = cons&eacute;quence</strong>, jamais promesse directe</li>
+                <li>Conclusion signature &laquo;&nbsp;L'Art de l'&Eacute;quilibre&nbsp;&raquo;</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Les 8 blocs du template</h3>
+    <table class="sys-table">
+        <tr><th>Bloc</th><th>Contenu</th></tr>
+        <tr><td>1. Titre</td><td>Nom + Fonction principale</td></tr>
+        <tr><td>2. Accroche</td><td>Besoin concret du client &rarr; r&eacute;ponse claire du produit</td></tr>
+        <tr><td>3. L'ingr&eacute;dient</td><td>Pr&eacute;sentation de l'actif cl&eacute;, son origine, son r&ocirc;le</td></tr>
+        <tr><td>4. Comment il agit</td><td>M&eacute;canisme de soutien, sans jargon excessif</td></tr>
+        <tr><td>5. B&eacute;n&eacute;fices</td><td>2-3 b&eacute;n&eacute;fices structur&eacute;s, progressifs</td></tr>
+        <tr><td>6. Pour qui ?</td><td>Profils cibles</td></tr>
+        <tr><td>7. Conseils</td><td>Posologie, dur&eacute;e, r&eacute;gularit&eacute;</td></tr>
+        <tr><td>8. Conclusion</td><td>Signature Calebasse &mdash; ancrage dans la philosophie d'&eacute;quilibre</td></tr>
+    </table>
+
+    <h3>Exemple on-brand</h3>
+    <div class="box-blue">
+        <p style="font-weight:400; margin-bottom:10px;"><strong>Reishi &mdash; Soutien de l'immunit&eacute; et de la r&eacute;sistance naturelle</strong></p>
+        <p style="font-weight:400; font-size:0.95rem;">
+            Le Reishi (<em>Ganoderma lucidum</em>) est utilis&eacute; depuis des si&egrave;cles en pharmacop&eacute;e chinoise pour ses propri&eacute;t&eacute;s de soutien immunitaire. Riche en polysaccharides et en triterpènes, il contribue au fonctionnement normal des d&eacute;fenses de l'organisme. Une prise r&eacute;guli&egrave;re favorise une r&eacute;sistance plus stable, particuli&egrave;rement lors des changements de saison.
+        </p>
+    </div>
+
+    <div class="box-gold">
+        <p style="font-size:0.92rem;">Notez que la MTC est pr&eacute;sente en filigrane (&laquo;&nbsp;pharmacop&eacute;e chinoise&nbsp;&raquo;, &laquo;&nbsp;changements de saison&nbsp;&raquo;) sans qu'on force un sch&eacute;ma de d&eacute;s&eacute;quilibre.</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARCOURS C — RITUEL & EXPÉRIENCE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label" style="background:var(--parcours-c);">Parcours C</span>
+    <h2>Rituel &amp; Exp&eacute;rience</h2>
+    <p>Th&eacute;s, infusions, accessoires, coffrets, produits sensoriels</p>
+</div>
+
+<section class="parcours-section parcours-c">
+    <h2>Structure narrative &mdash; Parcours C</h2>
+
+    <div class="flow" style="font-size:1rem; margin: 25px 0;">
+        <span class="step" style="background:rgba(139,90,43,0.12);">Moment / Intention</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(139,90,43,0.12);">Geste rituel</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(139,90,43,0.18); border:1px dashed var(--parcours-c);">Technique *</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(139,90,43,0.12);">Sensation</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(139,90,43,0.25); font-weight:700;">Harmonie</span>
+    </div>
+    <p style="text-align:center; font-size:0.82rem; color:var(--text-light); margin-top:-12px;">* Bloc optionnel &mdash; activ&eacute; pour les accessoires et instruments n&eacute;cessitant un guide d'utilisation</p>
+
+    <p>Ce parcours convient aux produits o&ugrave; <strong>l'exp&eacute;rience sensorielle</strong> et le <strong>geste</strong> comptent autant &mdash; voire plus &mdash; que le m&eacute;canisme d'action. Le mot cl&eacute; n'est plus &laquo;&nbsp;r&eacute;&eacute;quilibrage&nbsp;&raquo; mais <strong>&laquo;&nbsp;harmonie&nbsp;&raquo;</strong> &mdash; un synonyme plus doux, plus exp&eacute;rientiel, tout aussi fid&egrave;le &agrave; la philosophie Calebasse.</p>
+
+    <h3>Diff&eacute;rences cl&eacute;s avec les Parcours A et B</h3>
+    <div class="two-col">
+        <div class="col-box" style="border-color:rgba(139,90,43,0.25);">
+            <h4 style="color:var(--parcours-c);">Ce qui change</h4>
+            <ul>
+                <li>Entr&eacute;e par un <strong>moment</strong> ou une <strong>intention</strong>, pas un besoin technique</li>
+                <li>Vocabulaire <strong>sensoriel l&eacute;ger</strong> autoris&eacute; (texture, ar&ocirc;me, chaleur, douceur)</li>
+                <li>Focus sur le <strong>geste</strong> et la <strong>r&eacute;p&eacute;tition rituelle</strong></li>
+                <li>MTC en <strong>inspiration culturelle</strong> (pas en explication technique)</li>
+                <li>Ton l&eacute;g&egrave;rement plus <strong>po&eacute;tique</strong> (mais toujours ma&icirc;tris&eacute;)</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h4>Ce qui reste identique</h4>
+            <ul>
+                <li>Aucune promesse spectaculaire</li>
+                <li>Aucun langage de combat</li>
+                <li>Ton <strong>confiant et ma&icirc;tris&eacute;</strong></li>
+                <li>Notion de <strong>temps et de r&eacute;p&eacute;tition</strong></li>
+                <li>Conclusion signature Calebasse</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Les 7+1 blocs du template</h3>
+    <table class="sys-table">
+        <tr><th>Bloc</th><th>Contenu</th><th>Obligatoire</th></tr>
+        <tr><td>1. Titre</td><td>Nom + &Eacute;vocation sensorielle ou rituelle</td><td>Oui</td></tr>
+        <tr><td>2. Accroche</td><td>Le moment : quand, pourquoi, quelle intention</td><td>Oui</td></tr>
+        <tr><td>3. Le geste</td><td>Comment utiliser, le rituel propos&eacute;</td><td>Oui</td></tr>
+        <tr style="background:rgba(139,90,43,0.06);"><td style="color:var(--parcours-c);">3bis. Technique</td><td>Guide d'utilisation : &eacute;tapes, zones, dur&eacute;e, fr&eacute;quence, pr&eacute;cautions. <em>Ton p&eacute;dagogique, int&eacute;gr&eacute; au rituel.</em></td><td style="color:var(--parcours-c); font-weight:600;">Accessoires &amp; instruments</td></tr>
+        <tr><td>4. L'exp&eacute;rience</td><td>Ce que l'on ressent : texture, ar&ocirc;me, chaleur, calme</td><td>Oui</td></tr>
+        <tr><td>5. L'ancrage</td><td>Lien discret avec la philosophie MTC / &eacute;quilibre</td><td>Oui</td></tr>
+        <tr><td>6. Pour qui ?</td><td>Profils et moments de vie</td><td>Oui</td></tr>
+        <tr><td>7. Conclusion</td><td>Signature Calebasse &mdash; &laquo;&nbsp;harmonie au quotidien&nbsp;&raquo;</td><td>Oui</td></tr>
+    </table>
+
+    <!-- ── Bloc 3bis : Technique (détail) ── -->
+    <h3>Focus &mdash; Bloc 3bis &laquo;&nbsp;Technique&nbsp;&raquo;</h3>
+    <div class="box-gold">
+        <p style="font-size:0.92rem;">Ce bloc s'active pour les <strong>accessoires, instruments et produits n&eacute;cessitant un mode d'emploi</strong> (Gua Sha, ventouses, rouleau de jade, set de moxibustion, diffuseur&hellip;). Il transforme le mode d'emploi en un prolongement naturel du rituel.</p>
+    </div>
+
+    <div class="two-col">
+        <div class="col-box" style="border-color:rgba(139,90,43,0.25);">
+            <h4 style="color:var(--parcours-c);">Contenu du bloc Technique</h4>
+            <ul>
+                <li><strong>&Eacute;tapes num&eacute;rot&eacute;es</strong> &mdash; gestes pr&eacute;cis, dans l'ordre</li>
+                <li><strong>Zones / Application</strong> &mdash; o&ugrave; et comment appliquer</li>
+                <li><strong>Dur&eacute;e &amp; fr&eacute;quence</strong> &mdash; combien de temps, combien de fois</li>
+                <li><strong>Pr&eacute;cautions</strong> &mdash; ce qu'il faut &eacute;viter (contre-indications simples)</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h4>R&egrave;gles de ton pour le bloc Technique</h4>
+            <ul>
+                <li><strong>P&eacute;dagogique</strong>, pas m&eacute;dical &mdash; &laquo;&nbsp;Commencez par&hellip;&nbsp;&raquo; pas &laquo;&nbsp;Appliquer sur la zone concern&eacute;e&nbsp;&raquo;</li>
+                <li><strong>Int&eacute;gr&eacute; au rituel</strong> &mdash; les &eacute;tapes sont des gestes, pas des proc&eacute;dures</li>
+                <li><strong>Bref et visuel</strong> &mdash; &eacute;tapes courtes, faciles &agrave; scanner</li>
+                <li><strong>Encourageant</strong> &mdash; &laquo;&nbsp;avec le temps, le geste devient naturel&nbsp;&raquo;</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="do-dont" style="margin-top:20px;">
+        <div class="do-col">
+            <h4>&#10004; Ton technique Calebasse</h4>
+            <ul>
+                <li>&laquo;&nbsp;Commencez par le centre du front, glissez vers les tempes&nbsp;&raquo;</li>
+                <li>&laquo;&nbsp;5 &agrave; 10 minutes suffisent&nbsp;&raquo;</li>
+                <li>&laquo;&nbsp;&Agrave; r&eacute;p&eacute;ter chaque soir pour ancrer le rituel&nbsp;&raquo;</li>
+                <li>&laquo;&nbsp;&Eacute;vitez les zones irrit&eacute;es ou inflamm&eacute;es&nbsp;&raquo;</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>&#10060; Ton &agrave; &eacute;viter</h4>
+            <ul>
+                <li>&laquo;&nbsp;Proc&eacute;der &agrave; l'application sur la r&eacute;gion faciale&nbsp;&raquo;</li>
+                <li>&laquo;&nbsp;ATTENTION : ne pas utiliser sur&hellip;&nbsp;&raquo;</li>
+                <li>&laquo;&nbsp;R&eacute;sultat visible d&egrave;s la premi&egrave;re utilisation&nbsp;&raquo;</li>
+                <li>&laquo;&nbsp;Mode d'emploi &mdash; &Eacute;tape 1 : D&eacute;baller le produit&nbsp;&raquo;</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Exemple complet &mdash; Accessoire avec bloc Technique</h3>
+    <div class="box-gold">
+        <p style="font-weight:400; margin-bottom:8px;"><strong>Gua Sha en Jade &mdash; Le geste d'harmonie</strong></p>
+        <p style="font-weight:400; font-size:0.92rem; margin-bottom:12px; color:var(--text-light);">
+            <em>Bloc 2 &mdash; Accroche :</em> Le soir, apr&egrave;s le nettoyage du visage. Un moment pour soi. Le Gua Sha transforme votre routine en un v&eacute;ritable rituel &mdash; un geste h&eacute;rit&eacute; de la tradition chinoise pour accompagner le visage vers son &eacute;quilibre naturel.
+        </p>
+        <p style="font-weight:400; font-size:0.92rem; margin-bottom:12px; color:var(--text-light);">
+            <em>Bloc 3 &mdash; Le geste :</em> Appliquez quelques gouttes de s&eacute;rum ou d'huile. Prenez le Gua Sha dans votre main dominante, &agrave; plat contre la peau, &agrave; un angle de 15&deg;.
+        </p>
+        <p style="font-weight:600; font-size:0.92rem; margin-bottom:6px; color:var(--parcours-c);">
+            <em>Bloc 3bis &mdash; Technique :</em>
+        </p>
+        <div style="background:var(--card-bg); border:1px solid rgba(139,90,43,0.2); border-radius:8px; padding:16px; margin-bottom:12px; font-size:0.92rem;">
+            <p style="margin-bottom:8px;"><strong>1.</strong> <strong>Front</strong> &mdash; Du centre vers les tempes, 5 passages de chaque c&ocirc;t&eacute;.</p>
+            <p style="margin-bottom:8px;"><strong>2.</strong> <strong>Pommettes</strong> &mdash; Du nez vers les oreilles, en suivant l'os. 5 passages.</p>
+            <p style="margin-bottom:8px;"><strong>3.</strong> <strong>M&acirc;choire</strong> &mdash; Du menton vers le lobe, geste ferme mais doux. 5 passages.</p>
+            <p style="margin-bottom:8px;"><strong>4.</strong> <strong>Cou</strong> &mdash; De la m&acirc;choire vers la clavicule, toujours vers le bas. 3 passages.</p>
+            <p style="margin-bottom:8px;"><strong>Dur&eacute;e :</strong> 5 &agrave; 10 minutes. <strong>Fr&eacute;quence :</strong> Chaque soir, ou au minimum 3 fois par semaine.</p>
+            <p style="margin-bottom:0;"><strong>Pr&eacute;caution :</strong> &Eacute;vitez les zones irrit&eacute;es, les boutons actifs ou les coups de soleil. Si la peau rougit l&eacute;g&egrave;rement, c'est normal &mdash; cela s'att&eacute;nue en quelques minutes.</p>
+        </div>
+        <p style="font-weight:400; font-size:0.92rem; margin-bottom:12px; color:var(--text-light);">
+            <em>Bloc 4 &mdash; L'exp&eacute;rience :</em> Une chaleur douce, une sensation de d&eacute;tente. Le visage se d&eacute;crispe. Avec le temps, le geste devient naturel &mdash; un rendez-vous avec soi-m&ecirc;me.
+        </p>
+        <p style="font-weight:400; font-size:0.92rem; color:var(--text-light);">
+            <em>Bloc 5 &mdash; L'ancrage :</em> En MTC, le Gua Sha favorise la libre circulation du Qi &agrave; la surface de la peau. La beaut&eacute; du teint n'est que la cons&eacute;quence visible de cette harmonie retrouv&eacute;e.
+        </p>
+    </div>
+
+    <h3>Exemple on-brand &mdash; Th&eacute; (sans bloc Technique)</h3>
+    <div class="box-gold">
+        <p style="font-weight:400; margin-bottom:10px;"><strong>Th&eacute; Yin &mdash; Un moment de calme retrouv&eacute;</strong></p>
+        <p style="font-weight:400; font-size:0.95rem;">
+            Un geste simple. L'eau chaude rencontre les feuilles. Le temps ralentit. Th&eacute; Yin est une invitation &agrave; poser un instant de calme dans votre journ&eacute;e &mdash; un rituel que la tradition chinoise pratique depuis des si&egrave;cles pour favoriser l'harmonie int&eacute;rieure. Notes v&eacute;g&eacute;tales douces, l&eacute;g&egrave;rement flor&aacute;les. &Agrave; r&eacute;p&eacute;ter chaque jour.
+        </p>
+    </div>
+
+    <h3>Exemple on-brand &mdash; Instrument (sans d&eacute;tail technique)</h3>
+    <div class="box-gold">
+        <p style="font-weight:400; margin-bottom:10px;"><strong>Rouleau de Jade &mdash; La douceur au quotidien</strong></p>
+        <p style="font-weight:400; font-size:0.95rem;">
+            Un rouleau frais sur la peau. Un geste doux, r&eacute;p&eacute;t&eacute; matin ou soir, pour accompagner la circulation naturelle du visage. Le rouleau de jade s'utilise simplement &mdash; de l'int&eacute;rieur vers l'ext&eacute;rieur, toujours dans le sens du drainage. Un rituel de quelques minutes qui prolonge la logique d'&eacute;quilibre jusque dans votre routine beaut&eacute;.
+        </p>
+    </div>
+    <p style="text-align:center; font-size:0.85rem; color:var(--text-light); margin-top:8px;">Pour les produits simples d'utilisation, le bloc 3bis Technique est optionnel &mdash; le bloc 3 &laquo;&nbsp;Le geste&nbsp;&raquo; suffit.</p>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 3 — SYNTHÈSE & CHECK
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 3</span>
+    <h2>Synth&egrave;se &amp; V&eacute;rification</h2>
+    <p>Tableau r&eacute;capitulatif et check final avant publication</p>
+</div>
+
+
+<section>
+    <h2>Matrice de s&eacute;lection rapide</h2>
+
+    <table class="sys-table">
+        <tr>
+            <th>Type de produit</th>
+            <th>Parcours</th>
+            <th>Entr&eacute;e narrative</th>
+        </tr>
+        <tr>
+            <td>Formule complexe (multi-plantes)</td>
+            <td style="color:var(--parcours-a); font-weight:700;">A &mdash; &Eacute;quilibre MTC</td>
+            <td>D&eacute;s&eacute;quilibre &rarr; Logique MTC</td>
+        </tr>
+        <tr>
+            <td>Cure / Programme saisonnier</td>
+            <td style="color:var(--parcours-a); font-weight:700;">A &mdash; &Eacute;quilibre MTC</td>
+            <td>D&eacute;s&eacute;quilibre saisonnier &rarr; Cycle MTC</td>
+        </tr>
+        <tr>
+            <td>G&eacute;lule mono-ingr&eacute;dient (Reishi, Curcuma&hellip;)</td>
+            <td style="color:var(--parcours-b); font-weight:700;">B &mdash; Soutien Fonctionnel</td>
+            <td>Besoin &rarr; Actif &amp; m&eacute;canisme</td>
+        </tr>
+        <tr>
+            <td>Compl&eacute;ment alimentaire cibl&eacute;</td>
+            <td style="color:var(--parcours-b); font-weight:700;">B &mdash; Soutien Fonctionnel</td>
+            <td>Besoin &rarr; Formule &amp; b&eacute;n&eacute;fice</td>
+        </tr>
+        <tr>
+            <td>S&eacute;rum / Cr&egrave;me fonctionnelle</td>
+            <td style="color:var(--parcours-b); font-weight:700;">B &mdash; Soutien Fonctionnel</td>
+            <td>Besoin peau &rarr; Actif &amp; soutien</td>
+        </tr>
+        <tr>
+            <td>Th&eacute; / Infusion</td>
+            <td style="color:var(--parcours-c); font-weight:700;">C &mdash; Rituel</td>
+            <td>Moment &rarr; Geste &rarr; Sensation</td>
+        </tr>
+        <tr>
+            <td>Gua Sha / Accessoire</td>
+            <td style="color:var(--parcours-c); font-weight:700;">C &mdash; Rituel</td>
+            <td>Geste &rarr; R&eacute;p&eacute;tition &rarr; Harmonie</td>
+        </tr>
+        <tr>
+            <td>Coffret d&eacute;couverte</td>
+            <td style="color:var(--parcours-c); font-weight:700;">C &mdash; Rituel</td>
+            <td>Intention &rarr; Exp&eacute;rience &rarr; D&eacute;couverte</td>
+        </tr>
+        <tr>
+            <td>Huile de massage / Bain</td>
+            <td style="color:var(--parcours-c); font-weight:700;">C &mdash; Rituel</td>
+            <td>Moment de soin &rarr; Sensation &rarr; D&eacute;tente</td>
+        </tr>
+    </table>
+</section>
+
+
+<!-- Check final -->
+<section>
+    <h2>Check Final &mdash; Avant Publication</h2>
+
+    <h3>Questions universelles (tous parcours)</h3>
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+            <h3 style="font-size:2rem; margin-bottom:15px;">1</h3>
+            <p style="font-weight:600; color:var(--primary);">Le ton est-il ma&icirc;tris&eacute; ?</p>
+            <p style="margin-top:6px;">Pas de dramatisation, pas de surench&egrave;re.</p>
+        </div>
+        <div class="card accent">
+            <h3 style="font-size:2rem; margin-bottom:15px;">2</h3>
+            <p style="font-weight:600; color:#8b5a2b;">La notion de progression est-elle pr&eacute;sente ?</p>
+            <p style="margin-top:6px;">Temps, r&eacute;gularit&eacute;, processus ou r&eacute;p&eacute;tition.</p>
+        </div>
+        <div class="card dark">
+            <h3 style="font-size:2rem; margin-bottom:15px;">3</h3>
+            <p style="font-weight:600; color:var(--primary);">Le vocabulaire respecte-t-il la charte ?</p>
+            <p style="margin-top:6px;">Aucun mot interdit, usage contextuel encadr&eacute;.</p>
+        </div>
+    </div>
+
+    <h3>Question sp&eacute;cifique au parcours</h3>
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card" style="border-top-color:var(--parcours-a);">
+            <h3 style="color:var(--parcours-a); font-size:0.95rem;">Parcours A</h3>
+            <p style="font-weight:600; color:var(--parcours-a);">Le d&eacute;s&eacute;quilibre MTC est-il clairement expliqu&eacute; ?</p>
+        </div>
+        <div class="card" style="border-top-color:var(--parcours-b);">
+            <h3 style="color:var(--parcours-b); font-size:0.95rem;">Parcours B</h3>
+            <p style="font-weight:600; color:var(--parcours-b);">L'ingr&eacute;dient et son r&ocirc;le sont-ils limpides ?</p>
+        </div>
+        <div class="card" style="border-top-color:var(--parcours-c);">
+            <h3 style="color:var(--parcours-c); font-size:0.95rem;">Parcours C</h3>
+            <p style="font-weight:600; color:var(--parcours-c);">Le rituel et la sensation sont-ils tangibles ?</p>
+        </div>
+    </div>
+
+    <div class="box-red">
+        <p>Si la r&eacute;ponse est &laquo;&nbsp;non&nbsp;&raquo; &agrave; l'une de ces questions &rarr; r&eacute;&eacute;crire la fiche.</p>
+    </div>
+</section>
+
+
+<!-- Règle d'or -->
+<section>
+    <h2>R&egrave;gle d'Or</h2>
+
+    <div class="statement">
+        <p style="font-size:1.15rem;">Trois parcours, une seule voix. Le Sage s'adapte au produit &mdash; il ne force jamais un cadre.</p>
+    </div>
+
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="card">
+            <h3 style="color:var(--primary);">&#10004; Faire</h3>
+            <ul>
+                <li>Choisir le parcours le plus <strong>naturel</strong> pour le produit</li>
+                <li>Parler d'&eacute;quilibre, d'harmonie ou de soutien selon le contexte</li>
+                <li>Respecter la <strong>progression</strong> dans chaque parcours</li>
+            </ul>
+        </div>
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">&#10060; &Eacute;viter</h3>
+            <ul>
+                <li>Forcer un d&eacute;s&eacute;quilibre MTC l&agrave; o&ugrave; il n'est pas pertinent</li>
+                <li>Promesse imm&eacute;diate</li>
+                <li>Langage de combat destructeur</li>
+                <li>Surench&egrave;re ou sensationnalisme</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- Signature -->
+<section>
+    <h2>Signature Universelle</h2>
+
+    <div class="statement">
+        <p style="font-size:1.25rem;">Calebasse accompagne le corps vers son &eacute;quilibre naturel afin de soutenir durablement la sant&eacute; et de r&eacute;v&eacute;ler une beaut&eacute; harmonieuse.</p>
+    </div>
+
+    <div class="box-gold">
+        <p>Cette phrase reste la boussole de chaque fiche produit &mdash; quel que soit le parcours choisi.</p>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <p>Charte de Langage Produit v2 &mdash; 3 Parcours Narratifs &mdash; 2026 &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Document op&eacute;rationnel interne</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

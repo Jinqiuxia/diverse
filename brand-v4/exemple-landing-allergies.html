@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergies de Printemps &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre</title>
+    <meta name="description" content="Et si vos allergies de printemps signalaient un d&eacute;s&eacute;quilibre plus profond ? D&eacute;couvrez l'approche Calebasse fond&eacute;e sur la pharmacop&eacute;e chinoise.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green { background: var(--primary); color: white; }
+        .tag-gold  { background: var(--accent); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── CTA buttons ── */
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        .cta-primary {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--primary);
+        }
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: var(--primary);
+            color: white;
+        }
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            transition: background 0.2s, color 0.2s;
+        }
+        .cta-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .cta-green {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(44,85,48,0.3);
+        }
+        .cta-green:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(44,85,48,0.4);
+        }
+        .cta-gold {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(212,165,116,0.3);
+        }
+        .cta-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212,165,116,0.4);
+        }
+
+        /* ── Objection block ── */
+        .objection {
+            background: rgba(44,85,48,0.03);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 18px 0;
+        }
+        .objection-q {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .objection-a {
+            color: var(--text-light);
+            font-size: 0.96rem;
+            padding-left: 18px;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* ── Product card structure ── */
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .product-card .product-field {
+            margin-bottom: 14px;
+        }
+        .product-card .product-field .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        .product-card .product-field .value {
+            font-size: 0.96rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .product-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 16px 0;
+            text-align: left;
+        }
+        .product-card .price {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 8px 0 18px;
+        }
+        .product-card .product-footer {
+            margin-top: auto;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ── Hero Section (full-width, immersive) ── */
+        .hero {
+            background: linear-gradient(170deg, #f5f9f5 0%, var(--bg) 40%, rgba(212,165,116,0.08) 100%);
+            padding: 60px 20px 50px;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent), var(--primary));
+            opacity: 0.4;
+        }
+        .hero .institutional {
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--primary-light);
+            font-weight: 600;
+            margin-bottom: 30px;
+            opacity: 0.85;
+        }
+        .hero h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            line-height: 1.35;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-weight: 600;
+            border: none;
+            padding-bottom: 0;
+        }
+        .hero .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 35px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* ── Identification section ── */
+        .identification-question {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        .pivot-question {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            color: var(--primary);
+            text-align: center;
+            font-style: italic;
+            max-width: 650px;
+            margin: 30px auto 0;
+            line-height: 1.6;
+        }
+
+        /* ── Proof cards with check icon ── */
+        .proof-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            background: rgba(44,85,48,0.10);
+            border-radius: 50%;
+            margin-bottom: 14px;
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* ── Final CTA section ── */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 16px;
+            padding: 50px 38px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(44,85,48,0.25);
+        }
+        .final-cta h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: white;
+            font-size: 1.8rem;
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: 30px;
+        }
+        .final-cta .cta-primary {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+            font-size: 1.1rem;
+            padding: 16px 40px;
+        }
+        .final-cta .cta-primary:hover {
+            background: rgba(255,255,255,0.9);
+            color: var(--primary-dark);
+        }
+        .final-cta .cta-gold {
+            font-size: 1.1rem;
+            padding: 16px 40px;
+        }
+
+        /* ── Section labels ── */
+        .section-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .section-label-gold {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* ── Lead Capture module ── */
+        .lead-capture {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 8px 30px rgba(44,85,48,0.25);
+            text-align: center;
+        }
+        .lead-capture h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: white;
+            font-size: 1.4rem;
+            margin: 0 0 6px 0;
+            text-align: center;
+        }
+        .lead-capture .lead-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            opacity: 0.88;
+            margin-bottom: 28px;
+        }
+        .lead-capture .newsletter-form {
+            max-width: 520px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        .lead-capture .newsletter-form input[type="email"] {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid rgba(255,255,255,0.25);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.12);
+            color: white;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+        }
+        .lead-capture .newsletter-form input[type="email"]::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        .lead-capture .newsletter-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.18);
+        }
+        .lead-capture .newsletter-form button {
+            padding: 14px 28px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+        .lead-capture .newsletter-form button:hover {
+            background: #c49564;
+            transform: translateY(-1px);
+        }
+        .lead-capture .newsletter-consent {
+            font-size: 0.78rem;
+            opacity: 0.65;
+            margin-top: 12px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-light);
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: opacity 0.2s;
+            margin-top: 16px;
+        }
+        .whatsapp-link:hover { opacity: 0.8; }
+        .whatsapp-link svg { width: 18px; height: 18px; fill: #25D366; }
+        /* WhatsApp Modal */
+        .wa-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+        }
+        .wa-modal-overlay.active { display: flex; }
+        .wa-modal {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 360px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalIn 0.25s ease-out;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.92) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .wa-modal-close {
+            position: absolute;
+            top: 12px; right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .wa-modal-close:hover { color: #333; }
+        .wa-modal h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 0 0 8px 0;
+        }
+        .wa-modal p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .wa-modal .qr-placeholder {
+            width: 180px;
+            height: 180px;
+            background: #f5f5f0;
+            border-radius: 12px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 2px dashed #ccc;
+        }
+        .wa-modal .wa-channel-name {
+            font-size: 0.85rem;
+            color: #25D366;
+            font-weight: 600;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section { padding: 25px; }
+            .cards { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .cta-group { flex-direction: column; align-items: center; }
+            .hero h2 { font-size: 1.6rem; }
+            .hero .hero-subtitle { font-size: 1rem; }
+            .hero { padding: 40px 20px 35px; }
+            .final-cta { padding: 35px 25px; }
+            .final-cta h2 { font-size: 1.4rem; }
+            .identification-question { font-size: 1.3rem; }
+            .flow { font-size: 0.82rem; gap: 8px; }
+            .flow .step { padding: 5px 12px; }
+            .product-card { padding: 22px; }
+            .lead-capture { padding: 30px 20px; }
+            .lead-capture .newsletter-form { flex-direction: column; }
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.6rem; }
+            .hero h2 { font-size: 1.35rem; }
+            section { padding: 20px 16px; }
+            .card { padding: 22px; }
+        }
+
+        /* ── Print ── */
+        @media print {
+            body { background: white; font-size: 11pt; }
+            header { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            section, .lead-capture, .final-cta {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .hero { background: white !important; break-after: avoid; page-break-after: avoid; }
+            .card, .product-card, .objection {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .cta-primary, .cta-secondary, .cta-green, .cta-gold {
+                border: 2px solid var(--primary) !important;
+                box-shadow: none !important;
+            }
+            .statement, .statement-gold, .final-cta {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .back-link { display: none; }
+            footer { border-top: 2px solid var(--primary); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+     ═══════════════════════════════════════════════════════════ -->
+<header>
+    <h1>Allergies de Printemps</h1>
+    <p class="slogan">L'Art de l'&Eacute;quilibre</p>
+    <p class="subtitle">Calebasse &mdash; Quand le corps retrouve son &eacute;quilibre, il retrouve sa capacit&eacute; naturelle de d&eacute;fense</p>
+    <span class="doc-type">Landing page</span>
+</header>
+
+<div class="container">
+
+<a class="back-link" href="Brand-Strategie-v4.html">&larr; Retour &agrave; la Plateforme</a>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1 — HERO : POSITION + PROBLEME
+     ═══════════════════════════════════════════════════════════ -->
+<div class="hero">
+    <p class="institutional">Le laboratoire fran&ccedil;ais de la pharmacop&eacute;e chinoise depuis 1997</p>
+
+    <h2>Et si vos allergies de printemps signalaient un d&eacute;s&eacute;quilibre plus profond&nbsp;?</h2>
+
+    <p class="hero-subtitle">Comprendre et accompagner votre corps, plut&ocirc;t que simplement masquer les sympt&ocirc;mes.</p>
+
+    <div class="cta-group">
+        <a href="#approche" class="cta-green">D&eacute;couvrir l'approche</a>
+        <a href="#reframe" class="cta-secondary">Comprendre le d&eacute;s&eacute;quilibre</a>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2 — TENSION : IDENTIFICATION
+     ═══════════════════════════════════════════════════════════ -->
+<section>
+    <span class="section-label">Identification</span>
+
+    <p class="identification-question">Vous reconnaissez-vous&nbsp;?</p>
+
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="card">
+            <h3 style="text-align:left;">&Eacute;ternuements et nez qui coule</h3>
+            <p>Chaque printemps, les m&ecirc;mes sympt&ocirc;mes reviennent, malgr&eacute; les traitements habituels.</p>
+        </div>
+        <div class="card accent">
+            <h3 style="text-align:left;">Yeux irrit&eacute;s et fatigu&eacute;s</h3>
+            <p>Les yeux rougissent, piquent, pleurent. La journ&eacute;e devient inconfortable.</p>
+        </div>
+        <div class="card dark">
+            <h3 style="text-align:left;">Peau r&eacute;active</h3>
+            <p>Rougeurs, d&eacute;mangeaisons, sensibilit&eacute; accrue au changement de saison.</p>
+        </div>
+        <div class="card">
+            <h3 style="text-align:left;">Fatigue saisonni&egrave;re</h3>
+            <p>Le corps semble &eacute;puis&eacute; par la r&eacute;ponse allergique elle-m&ecirc;me.</p>
+        </div>
+    </div>
+
+    <p class="pivot-question">Et si le probl&egrave;me n'&eacute;tait pas le pollen &mdash; mais la fa&ccedil;on dont votre corps y r&eacute;agit&nbsp;?</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 3 — REFRAME : CHANGEMENT DE PERSPECTIVE
+     ═══════════════════════════════════════════════════════════ -->
+<section id="reframe">
+    <span class="section-label">Changement de perspective</span>
+
+    <div class="statement">
+        <p style="font-size:1.4rem; font-weight:600; font-style:normal;">Le sympt&ocirc;me n'est pas l'ennemi.</p>
+    </div>
+
+    <div class="box-green" style="margin-top:30px;">
+        <p style="font-size:1.02rem; line-height:1.9; font-weight:400;">Selon la pharmacop&eacute;e chinoise, les allergies de printemps refl&egrave;tent un d&eacute;s&eacute;quilibre interne &mdash; impliquant souvent une faiblesse du <span class="hl">Wei Qi</span> (&eacute;nergie d&eacute;fensive) et une accumulation de <span class="hl-accent">Vent-Chaleur</span> ou d'<span class="hl-accent">Humidit&eacute;</span>. Le corps surr&eacute;agit parce que sa r&eacute;gulation interne est perturb&eacute;e. La cl&eacute; n'est pas de supprimer, mais de <strong>restaurer l'&eacute;quilibre</strong> qui permet une d&eacute;fense adapt&eacute;e.</p>
+    </div>
+
+    <div class="flow" style="font-size:1.05rem; margin: 30px 0;">
+        <span class="step">D&eacute;s&eacute;quilibre interne</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">R&eacute;ponse excessive</span>
+        <span style="margin: 0 10px; color:var(--text-light); font-weight:400;">|</span>
+        <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">Restauration de l'&eacute;quilibre</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">D&eacute;fense naturelle retrouv&eacute;e</span>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 4 — SOLUTION : L'APPROCHE CALEBASSE
+     ═══════════════════════════════════════════════════════════ -->
+<section id="approche">
+    <span class="section-label-gold">L'approche Calebasse</span>
+
+    <h3 style="margin-top:10px; font-size:1.45rem;">Restaurer la capacit&eacute; naturelle de d&eacute;fense</h3>
+
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+            <h3 style="text-align:left;">Tradition mill&eacute;naire</h3>
+            <p>Des savoirs transmis et perfectionn&eacute;s sur des mill&eacute;naires, fond&eacute;s sur l'observation fine du corps et de ses &eacute;quilibres. La pharmacop&eacute;e chinoise offre un cadre de lecture coh&eacute;rent de la r&eacute;ponse allergique.</p>
+        </div>
+        <div class="card accent">
+            <h3 style="text-align:left;">S&eacute;lection rigoureuse</h3>
+            <p>Chaque plante est choisie selon des crit&egrave;res stricts de qualit&eacute;, de puret&eacute; et de coh&eacute;rence avec la formulation globale. Rien n'est laiss&eacute; au hasard dans la composition.</p>
+        </div>
+        <div class="card dark">
+            <h3 style="text-align:left;">Exigence scientifique</h3>
+            <p>La tradition est valid&eacute;e par la science moderne. Chaque formule r&eacute;pond &agrave; des standards &eacute;lev&eacute;s de s&eacute;curit&eacute; et de qualit&eacute;, dans le respect des normes fran&ccedil;aises.</p>
+        </div>
+    </div>
+
+    <div class="statement-gold">
+        <p>Nos formules soutiennent l'organisme dans un r&eacute;&eacute;quilibrage progressif et durable.</p>
+    </div>
+
+    <div class="cta-group">
+        <a href="#produits" class="cta-green">Explorer les formules d'&eacute;quilibre</a>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 5 — PREUVE STRUCTUREE
+     ═══════════════════════════════════════════════════════════ -->
+<section>
+    <span class="section-label">R&eacute;assurance</span>
+
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="card">
+            <div class="proof-icon">&check;</div>
+            <h3 style="text-align:left; margin-top:0;">Vision globale du corps</h3>
+            <p>Le corps est un syst&egrave;me. L'approche Calebasse consid&egrave;re l'ensemble des fonctions plut&ocirc;t que les sympt&ocirc;mes isol&eacute;s. Les allergies sont lues comme un signal, pas comme une fatalit&eacute;.</p>
+        </div>
+        <div class="card accent">
+            <div class="proof-icon">&check;</div>
+            <h3 style="text-align:left; margin-top:0;">Logique coh&eacute;rente</h3>
+            <p>Chaque formule repose sur une logique structur&eacute;e, h&eacute;rit&eacute;e de la pharmacop&eacute;e chinoise et valid&eacute;e par les standards modernes de qualit&eacute; et de s&eacute;curit&eacute;.</p>
+        </div>
+        <div class="card dark">
+            <div class="proof-icon">&check;</div>
+            <h3 style="text-align:left; margin-top:0;">Pr&egrave;s de 30 ans d'expertise</h3>
+            <p>Depuis 1997, Calebasse traduit la sagesse de la pharmacop&eacute;e chinoise en formules accessibles, avec la rigueur d'un laboratoire fran&ccedil;ais.</p>
+        </div>
+        <div class="card">
+            <div class="proof-icon">&check;</div>
+            <h3 style="text-align:left; margin-top:0;">100% naturel</h3>
+            <p>Des formules enti&egrave;rement compos&eacute;es d'ingr&eacute;dients naturels, s&eacute;lectionn&eacute;s pour leur qualit&eacute; et leur coh&eacute;rence avec la tradition de la pharmacop&eacute;e chinoise.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 6 — PRODUITS
+     ═══════════════════════════════════════════════════════════ -->
+<section id="produits">
+    <span class="section-label-gold">Formules d'&eacute;quilibre</span>
+
+    <h3 style="margin-top:10px; font-size:1.35rem;">Accompagner le corps vers un meilleur &eacute;quilibre d&eacute;fensif</h3>
+
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+
+        <!-- Produit 1 -->
+        <div class="product-card">
+            <h3>Lian Qiao Bai Du Wan</h3>
+            <div class="product-field">
+                <div class="label">Fonction d'&eacute;quilibre</div>
+                <div class="value">Clarifie la Chaleur, soutient les d&eacute;fenses naturelles</div>
+            </div>
+            <div class="product-field">
+                <div class="label">Logique MTC</div>
+                <div class="value">Accompagne la clarification de la Chaleur-Vent et favorise le bon fonctionnement du Wei Qi (Qi d&eacute;fensif). Contribue &agrave; r&eacute;tablir les conditions d'un &eacute;quilibre interne favorable.</div>
+            </div>
+            <div class="product-field">
+                <div class="label">R&eacute;sultat progressif</div>
+                <div class="value">Participe au retour progressif du confort au quotidien, en soutenant la capacit&eacute; naturelle du corps &agrave; g&eacute;rer les agressions saisonni&egrave;res.</div>
+            </div>
+            <div class="product-footer">
+                <p class="price">28,90 &euro;</p>
+                <div class="cta-group" style="margin-bottom:0; justify-content:flex-start;">
+                    <a href="#" class="cta-gold">Choisir ma formule</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 2 -->
+        <div class="product-card" style="border-top-color:var(--accent);">
+            <h3>Pi Pa Qing Fei Yin</h3>
+            <div class="product-field">
+                <div class="label">Fonction d'&eacute;quilibre</div>
+                <div class="value">Soutient le confort respiratoire, clarifie la Chaleur</div>
+            </div>
+            <div class="product-field">
+                <div class="label">Logique MTC</div>
+                <div class="value">Accompagne la fonction du Poumon dans sa r&eacute;gulation de la respiration et de la diffusion. Aide &agrave; maintenir la clart&eacute; des voies respiratoires en p&eacute;riode de sollicitation saisonni&egrave;re.</div>
+            </div>
+            <div class="product-field">
+                <div class="label">R&eacute;sultat progressif</div>
+                <div class="value">Favorise un confort respiratoire durable et soutient le corps dans sa capacit&eacute; &agrave; accueillir le changement de saison avec s&eacute;r&eacute;nit&eacute;.</div>
+            </div>
+            <div class="product-footer">
+                <p class="price">27,90 &euro;</p>
+                <div class="cta-group" style="margin-bottom:0; justify-content:flex-start;">
+                    <a href="#" class="cta-gold">Choisir ma formule</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 3 -->
+        <div class="product-card" style="border-top-color:var(--primary-dark);">
+            <h3>Formule D&eacute;tox &mdash; Qing Zhuo Tang</h3>
+            <div class="product-field">
+                <div class="label">Fonction d'&eacute;quilibre</div>
+                <div class="value">Accompagne l'&eacute;limination, soutient la clart&eacute; interne</div>
+            </div>
+            <div class="product-field">
+                <div class="label">Logique MTC</div>
+                <div class="value">Soutient la fonction de transformation et d'&eacute;limination, contribuant &agrave; clarifier l'accumulation d'Humidit&eacute; et de Turbidit&eacute; qui peut amplifier la r&eacute;ponse allergique.</div>
+            </div>
+            <div class="product-field">
+                <div class="label">R&eacute;sultat progressif</div>
+                <div class="value">Participe &agrave; cr&eacute;er les conditions internes favorables &agrave; une meilleure r&eacute;gulation d&eacute;fensive, en accompagnant le travail naturel d'&eacute;limination du corps.</div>
+            </div>
+            <div class="product-footer">
+                <p class="price">37,90 &euro;</p>
+                <div class="cta-group" style="margin-bottom:0; justify-content:flex-start;">
+                    <a href="#" class="cta-gold">Choisir ma formule</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="box-green" style="margin-top:10px;">
+        <p style="text-align:center; font-weight:400; font-size:0.92rem;">Ces formules ne sont pas des anti-histaminiques. Elles accompagnent le corps vers un r&eacute;&eacute;quilibrage profond et durable.</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 7 — LEAD CAPTURE
+     ═══════════════════════════════════════════════════════════ -->
+<div class="lead-capture">
+    <h3>Recevez nos guides d'&eacute;quilibre et conseils de pharmacop&eacute;e chinoise</h3>
+    <p class="lead-subtitle">Chaque mois, des cl&eacute;s pour comprendre votre corps et accompagner ses &eacute;quilibres naturels.</p>
+
+    <div class="newsletter-form">
+        <input type="email" placeholder="votre@email.com">
+        <button>S'inscrire</button>
+    </div>
+    <p class="newsletter-consent">En vous inscrivant, vous acceptez de recevoir nos communications. D&eacute;sinscription possible &agrave; tout moment.</p>
+
+    <div style="text-align:center;">
+        <span class="whatsapp-link" onclick="document.getElementById('waModal').classList.add('active')">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Rejoignez aussi notre channel WhatsApp
+        </span>
+    </div>
+</div>
+
+<!-- WhatsApp Modal -->
+<div class="wa-modal-overlay" id="waModal" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="wa-modal">
+        <button class="wa-modal-close" onclick="document.getElementById('waModal').classList.remove('active')">&times;</button>
+        <h4>Channel WhatsApp Calebasse</h4>
+        <p>Scannez le QR code pour rejoindre notre channel et recevoir conseils personnalis&eacute;s et nouveaut&eacute;s en temps r&eacute;el.</p>
+        <div class="qr-placeholder">QR Code</div>
+        <p class="wa-channel-name">Calebasse &mdash; L'Art de l'&Eacute;quilibre</p>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 8 — OBJECTIONS
+     ═══════════════════════════════════════════════════════════ -->
+<section>
+    <span class="section-label">Questions fr&eacute;quentes</span>
+
+    <div class="objection">
+        <div class="objection-q">&laquo;&nbsp;Est-ce que la MTC peut vraiment agir sur les allergies&nbsp;?&nbsp;&raquo;</div>
+        <div class="objection-a">La pharmacop&eacute;e chinoise ne &laquo;&nbsp;traite&nbsp;&raquo; pas l'allergie au sens occidental. Elle accompagne le corps vers un meilleur &eacute;quilibre de ses fonctions d&eacute;fensives. Depuis des mill&eacute;naires, des formules sp&eacute;cifiques soutiennent la r&eacute;gulation de la r&eacute;ponse immunitaire.</div>
+    </div>
+
+    <div class="objection">
+        <div class="objection-q">&laquo;&nbsp;Les r&eacute;sultats sont-ils rapides&nbsp;?&nbsp;&raquo;</div>
+        <div class="objection-a">L'approche Calebasse s'inscrit dans le temps. Les premiers signes de confort peuvent appara&icirc;tre progressivement, mais l'objectif est un r&eacute;&eacute;quilibrage durable, pas un soulagement temporaire.</div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 9 — CTA FINAL
+     ═══════════════════════════════════════════════════════════ -->
+<div class="final-cta">
+    <h2>Entrer dans l'Art de l'&Eacute;quilibre</h2>
+    <div class="cta-group">
+        <a href="#" class="cta-primary">Entrer dans l'Art de l'&Eacute;quilibre</a>
+        <a href="#" class="cta-gold">D&eacute;couvrir la formule adapt&eacute;e</a>
+    </div>
+</div>
+
+
+</div>
+
+<footer>
+    <p>Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Le Laboratoire Fran&ccedil;ais de la Pharmacop&eacute;e Chinoise depuis 1997</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

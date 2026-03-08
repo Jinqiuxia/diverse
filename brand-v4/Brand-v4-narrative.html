@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative &amp; Tone — Calebasse — L'Art de l'&Eacute;quilibre</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+
+        /* ── Part dividers ── */
+        .part-header {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+        .part-header .part-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .part-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .part-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 46px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+        .hl-bold { font-weight: 700; color: var(--primary); }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        ul ul { margin-top: 10px; margin-left: 14px; }
+        ul ul li::before {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            top: 11px;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Asset row ── */
+        .asset-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .asset {
+            background: rgba(44,85,48,0.04);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 12px;
+            padding: 22px;
+        }
+        .asset .label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .asset .value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.08rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .asset .note {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+        .box-red {
+            background: rgba(180,68,68,0.07);
+            border: 1px solid rgba(180,68,68,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-red p { margin: 0; font-weight: 600; color: var(--red); font-size: 1.02rem; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green { background: var(--primary); color: white; }
+        .tag-gold  { background: var(--accent); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+
+        /* ── Ladder ── */
+        .ladder { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: 25px 0; }
+        .ladder-step { padding: 22px 28px; width: 100%; text-align: center; }
+        .ladder-step h4 { margin: 0 0 6px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .ladder-step p  { margin: 0; font-size: 0.95rem; }
+        .l5 { background: var(--primary-dark); color: white; width: 62%; border-radius: 12px 12px 0 0; }
+        .l5 h4 { color: var(--accent-light); }
+        .l4 { background: var(--primary); color: white; width: 72%; }
+        .l4 h4 { color: var(--accent-light); }
+        .l3 { background: var(--primary-light); color: white; width: 82%; }
+        .l3 h4 { color: var(--accent-light); }
+        .l2 { background: rgba(44,85,48,0.15); width: 91%; }
+        .l2 h4 { color: var(--primary); }
+        .l1 { background: rgba(44,85,48,0.07); width: 100%; border-radius: 0 0 12px 12px; }
+        .l1 h4 { color: var(--primary); }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── Do / Don't ── */
+        .do-dont {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            margin: 20px 0; border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .do-col, .dont-col { padding: 24px; }
+        .do-col { background: rgba(44,85,48,0.06); border-right: 1px solid var(--border); }
+        .dont-col { background: rgba(180,68,68,0.04); }
+        .do-col h4 { color: var(--primary); margin-top: 0; }
+        .dont-col h4 { color: var(--red); margin-top: 0; }
+        .dont-col li::before { background: var(--red); }
+
+        /* ── Check / Cross ── */
+        .check::before { content: "\2713"; color: var(--primary); font-weight: 700; margin-right: 10px; }
+        .cross::before { content: "\2717"; color: var(--red); font-weight: 700; margin-right: 10px; }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+
+        /* ── System table ── */
+        .sys-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            border-radius: 12px; overflow: hidden;
+        }
+        .sys-table th {
+            background: var(--primary); color: white;
+            padding: 12px 18px; text-align: left;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sys-table td {
+            padding: 12px 18px; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .sys-table tr:nth-child(even) td { background: rgba(44,85,48,0.03); }
+        .sys-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        /* ── Nav cards ── */
+        .nav-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px; margin: 25px 0;
+        }
+        .nav-card {
+            background: var(--card-bg); border-radius: 12px; padding: 22px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none; color: var(--text);
+        }
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        .nav-card h4 { color: var(--primary); margin: 0 0 6px; font-size: 1rem; }
+        .nav-card p { color: var(--text-light); font-size: 0.88rem; margin: 0; }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ── Scale bar (custom for tone calibration) ── */
+        .scale-bar {
+            display: flex;
+            align-items: stretch;
+            margin: 15px 0 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 10px;
+            background: var(--border);
+            position: relative;
+        }
+        .scale-fill {
+            background: linear-gradient(90deg, rgba(180,68,68,0.6) 0%, rgba(212,165,116,0.8) 40%, var(--primary) 70%, var(--primary-dark) 100%);
+            height: 100%;
+            transition: width 0.3s;
+        }
+        .scale-marker {
+            position: absolute;
+            top: -6px;
+            width: 4px;
+            height: 22px;
+            background: var(--primary-dark);
+            border-radius: 2px;
+        }
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+        .ideal-range {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section { padding: 25px; }
+            .cards { grid-template-columns: 1fr; }
+            .asset-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .do-col { border-right: none; border-bottom: 1px solid var(--border); }
+        }
+        @media print {
+            body { background: white; }
+            header { background: var(--primary); }
+            section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .part-header { break-before: page; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Narrative &amp; Tone</h1>
+    <p class="slogan">L'Art de l'&Eacute;quilibre</p>
+    <p class="subtitle">Calebasse &mdash; Matrice narrative, filtre de d&eacute;cision et calibration du ton</p>
+    <span class="doc-type">Sous-document strat&eacute;gique</span>
+</header>
+
+<div class="container">
+
+<a href="Brand-Strategie-v4.html" class="back-link">&larr; Retour &agrave; la Plateforme</a>
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 1 — MATRICE NARRATIVE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 1</span>
+    <h2>Matrice Narrative</h2>
+    <p>Les huit r&eacute;cits fondateurs de Calebasse et leur logique d'expression</p>
+</div>
+
+<!-- 1.1 Les 8 narratives fondamentales -->
+<section>
+    <h2>Les 8 Narratives Fondamentales</h2>
+    <p>Chaque narrative repose sur un principe de la marque et oriente la fa&ccedil;on dont nous communiquons. Ensemble, elles forment un syst&egrave;me coh&eacute;rent.</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>Narrative</th>
+            <th>Direction d'expression</th>
+            <th>Mots-cl&eacute;s</th>
+            <th>Pourquoi elle s'int&egrave;gre</th>
+        </tr>
+        <tr>
+            <td>L'&Eacute;quilibre</td>
+            <td>R&eacute;&eacute;quilibrer plut&ocirc;t que corriger</td>
+            <td><span class="tag tag-outline">&eacute;quilibre</span> <span class="tag tag-outline">coh&eacute;rence</span> <span class="tag tag-outline">ordre naturel</span></td>
+            <td>Fondement philosophique de la marque</td>
+        </tr>
+        <tr>
+            <td>La Restauration de l'Ordre</td>
+            <td>Restaurer plut&ocirc;t que combattre</td>
+            <td><span class="tag tag-outline">restaurer</span> <span class="tag tag-outline">r&eacute;harmoniser</span> <span class="tag tag-outline">r&eacute;tablir</span></td>
+            <td>Mythe fondateur de la marque</td>
+        </tr>
+        <tr>
+            <td>La Sant&eacute; comme Cons&eacute;quence</td>
+            <td>La sant&eacute; n'est pas forc&eacute;e</td>
+            <td><span class="tag tag-outline">&eacute;merger</span> <span class="tag tag-outline">r&eacute;v&eacute;ler</span> <span class="tag tag-outline">permettre</span></td>
+            <td>Logique de non-combat</td>
+        </tr>
+        <tr>
+            <td>La Beaut&eacute; Naturelle</td>
+            <td>Beaut&eacute; comme reflet int&eacute;rieur</td>
+            <td><span class="tag tag-outline">beaut&eacute; harmonieuse</span> <span class="tag tag-outline">&eacute;clat naturel</span></td>
+            <td>Causalit&eacute; avec la sant&eacute;</td>
+        </tr>
+        <tr>
+            <td>La Transmission</td>
+            <td>Tradition vivante</td>
+            <td><span class="tag tag-outline">h&eacute;ritage</span> <span class="tag tag-outline">sagesse mill&eacute;naire</span></td>
+            <td>Arch&eacute;type du Sage</td>
+        </tr>
+        <tr>
+            <td>L'Accompagnement</td>
+            <td>Soutien progressif</td>
+            <td><span class="tag tag-outline">accompagner</span> <span class="tag tag-outline">soutenir</span> <span class="tag tag-outline">respecter</span></td>
+            <td>Arch&eacute;type du Protecteur</td>
+        </tr>
+        <tr>
+            <td>Le Temps</td>
+            <td>Durabilit&eacute; &gt; rapidit&eacute;</td>
+            <td><span class="tag tag-outline">progressif</span> <span class="tag tag-outline">durable</span> <span class="tag tag-outline">rythme</span></td>
+            <td>Diff&eacute;renciation face aux marques &laquo;&nbsp;effet rapide&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td>La Coh&eacute;rence</td>
+            <td>Vision globale du corps</td>
+            <td><span class="tag tag-outline">global</span> <span class="tag tag-outline">syst&egrave;me</span> <span class="tag tag-outline">unit&eacute;</span></td>
+            <td>Langage structur&eacute; de marque</td>
+        </tr>
+    </table>
+</section>
+
+<!-- 1.2 Formules d'expression -->
+<section>
+    <h2>Formules d'Expression</h2>
+    <p>Quatre sch&eacute;mas narratifs r&eacute;currents pour structurer notre discours.</p>
+
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="card">
+            <h3>D&eacute;s&eacute;quilibre &rarr; R&eacute;&eacute;quilibrage &rarr; Harmonie</h3>
+            <p><em>&laquo;&nbsp;Le corps ne manque pas, il cherche l'&eacute;quilibre.&nbsp;&raquo;</em></p>
+        </div>
+        <div class="card accent">
+            <h3>Sympt&ocirc;me = Signal</h3>
+            <p><em>&laquo;&nbsp;Un sympt&ocirc;me est souvent l'expression d'un d&eacute;sordre plus profond.&nbsp;&raquo;</em></p>
+        </div>
+        <div class="card dark">
+            <h3>Nature comme moyen</h3>
+            <p><em>&laquo;&nbsp;La nature est un support, l'&eacute;quilibre est la finalit&eacute;.&nbsp;&raquo;</em></p>
+        </div>
+        <div class="card">
+            <h3>Science comme &eacute;clairage</h3>
+            <p><em>&laquo;&nbsp;Tradition &eacute;clair&eacute;e par la science moderne.&nbsp;&raquo;</em></p>
+        </div>
+    </div>
+
+    <div class="flow" style="font-size:1.05rem; margin: 30px 0;">
+        <span class="step"><strong>D&eacute;s&eacute;quilibre</strong></span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">R&eacute;&eacute;quilibrage</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(44,85,48,0.25); font-weight:700;">Harmonie</span>
+    </div>
+</section>
+
+<!-- 1.3 Narratives à éviter -->
+<section>
+    <h2>Narratives &agrave; &Eacute;viter</h2>
+    <p>Certaines formulations, m&ecirc;me courantes dans le secteur, contredisent notre positionnement. Voici les huit pi&egrave;ges narratifs et leurs alternatives.</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>&Agrave; &eacute;viter</th>
+            <th>Raison</th>
+            <th>Alternative Calebasse</th>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">Combat / Lutte</td>
+            <td>Trop confrontationnel</td>
+            <td><span class="hl">Restaurer</span>, <span class="hl">r&eacute;&eacute;quilibrer</span></td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">Solution miracle</td>
+            <td>Rompt la rigueur</td>
+            <td><span class="hl">Processus progressif</span></td>
+        </tr>
+        <tr>
+            <td style="color:#8b5a2b;">Boost / &Eacute;nergie imm&eacute;diate</td>
+            <td>&Agrave; &eacute;viter en communication de marque ; accept&eacute; en contexte promotionnel ou fonctionnel pr&eacute;cis</td>
+            <td><span class="hl">&Eacute;nergie stable</span> (marque) &bull; <span class="hl">Booster l'&eacute;clat</span> (promo)</td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">Anti-fatigue agressif</td>
+            <td>Trop m&eacute;dical</td>
+            <td><span class="hl">Soutien de la vitalit&eacute;</span></td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">R&eacute;volutionnaire</td>
+            <td>Trop disruptif</td>
+            <td><span class="hl">H&eacute;ritage structur&eacute;</span></td>
+        </tr>
+        <tr>
+            <td style="color:#8b5a2b;">Urgence / Derni&egrave;re chance</td>
+            <td>G&eacute;n&egrave;re de l'anxi&eacute;t&eacute; en communication de marque ; urgence encadr&eacute;e accept&eacute;e en contenu promotionnel</td>
+            <td><span class="hl">Respect du rythme</span> (marque) &bull; <span class="hl">Jusqu'au [date]</span> (promo)</td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">Perfection / Corps parfait</td>
+            <td>Contraire &agrave; la logique d'&eacute;quilibre</td>
+            <td><span class="hl">Harmonie naturelle</span></td>
+        </tr>
+    </table>
+</section>
+
+<!-- 1.4 Tons à éviter -->
+<section>
+    <h2>Tons &agrave; &Eacute;viter</h2>
+    <p>Notre voix se situe dans un espace pr&eacute;cis. Ces quatre d&eacute;rives sont les plus fr&eacute;quentes.</p>
+
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">Trop m&eacute;dical</h3>
+            <p>Nous ne sommes pas un laboratoire pharmaceutique. Notre discours est fond&eacute; sur l'&eacute;quilibre, pas sur le diagnostic clinique.</p>
+        </div>
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">Trop lifestyle Instagram</h3>
+            <p>Nous ne sommes pas une marque wellness tendance. Notre l&eacute;gitimit&eacute; repose sur la profondeur, pas sur l'esth&eacute;tique &eacute;ph&eacute;m&egrave;re.</p>
+        </div>
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">Trop mystique &eacute;sot&eacute;rique</h3>
+            <p>Affaiblit le s&eacute;rieux. La MTC est une tradition structur&eacute;e, pas un discours onirique.</p>
+        </div>
+        <div class="card" style="border-top-color: var(--red);">
+            <h3 style="color:var(--red);">Trop scientifique froid</h3>
+            <p>Affaiblit la chaleur du Protecteur. Notre rigueur s'exprime avec bienveillance, jamais avec froideur.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 1.5 Discipline interne -->
+<section>
+    <h2>Discipline Interne</h2>
+
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Calebasse&hellip;</h4>
+            <ul>
+                <li><strong>Explique</strong> &mdash; avec clart&eacute; et p&eacute;dagogie</li>
+                <li><strong>Accompagne</strong> &mdash; avec bienveillance et patience</li>
+                <li><strong>R&eacute;&eacute;quilibre</strong> &mdash; avec respect du rythme naturel</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Calebasse ne&hellip;</h4>
+            <ul>
+                <li><strong>Combat</strong> pas &mdash; ni les sympt&ocirc;mes, ni la concurrence</li>
+                <li><strong>Corrige brutalement</strong> pas &mdash; pas de logique de force</li>
+                <li><strong>Promet l'imm&eacute;diat</strong> pas &mdash; pas de r&eacute;sultat magique</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="statement">
+        <p>&laquo;&nbsp;Toujours parler d'&eacute;quilibre comme processus, jamais comme promesse magique.&nbsp;&raquo;</p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 2 — FILTRE DE DÉCISION NARRATIVE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 2</span>
+    <h2>Filtre de D&eacute;cision Narrative</h2>
+    <p>Cinq questions &agrave; se poser avant de valider toute communication</p>
+</div>
+
+<section>
+    <h2>Les 5 Questions du Filtre</h2>
+    <p>Chaque texte, chaque visuel, chaque message doit passer ces cinq v&eacute;rifications. Pour chacune, les mots justes et les mots &agrave; proscrire.</p>
+
+    <!-- Question 1 -->
+    <h3>1. &Eacute;quilibre ou Sympt&ocirc;me ?</h3>
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Direction juste</h4>
+            <ul>
+                <li>R&eacute;&eacute;quilibrer</li>
+                <li>Restaurer</li>
+                <li>Soutenir</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Direction &agrave; proscrire</h4>
+            <ul>
+                <li>Combattre / Lutter contre</li>
+                <li>Corriger radicalement</li>
+                <li>D&eacute;truire / &Eacute;radiquer</li>
+            </ul>
+            <p style="font-size:0.85rem; color:#8b5a2b; margin-top:8px;">&#9888; &laquo;&nbsp;&Eacute;liminer&nbsp;&raquo; accept&eacute; pour action concr&egrave;te (ex : toxines)</p>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <h3>2. Processus ou Imm&eacute;diatet&eacute; ?</h3>
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Direction juste</h4>
+            <ul>
+                <li>Progressif</li>
+                <li>Durable</li>
+                <li>Accompagner</li>
+                <li>Respecter le rythme</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Direction &agrave; proscrire</h4>
+            <ul>
+                <li>Imm&eacute;diat</li>
+                <li>Instantan&eacute;</li>
+                <li>Transformation rapide</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <h3>3. Ordre naturel ou Performance ?</h3>
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Direction juste</h4>
+            <ul>
+                <li>Coh&eacute;rence</li>
+                <li>Harmonie</li>
+                <li>&Eacute;quilibre naturel</li>
+                <li>Ordre int&eacute;rieur</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Direction &agrave; proscrire</h4>
+            <ul>
+                <li>Performance</li>
+                <li>Puissance</li>
+                <li>Optimisation extr&ecirc;me</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <h3>4. Ton Sage + Protecteur ?</h3>
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Direction juste</h4>
+            <ul>
+                <li>Structur&eacute;</li>
+                <li>P&eacute;dagogique</li>
+                <li>Calme</li>
+                <li>Confiant</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Direction &agrave; proscrire</h4>
+            <ul>
+                <li>Exag&eacute;r&eacute;</li>
+                <li>Alarmiste</li>
+                <li>Sensationnaliste</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <h3>5. Beaut&eacute; comme cons&eacute;quence ?</h3>
+    <div class="do-dont">
+        <div class="do-col">
+            <h4>Direction juste</h4>
+            <ul>
+                <li>R&eacute;v&eacute;ler</li>
+                <li>Laisser &eacute;merger</li>
+                <li>Reflet de l'&eacute;quilibre</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Direction &agrave; proscrire</h4>
+            <ul>
+                <li>Obtenir une beaut&eacute; parfaite</li>
+                <li>Transformer radicalement</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="statement-gold">
+        <p>&laquo;&nbsp;Cette phrase parle-t-elle d'&eacute;quilibre, de processus et d'harmonie &mdash; ou parle-t-elle de combat destructeur et de performance non fond&eacute;e ?&nbsp;&raquo;</p>
+        <p style="margin-top:12px; font-style:normal; font-size:1rem; opacity:0.95;">Si c'est la deuxi&egrave;me &rarr; <strong>r&eacute;&eacute;crire.</strong></p>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 3 — ÉCHELLE DE CALIBRATION DU TON
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 3</span>
+    <h2>&Eacute;chelle de Calibration du Ton</h2>
+    <p>Cinq axes de 0 &agrave; 10 pour mesurer objectivement chaque contenu</p>
+</div>
+
+<!-- Axe 1 -->
+<section>
+    <h2>Axe 1 &mdash; Stimulation vs &Eacute;quilibre <span class="ideal-range">Zone id&eacute;ale : 7&ndash;9</span></h2>
+    <p>O&ugrave; se situe le texte entre une approche stimulante/&eacute;nergisante et une approche centr&eacute;e sur l'&eacute;quilibre ?</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>Score</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">0&ndash;2</td>
+            <td>Tr&egrave;s stimulant, &eacute;nerg&eacute;tique, orienté &laquo;&nbsp;boost&nbsp;&raquo; &mdash; discours de performance pure</td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">3&ndash;4</td>
+            <td>Stimulant avec mention de bien-&ecirc;tre &mdash; reste tourn&eacute; vers l'action imm&eacute;diate</td>
+        </tr>
+        <tr>
+            <td style="color:#8b5a2b;">5&ndash;6</td>
+            <td>Zone m&eacute;diane &mdash; &eacute;quilibre &eacute;voqu&eacute; mais pas central, encore trop activant</td>
+        </tr>
+        <tr>
+            <td style="color:var(--primary);">7&ndash;8</td>
+            <td>L'&eacute;quilibre est le sujet principal, le ton est stable et pos&eacute;</td>
+        </tr>
+        <tr>
+            <td>9&ndash;10</td>
+            <td>Pur &eacute;quilibre, tr&egrave;s contemplatif &mdash; risque d'&ecirc;tre trop abstrait</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Axe 2 -->
+<section>
+    <h2>Axe 2 &mdash; Urgence vs Processus <span class="ideal-range">Zone id&eacute;ale : 8 (marque) &bull; 5&ndash;6 (promo)</span></h2>
+    <p>Le texte pousse-t-il &agrave; l'action imm&eacute;diate ou respecte-t-il la notion de processus dans le temps ? En contenu promotionnel, une urgence encadr&eacute;e est accept&eacute;e.</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>Score</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">0&ndash;2</td>
+            <td>Urgence maximale &mdash; &laquo;&nbsp;maintenant&nbsp;&raquo;, &laquo;&nbsp;derni&egrave;re chance&nbsp;&raquo;, pression temporelle forte</td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">3&ndash;4</td>
+            <td>Imm&eacute;diatet&eacute; marketing &mdash; &laquo;&nbsp;r&eacute;sultats rapides&nbsp;&raquo;, transformation acc&eacute;l&eacute;r&eacute;e</td>
+        </tr>
+        <tr>
+            <td style="color:#8b5a2b;">5&ndash;6</td>
+            <td>Zone m&eacute;diane &mdash; mentionne le temps mais cr&eacute;e encore une attente de rapidit&eacute;</td>
+        </tr>
+        <tr>
+            <td style="color:var(--primary);">7&ndash;8</td>
+            <td>Processus clair, respect du rythme, aucune pression temporelle</td>
+        </tr>
+        <tr>
+            <td>9&ndash;10</td>
+            <td>Absence totale de temporalit&eacute; &mdash; risque d'&ecirc;tre d&eacute;connect&eacute; de l'action</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Axe 3 -->
+<section>
+    <h2>Axe 3 &mdash; Combat vs Coop&eacute;ration <span class="ideal-range">Zone id&eacute;ale : 7-8</span></h2>
+    <p>Le texte pr&eacute;sente-t-il l'action comme un combat contre un probl&egrave;me ou comme une coop&eacute;ration avec le corps ?</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>Score</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">0&ndash;2</td>
+            <td>Langage guerrier &mdash; &laquo;&nbsp;combattre&nbsp;&raquo;, &laquo;&nbsp;lutter contre&nbsp;&raquo;, &laquo;&nbsp;vaincre&nbsp;&raquo;, &laquo;&nbsp;d&eacute;truire&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">3&ndash;4</td>
+            <td>Langage correctif &mdash; &laquo;&nbsp;corriger&nbsp;&raquo;, &laquo;&nbsp;cibler le probl&egrave;me&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td style="color:#8b5a2b;">5&ndash;6</td>
+            <td>Zone m&eacute;diane &mdash; neutre, ni combat ni coop&eacute;ration explicite</td>
+        </tr>
+        <tr>
+            <td style="color:var(--primary);">7&ndash;8</td>
+            <td>Coop&eacute;ration claire &mdash; &laquo;&nbsp;accompagner&nbsp;&raquo;, &laquo;&nbsp;soutenir&nbsp;&raquo;, &laquo;&nbsp;restaurer&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td>9&ndash;10</td>
+            <td>Coop&eacute;ration pure, quasi-philosophique &mdash; risque de manquer de concret</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Axe 4 -->
+<section>
+    <h2>Axe 4 &mdash; Performance vs Harmonie <span class="ideal-range">Zone id&eacute;ale : 7&ndash;8</span></h2>
+    <p>Le texte promet-il une performance mesurable ou &eacute;voque-t-il un &eacute;tat d'harmonie ?</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>Score</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">0&ndash;2</td>
+            <td>Performance pure &mdash; chiffres, optimisation, d&eacute;passement</td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">3&ndash;4</td>
+            <td>Efficacit&eacute; mesurable &mdash; &laquo;&nbsp;plus d'&eacute;nergie&nbsp;&raquo;, &laquo;&nbsp;meilleur sommeil&nbsp;&raquo; avec promesse forte</td>
+        </tr>
+        <tr>
+            <td style="color:#8b5a2b;">5&ndash;6</td>
+            <td>Zone m&eacute;diane &mdash; b&eacute;n&eacute;fices mentionn&eacute;s mais sans exag&eacute;ration</td>
+        </tr>
+        <tr>
+            <td style="color:var(--primary);">7&ndash;8</td>
+            <td>Harmonie et &eacute;quilibre au centre, b&eacute;n&eacute;fices pr&eacute;sent&eacute;s comme cons&eacute;quences</td>
+        </tr>
+        <tr>
+            <td>9&ndash;10</td>
+            <td>Harmonie pure, tr&egrave;s abstraite &mdash; risque de ne pas r&eacute;pondre aux attentes concr&egrave;tes</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Axe 5 -->
+<section>
+    <h2>Axe 5 &mdash; Marketing vs Sagesse <span class="ideal-range">Zone id&eacute;ale : 8</span></h2>
+    <p>Le texte ressemble-t-il &agrave; un discours commercial classique ou porte-t-il la sagesse du Sage ?</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>Score</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">0&ndash;2</td>
+            <td>Marketing pur &mdash; promotionnel, superlatifs, appel &agrave; l'action agressif</td>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">3&ndash;4</td>
+            <td>Marketing adouci &mdash; discours commercial d&eacute;guis&eacute; en conseil</td>
+        </tr>
+        <tr>
+            <td style="color:#8b5a2b;">5&ndash;6</td>
+            <td>Zone m&eacute;diane &mdash; informatif mais encore trop orient&eacute; vente</td>
+        </tr>
+        <tr>
+            <td style="color:var(--primary);">7&ndash;8</td>
+            <td>Sagesse &eacute;ducative &mdash; p&eacute;dagogie, explication, confiance, autorit&eacute; naturelle</td>
+        </tr>
+        <tr>
+            <td>9&ndash;10</td>
+            <td>Sagesse pure &mdash; risque de para&icirc;tre d&eacute;connect&eacute; du commerce et du client</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Scoring -->
+<section>
+    <h2>Grille de Score Global</h2>
+    <p>Additionner les scores des cinq axes pour obtenir un total sur 50.</p>
+
+    <table class="sys-table">
+        <tr>
+            <th>Total</th>
+            <th>Interpr&eacute;tation</th>
+        </tr>
+        <tr>
+            <td style="color:var(--red);">Inf&eacute;rieur &agrave; 35</td>
+            <td><strong>Hors marque</strong> &mdash; Le texte ne refl&egrave;te pas l'identit&eacute; Calebasse. &Agrave; r&eacute;&eacute;crire.</td>
+        </tr>
+        <tr>
+            <td style="color:var(--primary);">38&ndash;44</td>
+            <td><strong>Zone id&eacute;ale</strong> &mdash; &Eacute;quilibre parfait entre profondeur de marque et efficacit&eacute; de communication.</td>
+        </tr>
+        <tr>
+            <td style="color:#8b5a2b;">Sup&eacute;rieur &agrave; 45</td>
+            <td><strong>Trop abstrait</strong> &mdash; Le texte risque de perdre le lecteur. Ajouter du concret.</td>
+        </tr>
+    </table>
+
+    <h3>Profil tonal id&eacute;al de Calebasse</h3>
+    <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+        <div class="card">
+            <h3 style="font-size:1.1rem;">Stable</h3>
+            <p>Pr&eacute;sence constante, sans fluctuation d'intensit&eacute;</p>
+        </div>
+        <div class="card accent">
+            <h3 style="font-size:1.1rem;">Calme</h3>
+            <p>S&eacute;r&eacute;nit&eacute; dans chaque mot, aucune agitation</p>
+        </div>
+        <div class="card dark">
+            <h3 style="font-size:1.1rem;">Structur&eacute;</h3>
+            <p>Clart&eacute; dans l'organisation, hi&eacute;rarchie visible</p>
+        </div>
+        <div class="card">
+            <h3 style="font-size:1.1rem;">Sans h&acirc;te</h3>
+            <p>Le rythme naturel est respect&eacute;, jamais press&eacute;</p>
+        </div>
+        <div class="card accent">
+            <h3 style="font-size:1.1rem;">Sans exag&eacute;ration</h3>
+            <p>Promesses mesur&eacute;es, ton confiant mais sobre</p>
+        </div>
+    </div>
+
+    <div class="box-red">
+        <p>Jamais de combat destructeur. Jamais de myst&egrave;re. Jamais d'exag&eacute;ration gratuite.</p>
+    </div>
+
+    <div class="statement">
+        <p style="font-size:1.35rem;">&laquo;&nbsp;Calebasse doit toujours sembler ma&icirc;tris&eacute;e. Jamais excit&eacute;e.&nbsp;&raquo;</p>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <p>Narrative &amp; Tone 2026 &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; Sous-document strat&eacute;gique interne</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>

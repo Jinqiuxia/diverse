@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates Landing Pages &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7c59;
+            --primary-dark: #1e3a22;
+            --accent: #d4a574;
+            --accent-light: #e8c9a8;
+            --text: #333;
+            --text-light: #555;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+            --red: #b44;
+            /* Landing type colors */
+            --type-theme: #2c5530;
+            --type-event: #8b5a2b;
+            --type-promo: #3d6b8e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ── Header ── */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header .slogan {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.92;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        header .doc-type {
+            display: inline-block;
+            margin-top: 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-dark); }
+
+        /* ── Part dividers ── */
+        .part-header {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+        .part-header .part-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 22px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .part-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .part-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ── Sections ── */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+        section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.55rem;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+        section h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin: 36px 0 14px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+        section h4 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        /* ── Text helpers ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(44,85,48,0.2) 0%, rgba(44,85,48,0.08) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: var(--primary);
+        }
+        .hl-accent {
+            background: linear-gradient(120deg, rgba(212,165,116,0.4) 0%, rgba(212,165,116,0.15) 100%);
+            padding: 1px 6px; border-radius: 3px;
+            font-weight: 600; color: #8b5a2b;
+        }
+
+        /* ── Lists ── */
+        ul { list-style: none; padding-left: 0; }
+        ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 10px;
+            width: 9px; height: 9px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        ul ul { margin-top: 10px; margin-left: 14px; }
+        ul ul li::before {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            top: 11px;
+        }
+        ol { padding-left: 22px; }
+        ol li { margin-bottom: 10px; }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .card.accent { border-top-color: var(--accent); }
+        .card.dark   { border-top-color: var(--primary-dark); }
+        .card.blue   { border-top-color: var(--type-promo); }
+        .card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+            text-align: left;
+        }
+        .card p { color: var(--text-light); font-size: 0.96rem; }
+
+        /* ── Asset row ── */
+        .asset-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .asset {
+            background: rgba(44,85,48,0.04);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 12px;
+            padding: 22px;
+        }
+        .asset .label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .asset .value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.08rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .asset .note {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ── Boxes ── */
+        .box-green {
+            background: linear-gradient(135deg, rgba(44,85,48,0.10) 0%, rgba(74,124,89,0.05) 100%);
+            border: 1px solid rgba(44,85,48,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-green p { margin: 0; font-weight: 600; color: var(--primary); font-size: 1.02rem; }
+        .box-gold {
+            background: linear-gradient(135deg, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-gold p { margin: 0; font-weight: 600; color: #8b5a2b; font-size: 1.02rem; }
+        .box-blue {
+            background: linear-gradient(135deg, rgba(61,107,142,0.12) 0%, rgba(61,107,142,0.04) 100%);
+            border: 1px solid rgba(61,107,142,0.2);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-blue p { margin: 0; font-weight: 600; color: var(--type-promo); font-size: 1.02rem; }
+        .box-red {
+            background: rgba(180,68,68,0.07);
+            border: 1px solid rgba(180,68,68,0.15);
+            border-radius: 10px; padding: 22px; margin: 22px 0;
+        }
+        .box-red p { margin: 0; font-weight: 600; color: var(--red); font-size: 1.02rem; }
+
+        /* ── Statement blocks ── */
+        .statement {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 28px 32px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(44,85,48,0.3);
+        }
+        .statement p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+        .statement-gold {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white; padding: 24px 28px; border-radius: 12px;
+            margin: 25px 0; text-align: center;
+            box-shadow: 0 8px 25px rgba(212,165,116,0.3);
+        }
+        .statement-gold p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.12rem; font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block; padding: 3px 13px; border-radius: 20px;
+            font-size: 0.78rem; font-weight: 600; margin-right: 8px; margin-bottom: 4px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .tag-green  { background: var(--type-theme); color: white; }
+        .tag-gold   { background: var(--type-event); color: white; }
+        .tag-blue   { background: var(--type-promo); color: white; }
+        .tag-outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); }
+
+        /* ── Two-col ── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 22px; margin: 20px 0;
+        }
+        .col-box {
+            background: rgba(44,85,48,0.04);
+            border-radius: 10px; padding: 22px;
+            border: 1px solid rgba(44,85,48,0.12);
+        }
+        .col-box h4 { margin-top: 0; }
+
+        /* ── Do / Don't ── */
+        .do-dont {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            margin: 20px 0; border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .do-col, .dont-col { padding: 24px; }
+        .do-col { background: rgba(44,85,48,0.06); border-right: 1px solid var(--border); }
+        .dont-col { background: rgba(180,68,68,0.04); }
+        .do-col h4 { color: var(--primary); margin-top: 0; }
+        .dont-col h4 { color: var(--red); margin-top: 0; }
+        .dont-col li::before { background: var(--red); }
+
+        /* ── Flow arrow ── */
+        .flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; flex-wrap: wrap; margin: 18px 0;
+            font-size: 0.95rem; font-weight: 600; color: var(--primary);
+        }
+        .flow .step { background: rgba(44,85,48,0.1); padding: 6px 16px; border-radius: 8px; }
+        .flow .arrow { color: var(--accent); font-size: 1.2rem; }
+        .flow.amber .step { background: rgba(139,90,43,0.1); color: var(--type-event); }
+        .flow.amber .arrow { color: var(--type-event); }
+        .flow.blue .step { background: rgba(61,107,142,0.1); color: var(--type-promo); }
+        .flow.blue .arrow { color: var(--type-promo); }
+
+        /* ── System table ── */
+        .sys-table {
+            width: 100%; border-collapse: collapse; margin: 20px 0;
+            border-radius: 12px; overflow: hidden;
+        }
+        .sys-table th {
+            background: var(--primary); color: white;
+            padding: 12px 18px; text-align: left;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sys-table td {
+            padding: 12px 18px; border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .sys-table tr:nth-child(even) td { background: rgba(44,85,48,0.03); }
+        .sys-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+        /* ── Type indicator ── */
+        .type-indicator {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .type-indicator.theme { background: var(--type-theme); }
+        .type-indicator.event { background: var(--type-event); }
+        .type-indicator.promo { background: var(--type-promo); }
+
+        /* ── Section with type border ── */
+        section.type-theme { border-left: 5px solid var(--type-theme); }
+        section.type-event { border-left: 5px solid var(--type-event); }
+        section.type-promo { border-left: 5px solid var(--type-promo); }
+        section.type-theme h2 { color: var(--type-theme); border-bottom-color: var(--type-theme); }
+        section.type-event h2 { color: var(--type-event); border-bottom-color: var(--type-event); }
+        section.type-promo h2 { color: var(--type-promo); border-bottom-color: var(--type-promo); }
+
+        /* ── CTA buttons ── */
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        .cta-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(44,85,48,0.3);
+        }
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(44,85,48,0.4);
+        }
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            transition: background 0.2s, color 0.2s;
+        }
+        .cta-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .cta-gold {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #b8956a 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(212,165,116,0.3);
+        }
+        .cta-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212,165,116,0.4);
+        }
+
+        /* ── Conversion goal labels ── */
+        .conversion-goal {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 28px;
+            padding: 12px 18px;
+            background: rgba(212,165,116,0.10);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: #8b5a2b;
+        }
+        .conversion-goal .goal-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        /* ── Objection block ── */
+        .objection {
+            background: rgba(44,85,48,0.03);
+            border: 1px solid rgba(44,85,48,0.12);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 18px 0;
+        }
+        .objection-q {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .objection-a {
+            color: var(--text-light);
+            font-size: 0.96rem;
+            padding-left: 18px;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* ── Product card (for promo grid) ── */
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border-top: 4px solid var(--accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+        }
+        .product-card .product-field { margin-bottom: 10px; }
+        .product-card .product-field .label {
+            font-size: 0.72rem; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--text-light); margin-bottom: 3px;
+        }
+        .product-card .product-field .value {
+            font-size: 0.95rem; color: var(--text); line-height: 1.5;
+        }
+        .product-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary); font-size: 1.15rem;
+            margin: 0 0 14px 0; text-align: left;
+        }
+        .product-card .price {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem; font-weight: 700; color: var(--primary);
+            margin-top: 12px;
+        }
+        .product-card .price-old {
+            text-decoration: line-through; color: var(--text-light);
+            font-size: 0.95rem; margin-right: 10px; font-weight: 400;
+        }
+
+        /* ── Decision tree ── */
+        .decision-tree {
+            background: linear-gradient(135deg, rgba(44,85,48,0.06) 0%, rgba(212,165,116,0.06) 100%);
+            border: 2px solid rgba(44,85,48,0.15);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 25px 0;
+        }
+        .decision-tree h3 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .decision-q {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin: 20px 0 10px;
+        }
+        .decision-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 16px;
+            margin: 8px 0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        .decision-option.opt-theme { background: rgba(44,85,48,0.08); }
+        .decision-option.opt-event { background: rgba(139,90,43,0.08); }
+        .decision-option.opt-promo { background: rgba(61,107,142,0.08); }
+        .decision-option strong {
+            white-space: nowrap;
+            min-width: 80px;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            height: 2px; background: linear-gradient(to right, var(--accent), transparent);
+            margin: 45px 0; border: none;
+        }
+
+        /* ── Parcours indicator (within thematic) ── */
+        .parcours-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .parcours-tag.a { background: rgba(44,85,48,0.15); color: #2c5530; }
+        .parcours-tag.b { background: rgba(61,107,142,0.15); color: #3d6b8e; }
+        .parcours-tag.c { background: rgba(139,90,43,0.15); color: #8b5a2b; }
+
+        /* ── Lead capture module ── */
+        .lead-capture {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 30px 0;
+            color: white;
+            box-shadow: 0 8px 30px rgba(44,85,48,0.25);
+        }
+        .lead-capture h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: white;
+            font-size: 1.4rem;
+            margin: 0 0 6px 0;
+            text-align: center;
+        }
+        .lead-capture .lead-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            opacity: 0.88;
+            margin-bottom: 28px;
+        }
+        /* Newsletter form — main focus */
+        .newsletter-form {
+            max-width: 520px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        .newsletter-form input[type="email"] {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid rgba(255,255,255,0.25);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.12);
+            color: white;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+        }
+        .newsletter-form input[type="email"]::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        .newsletter-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.18);
+        }
+        .newsletter-form button {
+            padding: 14px 28px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+        .newsletter-form button:hover {
+            background: #c49564;
+            transform: translateY(-1px);
+        }
+        .newsletter-consent {
+            font-size: 0.78rem;
+            opacity: 0.65;
+            margin-top: 12px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        /* WhatsApp link */
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-light);
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: opacity 0.2s;
+            margin-top: 16px;
+        }
+        .whatsapp-link:hover { opacity: 0.8; }
+        .whatsapp-link svg { width: 18px; height: 18px; fill: #25D366; }
+        /* WhatsApp Modal */
+        .wa-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+        }
+        .wa-modal-overlay.active { display: flex; }
+        .wa-modal {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 360px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalIn 0.25s ease-out;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.92) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .wa-modal-close {
+            position: absolute;
+            top: 12px; right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .wa-modal-close:hover { color: #333; }
+        .wa-modal h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 0 0 8px 0;
+        }
+        .wa-modal p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .wa-modal .qr-placeholder {
+            width: 180px;
+            height: 180px;
+            background: #f5f5f0;
+            border-radius: 12px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 2px dashed #ccc;
+        }
+        .wa-modal .wa-channel-name {
+            font-size: 0.85rem;
+            color: #25D366;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .newsletter-form { flex-direction: column; }
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 50px 20px;
+            color: var(--text-light); font-size: 0.9rem;
+            border-top: 1px solid var(--border); margin-top: 20px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header .slogan { font-size: 1.1rem; }
+            section { padding: 25px; }
+            .cards { grid-template-columns: 1fr; }
+            .asset-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .do-dont { grid-template-columns: 1fr; }
+            .do-col { border-right: none; border-bottom: 1px solid var(--border); }
+            .cta-group { flex-direction: column; align-items: center; }
+        }
+        @media print {
+            body { background: white; }
+            header { background: var(--primary); }
+            section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            .part-header { break-before: page; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Templates Landing Pages</h1>
+    <p class="slogan">L'Art de l'&Eacute;quilibre</p>
+    <p class="subtitle">Calebasse &mdash; 3 formats de landing page class&eacute;s par objectif marketing</p>
+    <span class="doc-type">Guide de construction</span>
+</header>
+
+<div class="container">
+
+<a class="back-link" href="Brand-Strategie-v4.html">&larr; Retour &agrave; la Plateforme</a>
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 1 — PRINCIPES UNIVERSELS
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 1</span>
+    <h2>Principes Universels</h2>
+    <p>R&egrave;gles transversales &agrave; <strong>toutes</strong> les landing pages, quel que soit le format</p>
+</div>
+
+<section>
+    <h2>Posture &amp; Garde-fous</h2>
+
+    <div class="two-col">
+        <div class="col-box">
+            <h4>Toujours</h4>
+            <ul>
+                <li>Arch&eacute;type Le Sage + Le Protecteur</li>
+                <li>P&eacute;dagogie avant persuasion</li>
+                <li>Invitation &agrave; comprendre, jamais injonction</li>
+                <li>Progression naturelle, pas de miracle</li>
+                <li>R&eacute;assurance par la coh&eacute;rence</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h4>Jamais</h4>
+            <ul>
+                <li style="color:var(--red);">Langage de combat destructeur (&eacute;liminer, d&eacute;truire, attaquer)</li>
+                <li style="color:var(--red);">Fausse urgence / fausse raret&eacute;</li>
+                <li style="color:var(--red);">Promesses radicales ou miraculeuses</li>
+                <li style="color:var(--red);">Avant/apr&egrave;s spectaculaire</li>
+                <li style="color:var(--red);">Pression &agrave; l'achat</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box-gold">
+        <p style="text-align:center; font-size:0.95rem;">Ces r&egrave;gles s'appliquent m&ecirc;me aux pages promotionnelles. Le ton peut &ecirc;tre plus dynamique, mais la posture reste identique.</p>
+    </div>
+</section>
+
+
+<section>
+    <h2>Module Lead Capture &mdash; Universel</h2>
+   
+
+    <h3>Positionnement dans la page</h3>
+    <table class="sys-table">
+        <tr>
+            <th>Format</th>
+            <th>Position du module</th>
+            <th>Logique</th>
+        </tr>
+        <tr>
+            <td><span class="type-indicator theme"></span>Th&eacute;matique</td>
+            <td>Apr&egrave;s la section Objections (avant le CTA Final)</td>
+            <td>Le visiteur est rassur&eacute; mais pas encore pr&ecirc;t &agrave; acheter &rarr; on capture le lead</td>
+        </tr>
+        <tr>
+            <td><span class="type-indicator event"></span>&Eacute;v&eacute;nementielle</td>
+            <td>Apr&egrave;s la R&eacute;assurance (avant le CTA Final)</td>
+            <td>M&ecirc;me si l'occasion passe, le lead reste &rarr; on entretient la relation</td>
+        </tr>
+        <tr>
+            <td><span class="type-indicator promo"></span>Promo / Catalogue</td>
+            <td>Apr&egrave;s la R&eacute;assurance rapide (avant le CTA Final)</td>
+            <td>Le visiteur ne convertit pas aujourd'hui &rarr; on le r&eacute;cup&egrave;re pour plus tard</td>
+        </tr>
+    </table>
+
+    <h3>Ton du module selon le format</h3>
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+            <h3 style="color:var(--type-theme); font-size:1rem;"><span class="type-indicator theme"></span>Th&eacute;matique</h3>
+            <p style="font-weight:600; margin-bottom:8px;">Accroche p&eacute;dagogique</p>
+            <p>&laquo;&nbsp;Recevez nos guides d'&eacute;quilibre et conseils de pharmacop&eacute;e chinoise&nbsp;&raquo;</p>
+        </div>
+        <div class="card accent">
+            <h3 style="color:var(--type-event); font-size:1rem;"><span class="type-indicator event"></span>&Eacute;v&eacute;nementielle</h3>
+            <p style="font-weight:600; margin-bottom:8px;">Accroche exclusive</p>
+            <p>&laquo;&nbsp;Soyez inform&eacute; en avant-premi&egrave;re de nos prochaines s&eacute;lections&nbsp;&raquo;</p>
+        </div>
+        <div class="card blue">
+            <h3 style="color:var(--type-promo); font-size:1rem;"><span class="type-indicator promo"></span>Promo</h3>
+            <p style="font-weight:600; margin-bottom:8px;">Accroche offre</p>
+            <p>&laquo;&nbsp;Ne manquez pas nos prochaines offres exclusives&nbsp;&raquo;</p>
+        </div>
+    </div>
+      <h3>Module de captation de leads</h3>
+ <p>Chaque landing page, quel que soit le format, int&egrave;gre un <strong>module de captation de leads</strong>. La <strong>newsletter</strong> est l'&eacute;l&eacute;ment principal, le <strong>WhatsApp</strong> est un canal secondaire accessible via un lien + pop-up.</p>
+
+    <div class="two-col" style="margin-top:20px;">
+        <div class="col-box" style="border-left: 4px solid var(--accent);">
+            <h4>Newsletter <span style="font-weight:400; opacity:0.7;">&mdash; &eacute;l&eacute;ment principal</span></h4>
+            <ul>
+                <li>Formulaire d'inscription email (un seul champ + bouton)</li>
+                <li>Accroche li&eacute;e au contexte de la page (pas g&eacute;n&eacute;rique)</li>
+                <li>Promesse de valeur claire (conseils, guides, offres exclusives)</li>
+                <li>Mention RGPD / consentement</li>
+                <li><strong>Occupe toute la largeur du module</strong></li>
+            </ul>
+        </div>
+        <div class="col-box" style="border-left: 4px solid #25D366;">
+            <h4>WhatsApp Channel <span style="font-weight:400; opacity:0.7;">&mdash; lien secondaire</span></h4>
+            <ul>
+                <li><strong>Lien texte</strong> sous le formulaire newsletter (pas affich&eacute; directement)</li>
+                <li>Au clic &rarr; <strong>pop-up (modal)</strong> avec le QR code du channel WhatsApp</li>
+                <li>Positionnement&nbsp;: canal compl&eacute;mentaire (instantan&eacute; vs p&eacute;riodique)</li>
+                <li>Bouton fermer dans la modal</li>
+            </ul>
+        </div>
+    </div>
+  
+
+    <div class="lead-capture">
+        <h3>Restez connect&eacute; &agrave; l'Art de l'&Eacute;quilibre</h3>
+        <p class="lead-subtitle">Recevez chaque mois nos conseils d'&eacute;quilibre, nos guides de pharmacop&eacute;e chinoise et nos offres en avant-premi&egrave;re.</p>
+
+        <div class="newsletter-form">
+            <input type="email" placeholder="votre@email.com">
+            <button>S'inscrire</button>
+        </div>
+        <p class="newsletter-consent">En vous inscrivant, vous acceptez de recevoir nos communications. D&eacute;sinscription possible &agrave; tout moment.</p>
+
+        <div style="text-align:center;">
+            <span class="whatsapp-link" onclick="document.getElementById('waModal').classList.add('active')">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Rejoignez aussi notre channel WhatsApp
+            </span>
+        </div>
+    </div>
+
+    <!-- WhatsApp Modal -->
+    <div class="wa-modal-overlay" id="waModal" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="wa-modal">
+            <button class="wa-modal-close" onclick="document.getElementById('waModal').classList.remove('active')">&times;</button>
+            <h4>Channel WhatsApp Calebasse</h4>
+            <p>Scannez le QR code pour rejoindre notre channel et recevoir conseils personnalis&eacute;s et nouveaut&eacute;s en temps r&eacute;el.</p>
+            <div class="qr-placeholder">QR Code</div>
+            <p class="wa-channel-name">Calebasse &mdash; L'Art de l'&Eacute;quilibre</p>
+        </div>
+    </div>
+
+    <div class="conversion-goal">
+        <span class="goal-label">Objectif</span>
+        <span>Capturer le lead m&ecirc;me sans achat imm&eacute;diat. <strong>Newsletter = canal principal</strong> (p&eacute;riodique, &eacute;ducatif, visible en permanence). <strong>WhatsApp = canal secondaire</strong> (instantan&eacute;, accessible via lien + pop-up). Les deux canaux se compl&egrave;tent sans surcharger l'interface.</span>
+    </div>
+
+    <div class="do-dont" style="margin-top:22px;">
+        <div class="do-col">
+            <h4>Bonne pratique</h4>
+            <ul>
+                <li>Adapter l'accroche au contexte de la page</li>
+                <li>Promettre une valeur concr&egrave;te (guide, conseil, offre)</li>
+                <li>Un seul champ (email) pour minimiser la friction</li>
+                <li>WhatsApp en lien discret sous le formulaire, pas en concurrence</li>
+                <li>Modal WhatsApp propre avec QR bien lisible et bouton fermer</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>&Agrave; &eacute;viter</h4>
+            <ul>
+                <li>Afficher le QR WhatsApp directement dans le module (surcharge visuelle)</li>
+                <li>&laquo;&nbsp;Inscrivez-vous&nbsp;&raquo; sans promesse de valeur</li>
+                <li>Demander trop de champs (nom, t&eacute;l, adresse...)</li>
+                <li>Modal qui s'ouvre automatiquement (doit &ecirc;tre d&eacute;clench&eacute;e par le clic utilisateur)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <h2>Les 3 formats &mdash; Class&eacute;s par objectif marketing</h2>
+
+    <p style="text-align:center; color:var(--text-light); margin-bottom:20px;">Les landing pages sont class&eacute;es par <strong>format et objectif de page</strong>, pas par type de produit. Un m&ecirc;me produit peut appara&icirc;tre dans diff&eacute;rents formats.</p>
+
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+            <h3 style="color:var(--type-theme);"><span class="type-indicator theme"></span>Th&eacute;matique</h3>
+            <p><strong>Objectif&nbsp;:</strong> Conversion profonde sur un sujet unique (produit, probl&eacute;matique, gamme).</p>
+            <p style="margin-top:8px;"><strong>Format&nbsp;:</strong> Page longue, entonnoir de conversion complet.</p>
+            <p style="margin-top:8px; font-size:0.88rem; color:var(--primary);">Le contenu narratif s'adapte au Parcours Produit (A, B ou C) de la Charte Produit.</p>
+        </div>
+        <div class="card accent">
+            <h3 style="color:var(--type-event);"><span class="type-indicator event"></span>&Eacute;v&eacute;nementielle</h3>
+            <p><strong>Objectif&nbsp;:</strong> Capitaliser sur un moment (f&ecirc;te, saison, lancement) pour stimuler l'achat.</p>
+            <p style="margin-top:8px;"><strong>Format&nbsp;:</strong> Page mid-length, s&eacute;lection curat&eacute;e, urgence contextuelle.</p>
+            <p style="margin-top:8px; font-size:0.88rem; color:var(--type-event);">L'occasion donne le sens. Le produit est au service du moment.</p>
+        </div>
+        <div class="card blue">
+            <h3 style="color:var(--type-promo);"><span class="type-indicator promo"></span>Promotionnelle / Catalogue</h3>
+            <p><strong>Objectif&nbsp;:</strong> Pr&eacute;senter une offre ou une s&eacute;lection de produits avec avantage prix.</p>
+            <p style="margin-top:8px;"><strong>Format&nbsp;:</strong> Page courte, grille produits, focus transactionnel.</p>
+            <p style="margin-top:8px; font-size:0.88rem; color:var(--type-promo);">L'offre est claire, la valeur est justifi&eacute;e, le CTA est direct.</p>
+        </div>
+    </div>
+
+    <div class="decision-tree">
+        <h3>Arbre de d&eacute;cision</h3>
+
+        <p class="decision-q">1. La page vise-t-elle &agrave; convaincre en profondeur sur un sujet unique (un produit, une probl&eacute;matique, une gamme)&nbsp;?</p>
+        <div class="decision-option opt-theme">
+            <strong style="color:var(--type-theme);">Oui &rarr;</strong>
+            <span><strong>Th&eacute;matique</strong> &mdash; Entonnoir de conversion complet avec p&eacute;dagogie</span>
+        </div>
+
+        <p class="decision-q">2. La page est-elle li&eacute;e &agrave; un moment pr&eacute;cis (f&ecirc;te, saison, lancement, anniversaire)&nbsp;?</p>
+        <div class="decision-option opt-event">
+            <strong style="color:var(--type-event);">Oui &rarr;</strong>
+            <span><strong>&Eacute;v&eacute;nementielle</strong> &mdash; S&eacute;lection curat&eacute;e autour d'une occasion</span>
+        </div>
+
+        <p class="decision-q">3. La page pr&eacute;sente-t-elle principalement une offre prix, un bundle, ou un catalogue de produits en promotion&nbsp;?</p>
+        <div class="decision-option opt-promo">
+            <strong style="color:var(--type-promo);">Oui &rarr;</strong>
+            <span><strong>Promotionnelle / Catalogue</strong> &mdash; Grille produits avec offre claire</span>
+        </div>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 2 — LES 3 FORMATS DÉTAILLÉS
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 2</span>
+    <h2>Les 3 Formats D&eacute;taill&eacute;s</h2>
+    <p>Structure, sections, adaptation narrative et exemples pour chaque format</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     FORMAT 1 — THÉMATIQUE
+     ═══════════════════════════════════════════════ -->
+<section class="type-theme">
+    <h2><span class="tag tag-green">Format 1</span> Landing Th&eacute;matique</h2>
+    <p><strong>Usage&nbsp;:</strong> Convaincre en profondeur sur un sujet unique &mdash; un produit phare, une probl&eacute;matique de sant&eacute;, ou une gamme.</p>
+    <p><strong>C'est le format le plus riche</strong>, avec un entonnoir de conversion complet.</p>
+
+    <h3>Structure &mdash; 9 sections</h3>
+    <div class="flow" style="font-size:0.9rem;">
+        <span class="step">1. Hero</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">2. Identification</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">3. Nouvelle perspective</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">4. Solution</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">5. Preuve</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">6. Produit(s)</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">7. Objections</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(212,165,116,0.2);">8. Lead Capture</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(44,85,48,0.25);">9. CTA</span>
+    </div>
+
+    <table class="sys-table">
+        <tr>
+            <th>Section</th>
+            <th>R&ocirc;le</th>
+            <th>Ce qui change selon le Parcours Produit</th>
+        </tr>
+        <tr>
+            <td>1. Hero</td>
+            <td>Accrocher + repositionner</td>
+            <td>
+                <span class="parcours-tag a">A</span> Question de reframe MTC<br>
+                <span class="parcours-tag b">B</span> Besoin concret nomm&eacute;<br>
+                <span class="parcours-tag c">C</span> Image sensorielle / &eacute;vocation
+            </td>
+        </tr>
+        <tr>
+            <td>2. Identification</td>
+            <td>Le visiteur se reconna&icirc;t</td>
+            <td>
+                <span class="parcours-tag a">A</span> Sympt&ocirc;mes de d&eacute;s&eacute;quilibre<br>
+                <span class="parcours-tag b">B</span> Situations de besoin quotidien<br>
+                <span class="parcours-tag c">C</span> Envie d'un moment pour soi
+            </td>
+        </tr>
+        <tr>
+            <td>3. Nouvelle perspective</td>
+            <td>Changer la logique</td>
+            <td>
+                <span class="parcours-tag a">A</span> Reframe MTC (&laquo;&nbsp;le sympt&ocirc;me n'est pas l'ennemi&nbsp;&raquo;)<br>
+                <span class="parcours-tag b">B</span> &laquo;&nbsp;Comprendre ce que fait vraiment cet ingr&eacute;dient&nbsp;&raquo;<br>
+                <span class="parcours-tag c">C</span> &laquo;&nbsp;Un geste simple peut transformer votre quotidien&nbsp;&raquo;
+            </td>
+        </tr>
+        <tr>
+            <td>4. Solution</td>
+            <td>Pr&eacute;senter l'approche Calebasse</td>
+            <td>
+                <span class="parcours-tag a">A</span> Tradition + Science + &Eacute;quilibre<br>
+                <span class="parcours-tag b">B</span> Actifs + Formulation + Qualit&eacute;<br>
+                <span class="parcours-tag c">C</span> Mat&eacute;riau + Savoir-faire + Rituel
+            </td>
+        </tr>
+        <tr>
+            <td>5. Preuve</td>
+            <td>Cr&eacute;dibilit&eacute;</td>
+            <td>Commune&nbsp;: laboratoire fran&ccedil;ais, 1997, s&eacute;lection rigoureuse, transparence</td>
+        </tr>
+        <tr>
+            <td>6. Produit(s)</td>
+            <td>Fiche(s) d&eacute;taill&eacute;e(s)</td>
+            <td>Le contenu de la fiche suit le Parcours de la Charte Produit (A, B ou C)</td>
+        </tr>
+        <tr>
+            <td>7. Objections</td>
+            <td>R&eacute;assurance</td>
+            <td>Q&amp;R adapt&eacute;es au sujet (rapidit&eacute;, s&eacute;curit&eacute;, utilisation...)</td>
+        </tr>
+        <tr>
+            <td style="color:var(--accent);">8. Lead Capture</td>
+            <td>Captation de leads</td>
+            <td>Newsletter (accroche p&eacute;dagogique) + lien WhatsApp (pop-up QR) &mdash; module universel</td>
+        </tr>
+        <tr>
+            <td>9. CTA Final</td>
+            <td>Invitation</td>
+            <td>
+                <span class="parcours-tag a">A</span> &laquo;&nbsp;Entrer dans l'Art de l'&Eacute;quilibre&nbsp;&raquo;<br>
+                <span class="parcours-tag b">B</span> &laquo;&nbsp;Choisir la formule adapt&eacute;e&nbsp;&raquo;<br>
+                <span class="parcours-tag c">C</span> &laquo;&nbsp;Cr&eacute;er votre rituel&nbsp;&raquo;
+            </td>
+        </tr>
+    </table>
+
+    <div class="box-green">
+        <p style="text-align:center; font-size:0.95rem;">Principe cl&eacute;&nbsp;: la <strong>structure de page est identique</strong> quel que soit le produit. C'est le <strong>contenu narratif</strong> de chaque section qui s'adapte au Parcours Produit (A, B ou C) d&eacute;fini dans la Charte Produit.</p>
+    </div>
+
+    <h3>Ratio de contenu</h3>
+    <div class="cards" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="card">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">40%</h3>
+            <p style="font-weight:600; color:var(--primary); text-align:center;">P&eacute;dagogie</p>
+        </div>
+        <div class="card accent">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">25%</h3>
+            <p style="font-weight:600; color:#8b5a2b; text-align:center;">R&eacute;assurance</p>
+        </div>
+        <div class="card dark">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">25%</h3>
+            <p style="font-weight:600; color:var(--primary); text-align:center;">Produit</p>
+        </div>
+        <div class="card">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">10%</h3>
+            <p style="font-weight:600; color:var(--primary); text-align:center;">Inspiration</p>
+        </div>
+    </div>
+
+    <h3>Exemple de Hero &mdash; 3 variations narratives</h3>
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+            <h3 style="font-size:1rem;"><span class="parcours-tag a">Parcours A</span> &Eacute;quilibre Sommeil</h3>
+            <p style="font-style:italic; font-weight:600; color:var(--primary); margin-bottom:8px;">&laquo;&nbsp;Et si votre sommeil ne manquait de rien &mdash; mais cherchait son &eacute;quilibre&nbsp;?&nbsp;&raquo;</p>
+            <p>Retrouver un sommeil profond gr&acirc;ce &agrave; la logique de la pharmacop&eacute;e chinoise.</p>
+        </div>
+        <div class="card accent">
+            <h3 style="font-size:1rem;"><span class="parcours-tag b">Parcours B</span> Collag&egrave;ne Marin</h3>
+            <p style="font-style:italic; font-weight:600; color:var(--type-promo); margin-bottom:8px;">&laquo;&nbsp;Votre peau m&eacute;rite un soutien en profondeur&nbsp;&raquo;</p>
+            <p>Un actif marin d'exception pour nourrir la peau de l'int&eacute;rieur, jour apr&egrave;s jour.</p>
+        </div>
+        <div class="card dark">
+            <h3 style="font-size:1rem;"><span class="parcours-tag c">Parcours C</span> Gua Sha Jade</h3>
+            <p style="font-style:italic; font-weight:600; color:var(--type-event); margin-bottom:8px;">&laquo;&nbsp;Ce moment o&ugrave; le geste devient rituel&nbsp;&raquo;</p>
+            <p>Un temps pour soi, une pierre fra&icirc;che sur la peau, un souffle qui ralentit.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FORMAT 2 — ÉVÉNEMENTIELLE
+     ═══════════════════════════════════════════════ -->
+<section class="type-event">
+    <h2><span class="tag tag-gold">Format 2</span> Landing &Eacute;v&eacute;nementielle</h2>
+    <p><strong>Usage&nbsp;:</strong> Pages li&eacute;es &agrave; un moment pr&eacute;cis &mdash; f&ecirc;tes (Nouvel An Chinois, F&ecirc;te des M&egrave;res), saisons (printemps, hiver), lancements, anniversaires de marque.</p>
+    <p><strong>Dur&eacute;e de vie&nbsp;:</strong> Limit&eacute;e dans le temps. La page dispara&icirc;t ou change apr&egrave;s l'&eacute;v&eacute;nement.</p>
+
+    <h3>Structure &mdash; 7 sections</h3>
+    <div class="flow amber" style="font-size:0.9rem;">
+        <span class="step">1. Hero &eacute;v&eacute;nementiel</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">2. Contexte &amp; Sens</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">3. S&eacute;lection curat&eacute;e</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">4. Id&eacute;es cadeaux / Usages</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">5. R&eacute;assurance</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(212,165,116,0.2); color:var(--type-event);">6. Lead Capture</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(139,90,43,0.25);">7. CTA</span>
+    </div>
+
+    <table class="sys-table">
+        <tr>
+            <th style="background:var(--type-event);">Section</th>
+            <th style="background:var(--type-event);">R&ocirc;le</th>
+            <th style="background:var(--type-event);">Contenu cl&eacute;</th>
+        </tr>
+        <tr>
+            <td style="color:var(--type-event);">1. Hero</td>
+            <td>Ancrer l'occasion</td>
+            <td>Visuel fort + titre &eacute;vocateur li&eacute; au moment&nbsp;: &laquo;&nbsp;Un nouveau cycle commence&nbsp;&raquo; / &laquo;&nbsp;Le printemps, temps du renouveau&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-event);">2. Contexte</td>
+            <td>Donner du sens &agrave; l'occasion</td>
+            <td>Relier le moment &agrave; l'univers Calebasse&nbsp;: tradition, cycle naturel, symbolique. &laquo;&nbsp;Pourquoi ce moment est sp&eacute;cial&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-event);">3. S&eacute;lection</td>
+            <td>Pr&eacute;senter la curation</td>
+            <td>3 &agrave; 6 produits s&eacute;lectionn&eacute;s pour l'occasion, avec description courte orient&eacute;e b&eacute;n&eacute;fice</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-event);">4. Id&eacute;es / Usages</td>
+            <td>Inspirer</td>
+            <td>Coffrets cadeaux, rituels saisonniers, id&eacute;es d'utilisation contextualis&eacute;es</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-event);">5. R&eacute;assurance</td>
+            <td>Lever les freins</td>
+            <td>Livraison, qualit&eacute;, emballage cadeau, politique retour</td>
+        </tr>
+        <tr>
+            <td style="color:var(--accent);">6. Lead Capture</td>
+            <td>Captation de leads</td>
+            <td>Newsletter (accroche exclusive) + lien WhatsApp (pop-up QR) &mdash; &laquo;&nbsp;Soyez inform&eacute; de nos prochaines s&eacute;lections&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-event);">7. CTA Final</td>
+            <td>Action contextualis&eacute;e</td>
+            <td>&laquo;&nbsp;C&eacute;l&eacute;brer le renouveau&nbsp;&raquo; / &laquo;&nbsp;Offrir un moment d'&eacute;quilibre&nbsp;&raquo;</td>
+        </tr>
+    </table>
+
+    <div class="box-gold">
+        <p style="text-align:center; font-size:0.95rem;">Levier principal&nbsp;: <strong>Pertinence temporelle</strong>. L'urgence est naturelle (la f&ecirc;te a une date, la saison passe), jamais manufactur&eacute;e.</p>
+    </div>
+
+    <h3>Ce qui est autoris&eacute; / interdit</h3>
+    <div class="do-dont">
+        <div class="do-col">
+            <h4 style="color:var(--type-event);">Autoris&eacute;</h4>
+            <ul>
+                <li>Urgence naturelle&nbsp;: &laquo;&nbsp;Jusqu'au solstice d'&eacute;t&eacute;&nbsp;&raquo;</li>
+                <li>Notion de cadeau&nbsp;: &laquo;&nbsp;Offrir l'&eacute;quilibre&nbsp;&raquo;</li>
+                <li>Symbolique culturelle&nbsp;: &laquo;&nbsp;L'Ann&eacute;e du Serpent&nbsp;&raquo;</li>
+                <li>Stimulation mod&eacute;r&eacute;e&nbsp;: &laquo;&nbsp;Le moment id&eacute;al pour...&nbsp;&raquo;</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Interdit</h4>
+            <ul>
+                <li>&laquo;&nbsp;Plus que 3 en stock !&nbsp;&raquo; (fausse raret&eacute;)</li>
+                <li>&laquo;&nbsp;Derni&egrave;re chance !&nbsp;&raquo; / &laquo;&nbsp;Offre flash !&nbsp;&raquo;</li>
+                <li>Compte &agrave; rebours artificiel</li>
+                <li>Pression &eacute;motionnelle manipulatoire</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Exemple de Hero &mdash; Nouvel An Chinois</h3>
+    <div class="asset-grid" style="grid-template-columns: 1fr;">
+        <div class="asset" style="text-align:center; padding:28px; border-color:rgba(139,90,43,0.2); background:rgba(139,90,43,0.03);">
+            <div class="label">&Eacute;v&eacute;nement</div>
+            <div class="value" style="font-size:0.95rem; font-weight:400; font-family:'Source Sans Pro',sans-serif; color:var(--text-light);">Nouvel An Chinois 2026 &mdash; L'Ann&eacute;e du Serpent</div>
+            <div style="margin-top:20px;">
+                <div class="value" style="font-size:1.3rem; color:var(--type-event);">Un nouveau cycle commence &mdash; offrez l'&eacute;quilibre</div>
+            </div>
+            <div style="margin-top:12px; color:var(--text-light); font-size:1rem;">C&eacute;l&eacute;brez le renouveau avec nos coffrets s&eacute;lectionn&eacute;s, pens&eacute;s pour harmoniser corps et esprit.</div>
+            <div class="cta-group" style="margin-top:20px; margin-bottom:0;">
+                <a href="#" class="cta-gold">D&eacute;couvrir les coffrets</a>
+                <a href="#" class="cta-secondary" style="color:var(--type-event); border-color:var(--type-event);">Offrir un coffret</a>
+            </div>
+        </div>
+    </div>
+
+    <h3>Ratio de contenu</h3>
+    <div class="cards" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="card accent">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">35%</h3>
+            <p style="font-weight:600; color:var(--type-event); text-align:center;">Produit / Curation</p>
+        </div>
+        <div class="card">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">25%</h3>
+            <p style="font-weight:600; color:var(--primary); text-align:center;">Contexte &amp; Sens</p>
+        </div>
+        <div class="card">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">20%</h3>
+            <p style="font-weight:600; color:var(--primary); text-align:center;">Inspiration</p>
+        </div>
+        <div class="card dark">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">20%</h3>
+            <p style="font-weight:600; color:var(--primary); text-align:center;">R&eacute;assurance</p>
+        </div>
+    </div>
+
+    <div class="box-gold" style="margin-top:25px;">
+        <p style="text-align:center; font-size:0.92rem;">R&eacute;f&eacute;rence ton&nbsp;: voir le <strong>Sc&eacute;nario 4 &mdash; Ton Promotionnel</strong> dans Brand-v4-scenarios.html (Stimulation 5/10, Urgence 5/10, Combat 1/10, Performance 5/10, Sagesse 6/10).</p>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FORMAT 3 — PROMOTIONNELLE / CATALOGUE
+     ═══════════════════════════════════════════════ -->
+<section class="type-promo">
+    <h2><span class="tag tag-blue">Format 3</span> Landing Promotionnelle / Catalogue</h2>
+    <p><strong>Usage&nbsp;:</strong> Pr&eacute;senter une offre commerciale (r&eacute;duction, bundle, d&eacute;stockage) ou un catalogue th&eacute;matique de produits sous forme de liste/grille.</p>
+    <p><strong>Le format le plus transactionnel</strong> &mdash; le visiteur est d&eacute;j&agrave; en mode achat, il faut faciliter la d&eacute;cision.</p>
+
+    <h3>Structure &mdash; 6 sections</h3>
+    <div class="flow blue" style="font-size:0.9rem;">
+        <span class="step">1. Banni&egrave;re offre</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">2. Valeur &amp; Cadrage</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">3. Grille produits</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step">4. R&eacute;assurance rapide</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(212,165,116,0.2); color:var(--type-promo);">5. Lead Capture</span>
+        <span class="arrow">&rarr;</span>
+        <span class="step" style="background:rgba(61,107,142,0.25);">6. CTA</span>
+    </div>
+
+    <table class="sys-table">
+        <tr>
+            <th style="background:var(--type-promo);">Section</th>
+            <th style="background:var(--type-promo);">R&ocirc;le</th>
+            <th style="background:var(--type-promo);">Contenu cl&eacute;</th>
+        </tr>
+        <tr>
+            <td style="color:var(--type-promo);">1. Banni&egrave;re</td>
+            <td>Capter + annoncer</td>
+            <td>L'offre en une phrase claire&nbsp;: &laquo;&nbsp;-20% sur toute la gamme &Eacute;quilibre&nbsp;&raquo; / &laquo;&nbsp;Coffret D&eacute;couverte &agrave; prix privil&eacute;gi&eacute;&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-promo);">2. Valeur</td>
+            <td>Justifier l'offre</td>
+            <td>Pourquoi cette offre existe (anniversaire, saison, introduction gamme) + rappel qualit&eacute;</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-promo);">3. Grille</td>
+            <td>Parcourir &amp; choisir</td>
+            <td>Grille de produits avec&nbsp;: visuel, nom, b&eacute;n&eacute;fice principal, prix (ancien/nouveau), CTA individuel</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-promo);">4. R&eacute;assurance</td>
+            <td>Lever les derniers freins</td>
+            <td>Livraison, retours, paiement s&eacute;curis&eacute; &mdash; format compact (pictos + phrases courtes)</td>
+        </tr>
+        <tr>
+            <td style="color:var(--accent);">5. Lead Capture</td>
+            <td>Captation de leads</td>
+            <td>Newsletter (accroche offre) + lien WhatsApp (pop-up QR) &mdash; &laquo;&nbsp;Ne manquez pas nos prochaines offres&nbsp;&raquo;</td>
+        </tr>
+        <tr>
+            <td style="color:var(--type-promo);">6. CTA Final</td>
+            <td>Action directe</td>
+            <td>&laquo;&nbsp;Voir toute la s&eacute;lection&nbsp;&raquo; / &laquo;&nbsp;Profiter de l'offre&nbsp;&raquo;</td>
+        </tr>
+    </table>
+
+    <div class="box-blue">
+        <p style="text-align:center; font-size:0.95rem;">Levier principal&nbsp;: <strong>Clart&eacute; de l'offre + facilit&eacute; de choix</strong>. Le visiteur doit comprendre l'avantage en 3 secondes et trouver le produit en 10 secondes.</p>
+    </div>
+
+    <h3>Exemple de grille produits</h3>
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="product-card">
+            <h3>[Nom formule]</h3>
+            <div class="product-field">
+                <div class="label">B&eacute;n&eacute;fice</div>
+                <div class="value">Soutient l'&eacute;quilibre du sommeil</div>
+            </div>
+            <div class="price">
+                <span class="price-old">38,00&nbsp;&euro;</span> 30,40&nbsp;&euro;
+            </div>
+            <div class="cta-group" style="margin:14px 0 0; justify-content:flex-start;">
+                <a href="#" class="cta-gold" style="padding:10px 22px; font-size:0.9rem;">Ajouter</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <h3>[Nom formule]</h3>
+            <div class="product-field">
+                <div class="label">B&eacute;n&eacute;fice</div>
+                <div class="value">Accompagne la vitalit&eacute; quotidienne</div>
+            </div>
+            <div class="price">
+                <span class="price-old">42,00&nbsp;&euro;</span> 33,60&nbsp;&euro;
+            </div>
+            <div class="cta-group" style="margin:14px 0 0; justify-content:flex-start;">
+                <a href="#" class="cta-gold" style="padding:10px 22px; font-size:0.9rem;">Ajouter</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <h3>[Nom formule]</h3>
+            <div class="product-field">
+                <div class="label">B&eacute;n&eacute;fice</div>
+                <div class="value">Favorise l'&eacute;clat naturel de la peau</div>
+            </div>
+            <div class="price">
+                <span class="price-old">35,00&nbsp;&euro;</span> 28,00&nbsp;&euro;
+            </div>
+            <div class="cta-group" style="margin:14px 0 0; justify-content:flex-start;">
+                <a href="#" class="cta-gold" style="padding:10px 22px; font-size:0.9rem;">Ajouter</a>
+            </div>
+        </div>
+    </div>
+
+    <h3>Ratio de contenu</h3>
+    <div class="cards" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="card blue">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">50%</h3>
+            <p style="font-weight:600; color:var(--type-promo); text-align:center;">Produit / Offre</p>
+        </div>
+        <div class="card">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">25%</h3>
+            <p style="font-weight:600; color:var(--primary); text-align:center;">R&eacute;assurance</p>
+        </div>
+        <div class="card accent">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">15%</h3>
+            <p style="font-weight:600; color:#8b5a2b; text-align:center;">Cadrage &amp; Valeur</p>
+        </div>
+        <div class="card">
+            <h3 style="font-size:2rem; margin-bottom:6px; text-align:center;">10%</h3>
+            <p style="font-weight:600; color:var(--primary); text-align:center;">P&eacute;dagogie</p>
+        </div>
+    </div>
+
+    <h3>Diff&eacute;rences cl&eacute;s avec les autres formats</h3>
+    <div class="do-dont">
+        <div class="do-col">
+            <h4 style="color:var(--type-promo);">Sp&eacute;cifique au Catalogue</h4>
+            <ul>
+                <li>Prix affich&eacute;s (ancien + nouveau si promo)</li>
+                <li>CTA individuel par produit (&laquo;&nbsp;Ajouter&nbsp;&raquo;)</li>
+                <li>Format grille scannnable, pas de longs textes</li>
+                <li>B&eacute;n&eacute;fice en une ligne par produit</li>
+            </ul>
+        </div>
+        <div class="dont-col">
+            <h4>Ce qu'il ne fait pas</h4>
+            <ul>
+                <li>Pas de long entonnoir p&eacute;dagogique</li>
+                <li>Pas de reframe ni de changement de perspective</li>
+                <li>Pas de projection &eacute;motionnelle &eacute;labor&eacute;e</li>
+                <li>Pas de section objections d&eacute;taill&eacute;e</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════════════════════
+     PARTIE 3 — SYNTHÈSE
+     ═══════════════════════════════════════════════════ -->
+<div class="part-header">
+    <span class="part-label">Partie 3</span>
+    <h2>Synth&egrave;se</h2>
+    <p>Comparaison, s&eacute;lection et v&eacute;rification</p>
+</div>
+
+<section>
+    <h2>Matrice comparative</h2>
+
+    <table class="sys-table">
+        <tr>
+            <th></th>
+            <th><span class="type-indicator theme"></span>Th&eacute;matique</th>
+            <th><span class="type-indicator event"></span>&Eacute;v&eacute;nementielle</th>
+            <th><span class="type-indicator promo"></span>Promo / Catalogue</th>
+        </tr>
+        <tr>
+            <td>Objectif</td>
+            <td>Convaincre en profondeur</td>
+            <td>Capitaliser sur un moment</td>
+            <td>Faciliter l'achat</td>
+        </tr>
+        <tr>
+            <td>Sections</td>
+            <td>9 (dont Lead Capture)</td>
+            <td>7 (dont Lead Capture)</td>
+            <td>6 (dont Lead Capture)</td>
+        </tr>
+        <tr>
+            <td>Longueur</td>
+            <td>Page longue</td>
+            <td>Page mid-length</td>
+            <td>Page courte</td>
+        </tr>
+        <tr>
+            <td>Dur&eacute;e de vie</td>
+            <td>Permanente (evergreen)</td>
+            <td>Temporaire (event-driven)</td>
+            <td>Variable (offre-driven)</td>
+        </tr>
+        <tr>
+            <td>Focus contenu</td>
+            <td>P&eacute;dagogie 40%</td>
+            <td>Curation 35%</td>
+            <td>Produit/Offre 50%</td>
+        </tr>
+        <tr>
+            <td>Urgence permise</td>
+            <td>Non</td>
+            <td>Oui (contextuelle)</td>
+            <td>Oui (li&eacute;e &agrave; l'offre)</td>
+        </tr>
+        <tr>
+            <td>Prix affich&eacute;</td>
+            <td>Optionnel</td>
+            <td>Oui si offre</td>
+            <td>Oui, central</td>
+        </tr>
+        <tr>
+            <td>Adaptation narrative</td>
+            <td>Selon Parcours A/B/C</td>
+            <td>Selon l'occasion</td>
+            <td>Pas de narratif long</td>
+        </tr>
+        <tr>
+            <td>CTA typique</td>
+            <td>D&eacute;couvrir / Comprendre</td>
+            <td>C&eacute;l&eacute;brer / Offrir</td>
+            <td>Ajouter / Profiter</td>
+        </tr>
+    </table>
+</section>
+
+
+<section>
+    <h2>Matrice de s&eacute;lection &mdash; cas concrets</h2>
+
+    <table class="sys-table">
+        <tr>
+            <th>Situation</th>
+            <th>Format</th>
+            <th>Justification</th>
+        </tr>
+        <tr>
+            <td>Lancer la formule &Eacute;quilibre Sommeil</td>
+            <td><span class="tag tag-green" style="font-size:0.7rem;">Th&eacute;matique</span></td>
+            <td>Page permanente, entonnoir complet, Parcours A (MTC)</td>
+        </tr>
+        <tr>
+            <td>Pr&eacute;senter la gamme Collag&egrave;ne</td>
+            <td><span class="tag tag-green" style="font-size:0.7rem;">Th&eacute;matique</span></td>
+            <td>Page permanente, entonnoir complet, Parcours B (fonctionnel)</td>
+        </tr>
+        <tr>
+            <td>Mettre en avant le rituel Gua Sha</td>
+            <td><span class="tag tag-green" style="font-size:0.7rem;">Th&eacute;matique</span></td>
+            <td>Page permanente, entonnoir complet, Parcours C (rituel)</td>
+        </tr>
+        <tr>
+            <td>Nouvel An Chinois 2026</td>
+            <td><span class="tag tag-gold" style="font-size:0.7rem;">&Eacute;v&eacute;nementielle</span></td>
+            <td>Occasion culturelle, s&eacute;lection curat&eacute;e, dur&eacute;e limit&eacute;e</td>
+        </tr>
+        <tr>
+            <td>F&ecirc;te des M&egrave;res &mdash; id&eacute;es cadeaux</td>
+            <td><span class="tag tag-gold" style="font-size:0.7rem;">&Eacute;v&eacute;nementielle</span></td>
+            <td>Occasion cadeau, s&eacute;lection curat&eacute;e, inspiration</td>
+        </tr>
+        <tr>
+            <td>Printemps &mdash; renouveau &eacute;nerg&eacute;tique</td>
+            <td><span class="tag tag-gold" style="font-size:0.7rem;">&Eacute;v&eacute;nementielle</span></td>
+            <td>Saison comme contexte naturel, s&eacute;lection saisonni&egrave;re</td>
+        </tr>
+        <tr>
+            <td>-20% sur gamme &Eacute;quilibre</td>
+            <td><span class="tag tag-blue" style="font-size:0.7rem;">Promo</span></td>
+            <td>Offre prix directe, format grille, transactionnel</td>
+        </tr>
+        <tr>
+            <td>Coffret D&eacute;couverte &agrave; prix r&eacute;duit</td>
+            <td><span class="tag tag-blue" style="font-size:0.7rem;">Promo</span></td>
+            <td>Bundle promotionnel, CTA direct</td>
+        </tr>
+        <tr>
+            <td>D&eacute;stockage fin de s&eacute;rie</td>
+            <td><span class="tag tag-blue" style="font-size:0.7rem;">Promo</span></td>
+            <td>Liste de produits avec offre, format catalogue</td>
+        </tr>
+    </table>
+
+    <div class="box-green">
+        <p style="text-align:center; font-size:0.95rem;">Un m&ecirc;me produit peut appara&icirc;tre dans les 3 formats&nbsp;: en vedette sur sa page Th&eacute;matique, dans la s&eacute;lection d'une page &Eacute;v&eacute;nementielle, et dans la grille d'une page Promo.</p>
+    </div>
+</section>
+
+
+<section>
+    <h2>Check final</h2>
+
+    <h3>V&eacute;rification universelle (tous formats)</h3>
+    <div class="two-col">
+        <div class="col-box">
+            <h4>Ton &amp; Vocabulaire</h4>
+            <ul>
+                <li>Pas de langage de combat destructeur</li>
+                <li>Pas de promesses radicales ou miraculeuses</li>
+                <li>Pas de fausse urgence ni fausse raret&eacute;</li>
+                <li>Posture Le Sage + Le Protecteur respect&eacute;e</li>
+                <li>Vocabulaire align&eacute; avec la charte voix</li>
+            </ul>
+        </div>
+        <div class="col-box">
+            <h4>Structure &amp; Conversion</h4>
+            <ul>
+                <li>Le format choisi correspond &agrave; l'objectif marketing</li>
+                <li>Le nombre de sections est respect&eacute;</li>
+                <li>Les CTA sont coh&eacute;rents avec le format</li>
+                <li>Le ratio de contenu est align&eacute;</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>V&eacute;rification par format</h3>
+    <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+            <h3 style="color:var(--type-theme);"><span class="type-indicator theme"></span>Th&eacute;matique</h3>
+            <ul>
+                <li>Le Parcours Produit (A/B/C) est appliqu&eacute; correctement</li>
+                <li>L'entonnoir complet est pr&eacute;sent</li>
+                <li>La section Objections rassure sans promettre</li>
+                <li>Le contenu p&eacute;dagogique domine</li>
+            </ul>
+        </div>
+        <div class="card accent">
+            <h3 style="color:var(--type-event);"><span class="type-indicator event"></span>&Eacute;v&eacute;nementielle</h3>
+            <ul>
+                <li>L'occasion est l&eacute;gitime et naturelle</li>
+                <li>Le contexte donne du sens &agrave; la s&eacute;lection</li>
+                <li>L'urgence est contextuelle, pas artificielle</li>
+                <li>La dur&eacute;e de vie de la page est d&eacute;finie</li>
+            </ul>
+        </div>
+        <div class="card blue">
+            <h3 style="color:var(--type-promo);"><span class="type-indicator promo"></span>Promo / Catalogue</h3>
+            <ul>
+                <li>L'offre est claire en 3 secondes</li>
+                <li>Les prix sont affich&eacute;s et coh&eacute;rents</li>
+                <li>La grille est scannable</li>
+                <li>La valeur de l'offre est justifi&eacute;e (pas de promo gratuite)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <h2>R&egrave;gle d'Or</h2>
+
+    <div class="statement" style="padding:36px;">
+        <p style="font-size:1.25rem; font-style:normal; font-weight:400; line-height:1.8;">Le format de la landing page est dict&eacute; par l'<strong>objectif marketing</strong>, pas par le produit.<br>Le produit d&eacute;termine le <strong>contenu narratif</strong> (via son Parcours dans la Charte Produit).<br>Le format d&eacute;termine la <strong>structure de la page</strong>.</p>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <p>Templates Landing Pages 2026 &mdash; Calebasse &mdash; L'Art de l'&Eacute;quilibre &mdash; 3 Formats de Landing Pages</p>
+</footer>
+
+<script src="nav-component.js"></script>
+</body>
+</html>
