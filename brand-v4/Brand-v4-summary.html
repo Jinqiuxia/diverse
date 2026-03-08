@@ -493,20 +493,22 @@
             header .slogan { font-size: 1.1rem; }
             section { padding: 18px; }
             .container { padding: 25px 14px; }
-            .cards { grid-template-columns: 1fr; }
-            .asset-grid { grid-template-columns: 1fr; }
-            .two-col { grid-template-columns: 1fr; }
-            .do-dont { grid-template-columns: 1fr; }
+            /* !important needed to override inline grid styles */
+            .cards,
+            .asset-grid,
+            .two-col,
+            .do-dont,
+            .before-after,
+            .platform-grid,
+            .nav-cards { grid-template-columns: 1fr !important; }
+            [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
             .do-col { border-right: none; border-bottom: 1px solid var(--border); }
-            .before-after { grid-template-columns: 1fr; }
             .ba-arrow { padding: 10px 0; font-size: 1.5rem; }
-            .platform-grid { grid-template-columns: 1fr; }
-            .nav-cards { grid-template-columns: 1fr; }
             .statement, .statement-gold { padding: 20px 16px; }
             .statement p { font-size: 1.05rem; }
             .statement-gold p { font-size: 1rem; }
             .ladder-step { padding: 16px; }
-            .l5, .l4, .l3, .l2, .l1 { width: 100%; }
+            .l5, .l4, .l3, .l2, .l1 { width: 100% !important; }
             .l5 { border-radius: 12px 12px 0 0; }
             .l1 { border-radius: 0 0 12px 12px; }
             .sys-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -514,6 +516,8 @@
             .flow { font-size: 0.85rem; gap: 8px; }
             .part-header h2 { font-size: 1.5rem; }
             .key-figure .number { font-size: 2rem; }
+            .card { padding: 20px; }
+            .col-box { padding: 16px; }
         }
         @media print {
             body { background: white; }
