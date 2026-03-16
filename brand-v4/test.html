@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calebasse Laboratoire — Nos Essentiels</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333;
+    background: #fafaf8;
+    line-height: 1.7;
+  }
+
+  /* Hero */
+  .hero {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 24px 0;
+    text-align: center;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 8px;
+  }
+  .hero .subtitle {
+    font-size: 1.05rem;
+    color: #7a7a6e;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  /* Image section */
+  .product-image {
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+  .product-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(44,85,48,0.10);
+  }
+
+  /* Introduction */
+  .intro {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+    text-align: center;
+  }
+  .intro p {
+    font-size: 1.08rem;
+    color: #555;
+    font-weight: 300;
+  }
+  .intro p + p {
+    margin-top: 16px;
+  }
+
+  /* Product grid */
+  .products {
+    max-width: 860px;
+    margin: 0 auto 60px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .product-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 28px 24px;
+    border-left: 3px solid #d4a574;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+  }
+  .product-card:hover {
+    box-shadow: 0 4px 20px rgba(44,85,48,0.10);
+  }
+  .product-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    color: #2c5530;
+    margin-bottom: 4px;
+  }
+  .product-card .cn-name {
+    font-size: 0.88rem;
+    color: #d4a574;
+    margin-bottom: 10px;
+  }
+  .product-card p {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 300;
+  }
+
+  /* Accessories */
+  .accessories {
+    max-width: 720px;
+    margin: 0 auto 60px;
+    padding: 32px 24px;
+    background: linear-gradient(135deg, #2c5530 0%, #3a6b40 100%);
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+  }
+  .accessories h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .accessories p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #c8e6cc;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* Footer note */
+  .footer-note {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #999;
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.7rem; }
+    .products { grid-template-columns: 1fr; }
+    .accessories { margin-left: 16px; margin-right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Nos Essentiels Bien-Être</h1>
+    <p class="subtitle">Des trésors de la pharmacopée traditionnelle, soigneusement sélectionnés</p>
+  </section>
+
+  <div class="product-image">
+    <img src="temps.jpg" alt="Sélection de produits Calebasse Laboratoire : Herbe d'Orge & Ashitaba, Poudre de Perle, Boutons de Rose, ventouses et accessoires">
+  </div>
+
+  <section class="intro">
+    <p>Chaque produit Calebasse Laboratoire est le fruit d'un savoir-faire ancré dans la médecine traditionnelle chinoise. Des poudres aux plantes séchées, en passant par les accessoires de soin, nous sélectionnons des ingrédients d'exception pour accompagner votre quête d'équilibre au quotidien.</p>
+    <p>Voici quelques-uns de nos essentiels — des gestes simples, pour un bien-être durable.</p>
+  </section>
+
+  <div class="products">
+
+    <div class="product-card">
+      <h3>Herbe d'Orge & Ashitaba</h3>
+      <p class="cn-name">大麦明日叶青汁 · 100g</p>
+      <p>Un SuperGreen pensé pour la silhouette et la peau. L'herbe d'orge, riche en chlorophylle et en fibres, s'associe à l'ashitaba — une plante japonaise réputée pour ses propriétés antioxydantes — pour offrir un soutien détox naturel au quotidien.</p>
+    </div>
+
+    <div class="product-card">
+      <h3>Poudre de Perle</h3>
+      <p class="cn-name">珍珠粉 · Nacré</p>
+      <p>Utilisée depuis des siècles en Chine pour sublimer la peau, la poudre de perle est un concentré de minéraux et d'acides aminés. En usage interne ou en masque, elle aide à révéler l'éclat naturel de la peau et à apaiser les petites imperfections.</p>
+    </div>
+
+    <div class="product-card">
+      <h3>Boutons de Rose</h3>
+      <p class="cn-name">玫瑰花 · 30g</p>
+      <p>En infusion, les boutons de rose libèrent un arôme délicat et des bienfaits apaisants. Traditionnellement utilisée pour favoriser la circulation du Qi et harmoniser l'humeur, cette fleur est un allié discret mais précieux du bien-être féminin.</p>
+    </div>
+
+    <div class="product-card">
+      <h3>Ventouses en Verre</h3>
+      <p class="cn-name">拔罐器</p>
+      <p>Pratique ancestrale de la médecine chinoise, la pose de ventouses stimule la circulation sanguine et dénoue les tensions musculaires. Ces ventouses à poire en verre, simples d'utilisation, permettent de retrouver ce geste de soin chez soi.</p>
+    </div>
+
+  </div>
+
+  <section class="accessories">
+    <h2>L'Art du Geste</h2>
+    <p>Cuillère doseuse en bois, pochette de rangement… Chaque détail est pensé pour que le rituel bien-être soit aussi agréable que bénéfique. Parce que prendre soin de soi commence par de beaux objets.</p>
+  </section>
+
+  <p class="footer-note">Calebasse Laboratoire — L'Art de l'Équilibre</p>
+
+</body>
+</html>
